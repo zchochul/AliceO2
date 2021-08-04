@@ -84,9 +84,9 @@ struct PHist{
 
     HistogramRegistry registry{
         "registry",
-        {{"PrPt", "ProtonPt; pT GeV/c^2", {HistType::kTH1F, {{100, 0, 10}}}},
-        {"PiPt", "PionPt; pT GeV/c^2", {HistType::kTH1F, {{100, 0, 10}}}},
-        {"KaPt", "KaonPt; pT GeV/c^2", {HistType::kTH1F, {{100, 0, 10}}}}}
+        {{"PrPt", "ProtonPt; pT GeV/c", {HistType::kTH1F, {{500, 0, 5}}}},
+        {"PiPt", "PionPt; pT GeV/c", {HistType::kTH1F, {{500, 0, 5}}}},
+        {"KaPt", "KaonPt; pT GeV/c", {HistType::kTH1F, {{500, 0, 5}}}}}
     };
 
     Configurable<float> nsigmacut{"nsigmacut", 3, "Value of the Nsigma cut"};
