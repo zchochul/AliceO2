@@ -152,6 +152,7 @@ struct showNSigma {
 
 struct showPDG {
     using myTracks = soa::Join<aod::Tracks, aod::TracksExtra, aod::McParticles>;
+    
     void process(myTracks const& tracks)
     {
         for (auto& track : tracks)
@@ -161,11 +162,30 @@ struct showPDG {
     }
 };
 
+struct showPDGHist {
+    using myTracks = soa::Join<aod::Tracks, aod::TracksExtra, aod::McParticles>;
+    
+    HistogramRegistry registry{
+        "registry",
+        {{"PDG", "PDG; pT", {HistType::kTH1F, {{5000, -1500000000, 1500000000}}}}}
+    };
+
+   void process(myTracks const& tracks)
+    {
+        for (auto& track : tracks)
+        {
+            std::cout << track.pdgCode() << std::endl;
+       	registry.get<TH1>(HIST("PDG"))-> Fill(track.pdgCode());
+
+	 }
+    }
+};
 WorkflowSpec defineDataProcessing(ConfigContext const& cfgc)
 {
   return WorkflowSpec{
     adaptAnalysisTask<TPCvsMomentum>(cfgc),
     adaptAnalysisTask<PHist>(cfgc),
+     adaptAnalysisTask<showPDGHist>(cfgc),
     // adaptAnalysisTask<showNSigma>(cfgc),
     // adaptAnalysisTask<showPDG>(cfgc),
     // adaptAnalysisTask<TofPt>(cfgc),
