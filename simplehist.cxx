@@ -167,7 +167,7 @@ struct showPDGHist {
     
     HistogramRegistry registry{
         "registry",
-        {{"PDG", "PDG; pT", {HistType::kTH1F, {{5000, -1500000000, 1500000000}}}}}
+        {{"PDG", "PDG; pT", {HistType::kTH1F, {{5000, -4000, 4000}}}}}
     };
 
    void process(myTracks const& tracks)
