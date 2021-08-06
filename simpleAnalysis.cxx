@@ -110,7 +110,7 @@ struct HistogramsWithTof {
   HistogramRegistry registry{
     "registry",
     {
-	{"TOFSignal", "TOF signal", {HistType::kTH2F, {{100, 0, 10, "pt"}, {100, 0, 10, "tof"}}}}//
+	{"TOFSignal", "TOF signal", {HistType::kTH2F, {{100, 0, 10, "pt"}, {10000, 0, 50000, "tof"}}}}//
     }                                                                                      //
   };
 
