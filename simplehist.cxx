@@ -98,19 +98,19 @@ struct PHist{
         {
             if (abs(nsigma[i]) < nsigmacut.value)
             {
-                registry.fill(HIST(hname[i]), track.pt());
+                registry.fill(HIST(hname[i]),track.pt());
             }
         } else if ((track.pt() >= 0.5) && ((i == 1) || (i == 2)))
         { // for pions and kaons
             if (sqrt(pow(nsigma[i], 2) + pow(nsigma[i+3],2)) < nsigmacut.value) // square root of tpcSignal^2 + tofSignal^2
             {
-                registry.fill(HIST(hname[i]), track.pt());
+                registry.fill(HIST(hname[i]),track.pt());
             }
         } else if ((track.pt() >= 0.5) && (i == 0))
         { // for protons with pt 0.5 <= 0.8 
             if (abs(nsigma[i]) < nsigmacut.value)
             {
-                registry.fill(HIST(hname[i]), track.pt());
+                registry.fill(HIST(hname[i]),track.pt());
             }
         } else if ((track.pt() >= 0.8) && (i == 0))
         { // only for protons
@@ -128,9 +128,9 @@ struct PHist{
                                 track.tofNSigmaPr(), track.tofNSigmaKa(), track.tofNSigmaPi()};
 
         // i == 0 for Protons, 1 for Kaons, 2 for Pions
-        fillParticleHistos<0>(track, nsigma);
-        fillParticleHistos<1>(track, nsigma);
-        fillParticleHistos<2>(track, nsigma);  
+        fillParticleHistos<0,myTracks>(track, nsigma);
+        fillParticleHistos<1, myTracks>(track, nsigma);
+        fillParticleHistos<2, myTracks>(track, nsigma);  
     }
 
 };
@@ -180,13 +180,45 @@ struct showPDGHist {
 	 }
     }
 };
+
+
+struct PDGHad {
+    HistogramRegistry registry {
+        "registry",
+        {
+		{"PDGPi", "PDGPi;p GeV/c; PDG", {HistType::kTH2F, {{500, 0, 10}, {500, -4000, 4000}}}}
+        }
+    };
+
+    Configurable<float> nsigmacut{"nsigmacut", 3, "Value of the Nsigma cut"};
+    using BigTracksMC = soa::Join<aod::FullTracks, aod::pidTPCPi, aod::pidTOFPi, aod::McTrackLabels>;
+
+    void process(BigTracksMC const& tracks, aod::McParticles const& mctracks)
+    {
+  	for (const auto& track : tracks) {
+ 	  	const float nsigma[2] = {track.tpcNSigmaPi(), track.tofNSigmaPi()};
+   		 const auto mcParticle = track.mcParticle();
+      			if (track.pt() < 0.5) {
+				if( (abs(nsigma[1]) < nsigmacut.value) || (abs(nsigma[0])<nsigmacut.value ) )
+					registry.fill(HIST("PDGPi"), track.p(), mcParticle.pdgCode());
+			} else if (track.pt() >= 0.5) 
+        		{
+           			 if (sqrt(pow(nsigma[0], 2) + pow(nsigma[1],2)) < nsigmacut.value) // square root of tpcSignal^2 + tofSignal^2
+                    			registry.fill(HIST("PDGPi"), track.p(), mcParticle.pdgCode());
+       			 }     
+    	}
+    }
+};
+
 WorkflowSpec defineDataProcessing(ConfigContext const& cfgc)
 {
   return WorkflowSpec{
-    adaptAnalysisTask<TPCvsMomentum>(cfgc),
-    adaptAnalysisTask<PHist>(cfgc),
-     adaptAnalysisTask<showPDGHist>(cfgc),
-    // adaptAnalysisTask<showNSigma>(cfgc),
+//	 adaptAnalysisTask<TPCvsMomentum>(cfgc),
+//	 adaptAnalysisTask<PHist>(cfgc),
+//	 adaptAnalysisTask<showPDGHist>(cfgc),
+//	 adaptAnalysisTask<PDGHadrons>(cfgc),
+	  adaptAnalysisTask<PDGHad>(cfgc),
+	// adaptAnalysisTask<showNSigma>(cfgc),
     // adaptAnalysisTask<showPDG>(cfgc),
     // adaptAnalysisTask<TofPt>(cfgc),
     // adaptAnalysisTask<TpcPt>(cfgc),
