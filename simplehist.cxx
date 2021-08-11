@@ -84,9 +84,9 @@ struct PHist{
 
     HistogramRegistry registry{
         "registry",
-        {{"PrPt", "ProtonPt; pT GeV/c", {HistType::kTH1F, {{500, 0, 5}}}},
-        {"PiPt", "PionPt; pT GeV/c", {HistType::kTH1F, {{500, 0, 5}}}},
-        {"KaPt", "KaonPt; pT GeV/c", {HistType::kTH1F, {{500, 0, 5}}}}}
+        {{"PrPt", "ProtonPt; pT GeV/c", {HistType::kTH1F, {{1000, 0, 5}}}},
+        {"PiPt", "PionPt; pT GeV/c", {HistType::kTH1F, {{1000, 0, 5}}}},
+        {"KaPt", "KaonPt; pT GeV/c", {HistType::kTH1F, {{1000, 0, 5}}}}}
     };
 
     Configurable<float> nsigmacut{"nsigmacut", 3, "Value of the Nsigma cut"};
@@ -278,7 +278,7 @@ WorkflowSpec defineDataProcessing(ConfigContext const& cfgc)
 {
   return WorkflowSpec{
 //	 adaptAnalysisTask<TPCvsMomentum>(cfgc),
-//	 adaptAnalysisTask<PHist>(cfgc),
+	 adaptAnalysisTask<PHist>(cfgc),
 //	 adaptAnalysisTask<showPDGHist>(cfgc),
 //	 adaptAnalysisTask<PDGHadrons>(cfgc),
 	 adaptAnalysisTask<PDGPi>(cfgc),

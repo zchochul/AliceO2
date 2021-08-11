@@ -88,9 +88,7 @@ struct HistogramsWithTPC {
   HistogramRegistry registry{
     "registry",
     {
-     // {"eta", "#eta", {HistType::kTH1F, {{102, -2.01, 2.01}}}},                     //  
-	//{"ptToPt", "ptToPt", {HistType::kTH2F, {{100, -0.01, 10.01}, {100, -0.01, 10.01}}}}, //
-	{"TPCSignal", "TPC signal", {HistType::kTH2F, {{100, 0, 10, "pt"}, {100, 0, 600, "tpc"}}}}//
+    	 {"TPCSignal", "TPC signal", {HistType::kTH2F, {{500, 0, 10, "pt"}, {1000, 0, 600, "tpc"}}}}//
     }                                                                                      //
   };
 
@@ -98,9 +96,7 @@ struct HistogramsWithTPC {
   // aod::Tracks instead of aod::Track
   void process(aod::FullTrack const& track)
   {
-   // registry.fill<aod::track::Eta>(HIST("eta"), tracks, aod::track::eta > 0.0f);
-    //registry.fill<aod::track::Pt, aod::track::Pt>(HIST("ptToPt"), tracks, aod::track::pt < 5.0f);
-    registry.fill(HIST("TPCSignal"), track.pt(), track.tpcSignal());
+  	 registry.fill(HIST("TPCSignal"), track.pt(), track.tpcSignal());
   }
 };
 //end TPCvsPT ZCH
@@ -110,7 +106,7 @@ struct HistogramsWithTof {
   HistogramRegistry registry{
     "registry",
     {
-	{"TOFSignal", "TOF signal", {HistType::kTH2F, {{100, 0, 10, "pt"}, {10000, 0, 50000, "tof"}}}}//
+	{"TOFSignal", "TOF signal", {HistType::kTH2F, {{500, 0, 10, "pt"}, {50000, 0, 50000, "tof"}}}}//
     }                                                                                      //
   };
 
