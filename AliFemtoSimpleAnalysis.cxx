@@ -127,7 +127,9 @@ static constexpr std::string_view nsigm[6] = {"NSigmaTpcVsMomentumPr", "NSigmaTp
 	{"NSigmaTpcVsMomentumPi", "NSigmaTpcVsMomentumPi;#it{p}_{T} (GeV/c); NSigma TPC", {HistType::kTH2F, {{500, 0, 10}, {500, 0, 250}}}},
 	{"NSigmaTofVsMomentumPr", "NSigmaTofVsMomentumPr;#it{p}_{T} (GeV/c); NSigma TOF", {HistType::kTH2F, {{500, 0, 10}, {500, 0, 250}}}},
 	{"NSigmaTofVsMomentumKa", "NSigmaTofVsMomentumKa;#it{p}_{T} (GeV/c); NSigma TOF", {HistType::kTH2F, {{500, 0, 10}, {500, 0, 250}}}},
-	{"NSigmaTofVsMomentumPi", "NSigmaTofVsMomentumPi;#it{p}_{T} (GeV/c); NSigma TOF", {HistType::kTH2F, {{500, 0, 10}, {500, 0, 250}}}}
+	{"NSigmaTofVsMomentumPi", "NSigmaTofVsMomentumPi;#it{p}_{T} (GeV/c); NSigma TOF", {HistType::kTH2F, {{500, 0, 10}, {500, 0, 250}}}},
+	{"NSigmaTpcVsMomentum", "NSigmaTpcVsMomentum;#it{p}_{T} (GeV/c); NSigma TPC", {HistType::kTH2F, {{500, 0, 10}, {500, 0, 250}}}},
+	{"NSigmaTofVsMomentum", "NSigmaTofVsMomentum;#it{p}_{T} (GeV/c); NSigma TOF", {HistType::kTH2F, {{500, 0, 10}, {500, 0, 250}}}}
 	}
   };
 
@@ -147,6 +149,7 @@ static constexpr std::string_view nsigm[6] = {"NSigmaTpcVsMomentumPr", "NSigmaTp
 	      {
 		registry.fill(HIST(sigvsp[2]), track.p(), track.tpcSignal());
 		registry.fill(HIST(nsigm[2]), track.pt(), track.tpcNSigmaPi());
+		registry.fill(HIST("NSigmaTpcVsMomentum"), track.pt(), track.tpcNSigmaPi());
 		registry.fill(HIST("ptPi"),track.pt());
 	      }
 	    
@@ -159,6 +162,8 @@ static constexpr std::string_view nsigm[6] = {"NSigmaTpcVsMomentumPr", "NSigmaTp
 		registry.fill(HIST(sigvsp[5]), track.p(), track.tofSignal());
 		registry.fill(HIST(nsigm[2]), track.pt(), track.tpcNSigmaPi());
 		registry.fill(HIST(nsigm[5]), track.pt(), track.tofNSigmaPi());
+		registry.fill(HIST("NSigmaTpcVsMomentum"), track.pt(), track.tpcNSigmaPi());
+		registry.fill(HIST("NSigmaTofVsMomentum"), track.pt(), track.tofNSigmaPi());
 		registry.fill(HIST("ptPi"),track.pt());
 	      }
 	  }
@@ -172,6 +177,7 @@ static constexpr std::string_view nsigm[6] = {"NSigmaTpcVsMomentumPr", "NSigmaTp
 	      {
 		registry.fill(HIST(sigvsp[1]), track.p(), track.tpcSignal());
 		registry.fill(HIST(nsigm[1]), track.pt(), track.tpcNSigmaKa());
+		registry.fill(HIST("NSigmaTpcVsMomentum"), track.pt(), track.tpcNSigmaKa());
 		registry.fill(HIST("ptKa"),track.pt());
 	      }
 	  }
@@ -183,6 +189,8 @@ static constexpr std::string_view nsigm[6] = {"NSigmaTpcVsMomentumPr", "NSigmaTp
 		registry.fill(HIST(sigvsp[4]), track.p(), track.tofSignal());
 		registry.fill(HIST(nsigm[1]), track.pt(), track.tpcNSigmaKa());
 		registry.fill(HIST(nsigm[4]), track.pt(), track.tofNSigmaKa());
+		registry.fill(HIST("NSigmaTpcVsMomentum"), track.pt(), track.tpcNSigmaKa());
+		registry.fill(HIST("NSigmaTofVsMomentum"), track.pt(), track.tofNSigmaKa());
 		registry.fill(HIST("ptKa"),track.pt());
 	      }
 	  }
@@ -196,6 +204,7 @@ static constexpr std::string_view nsigm[6] = {"NSigmaTpcVsMomentumPr", "NSigmaTp
 	      {
 		registry.fill(HIST(sigvsp[0]), track.p(), track.tpcSignal());
 		registry.fill(HIST(nsigm[0]), track.pt(), track.tpcNSigmaPr());
+		registry.fill(HIST("NSigmaTpcVsMomentum"), track.pt(), track.tpcNSigmaPr());
 		registry.fill(HIST("ptPr"),track.pt());
 	      }
 	  }
@@ -206,7 +215,9 @@ static constexpr std::string_view nsigm[6] = {"NSigmaTpcVsMomentumPr", "NSigmaTp
 		registry.fill(HIST(sigvsp[0]), track.p(), track.tpcSignal());
 		registry.fill(HIST(sigvsp[3]), track.p(), track.tofSignal());
 		registry.fill(HIST(nsigm[0]), track.pt(), track.tpcNSigmaPr());
-		registry.fill(HIST(sigvsp[3]), track.pt(), track.tofNSigmaPr());
+		registry.fill(HIST(nsigm[3]), track.pt(), track.tofNSigmaPr());
+		registry.fill(HIST("NSigmaTpcVsMomentum"), track.pt(), track.tpcNSigmaPr());
+		registry.fill(HIST("NSigmaTofVsMomentum"), track.pt(), track.tofNSigmaPr());
 		registry.fill(HIST("ptPr"),track.pt());
 	      }
 	  }
