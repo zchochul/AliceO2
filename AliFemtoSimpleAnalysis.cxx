@@ -122,14 +122,14 @@ static constexpr std::string_view nsigm[6] = {"NSigmaTpcVsMomentumPr", "NSigmaTp
 	{"ptPi", "pt pion", {HistType::kTH1F, {{100, -0.01, 10.01, "#it{p}_{T} (GeV/c)"}}}},
 	{"ptKa", "pt kaon", {HistType::kTH1F, {{100, -0.01, 10.01, "#it{p}_{T} (GeV/c)"}}}},
 	{"ptPr", "pt proton", {HistType::kTH1F, {{100, -0.01, 10.01, "#it{p}_{T} (GeV/c)"}}}},
-      	{"NSigmaTpcVsMomentumPr", "NSigmaTpcVsMomentumPr;#it{p}_{T} (GeV/c); NSigma TPC", {HistType::kTH2F, {{500, 0, 10}, {500, 0, 250}}}},
-	{"NSigmaTpcVsMomentumKa", "NSigmaTpcVsMomentumKa;#it{p}_{T} (GeV/c); NSigma TPC", {HistType::kTH2F, {{500, 0, 10}, {500, 0, 250}}}},
-	{"NSigmaTpcVsMomentumPi", "NSigmaTpcVsMomentumPi;#it{p}_{T} (GeV/c); NSigma TPC", {HistType::kTH2F, {{500, 0, 10}, {500, 0, 250}}}},
-	{"NSigmaTofVsMomentumPr", "NSigmaTofVsMomentumPr;#it{p}_{T} (GeV/c); NSigma TOF", {HistType::kTH2F, {{500, 0, 10}, {500, 0, 250}}}},
-	{"NSigmaTofVsMomentumKa", "NSigmaTofVsMomentumKa;#it{p}_{T} (GeV/c); NSigma TOF", {HistType::kTH2F, {{500, 0, 10}, {500, 0, 250}}}},
-	{"NSigmaTofVsMomentumPi", "NSigmaTofVsMomentumPi;#it{p}_{T} (GeV/c); NSigma TOF", {HistType::kTH2F, {{500, 0, 10}, {500, 0, 250}}}},
-	{"NSigmaTpcVsMomentum", "NSigmaTpcVsMomentum;#it{p}_{T} (GeV/c); NSigma TPC", {HistType::kTH2F, {{500, 0, 10}, {500, 0, 250}}}},
-	{"NSigmaTofVsMomentum", "NSigmaTofVsMomentum;#it{p}_{T} (GeV/c); NSigma TOF", {HistType::kTH2F, {{500, 0, 10}, {500, 0, 250}}}}
+      	{"NSigmaTpcVsMomentumPr", "NSigmaTpcVsMomentumPr;#it{p}_{T} (GeV/c); NSigma TPC", {HistType::kTH2F, {{500, 0, 10}, {500, -4, 4}}}},
+	{"NSigmaTpcVsMomentumKa", "NSigmaTpcVsMomentumKa;#it{p}_{T} (GeV/c); NSigma TPC", {HistType::kTH2F, {{500, 0, 10}, {500, -4, 4}}}},
+	{"NSigmaTpcVsMomentumPi", "NSigmaTpcVsMomentumPi;#it{p}_{T} (GeV/c); NSigma TPC", {HistType::kTH2F, {{500, 0, 10}, {500, -4, 4}}}},
+	{"NSigmaTofVsMomentumPr", "NSigmaTofVsMomentumPr;#it{p}_{T} (GeV/c); NSigma TOF", {HistType::kTH2F, {{500, 0, 10}, {500, -4, 4}}}},
+	{"NSigmaTofVsMomentumKa", "NSigmaTofVsMomentumKa;#it{p}_{T} (GeV/c); NSigma TOF", {HistType::kTH2F, {{500, 0, 10}, {500, -4, 4}}}},
+	{"NSigmaTofVsMomentumPi", "NSigmaTofVsMomentumPi;#it{p}_{T} (GeV/c); NSigma TOF", {HistType::kTH2F, {{500, 0, 10}, {500, -4, 4}}}},
+	{"NSigmaTpcVsMomentum", "NSigmaTpcVsMomentum;#it{p}_{T} (GeV/c); NSigma TPC", {HistType::kTH2F, {{500, 0, 10}, {500, -4, 4}}}},
+	{"NSigmaTofVsMomentum", "NSigmaTofVsMomentum;#it{p}_{T} (GeV/c); NSigma TOF", {HistType::kTH2F, {{500, 0, 10}, {500, -4, 4}}}}
 	}
   };
 
