@@ -128,8 +128,8 @@ static constexpr std::string_view nsigm[6] = {"NSigmaTpcVsMomentumPr", "NSigmaTp
 	{"NSigmaTofVsMomentumPr", "NSigmaTofVsMomentumPr;#it{p}_{T} (GeV/c); NSigma TOF", {HistType::kTH2F, {{500, 0, 10}, {500, -4, 4}}}},
 	{"NSigmaTofVsMomentumKa", "NSigmaTofVsMomentumKa;#it{p}_{T} (GeV/c); NSigma TOF", {HistType::kTH2F, {{500, 0, 10}, {500, -4, 4}}}},
 	{"NSigmaTofVsMomentumPi", "NSigmaTofVsMomentumPi;#it{p}_{T} (GeV/c); NSigma TOF", {HistType::kTH2F, {{500, 0, 10}, {500, -4, 4}}}},
-	{"NSigmaTpcVsMomentum", "NSigmaTpcVsMomentum;#it{p}_{T} (GeV/c); NSigma TPC", {HistType::kTH2F, {{500, 0, 10}, {500, -4, 4}}}},
-	{"NSigmaTofVsMomentum", "NSigmaTofVsMomentum;#it{p}_{T} (GeV/c); NSigma TOF", {HistType::kTH2F, {{500, 0, 10}, {500, -4, 4}}}}
+	{"NSigmaTpcVsMomentum", "#it{n}^{#sigma} TPS vs #it{p}_{T};#it{p}_{T} (GeV/c); #it{n}^{#sigma} TPC", {HistType::kTH2F, {{500, 0, 10}, {30, -4, 4}}}},
+	{"NSigmaTofVsMomentum", "#it{n}^{#sigma} TOF vs #it{p}_{T};#it{p}_{T} (GeV/c); #it{n}^{#sigma} TOF", {HistType::kTH2F, {{500, 0, 10}, {30, -4, 4}}}}
 	}
   };
 
