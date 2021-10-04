@@ -85,8 +85,8 @@ struct PidSignalsMonitorAllPart {
     {
      // {"eta", "#eta", {HistType::kTH1F, {{102, -2.01, 2.01}}}},                     //  
 	//{"ptToPt", "ptToPt", {HistType::kTH2F, {{100, -0.01, 10.01}, {100, -0.01, 10.01}}}}, //
-     {"TPCSignal", "TPC signal", {HistType::kTH2F, {{100, 0, 10, "pt"}, {100, 0, 600, "tpc"}}}},//
-	{"TOFSignal", "TOF signal", {HistType::kTH2F, {{100, 0, 10, "pt"}, {10000, 0, 50000, "tof"}}}}//
+     {"TPCSignal", "TPC Signal", {HistType::kTH2F, {{100, 0, 10, "#it{p}_{T} (GeV/c)"}, {100, 0, 600, "dE/dx"}}}},//
+	{"TOFSignal", "TOF Signal", {HistType::kTH2F, {{100, 0, 10, "#it{p}_{T} (GeV/c)"}, {10000, 0, 50000, "TOF time"}}}}//
     }                                                                                      //
   };
 
@@ -113,12 +113,12 @@ static constexpr std::string_view nsigm[6] = {"NSigmaTpcVsMomentumPr", "NSigmaTp
   HistogramRegistry registry {
     "registry",
       {
-	{"TpcVsMomentumPr", "TpcVsMomentumPr;p GeV/c^2; TPC signal", {HistType::kTH2F, {{500, 0, 10}, {500, 0, 6000}}}},
-	{"TpcVsMomentumKa", "TpcVsMomentumKa;p GeV/c^2; TPC signal", {HistType::kTH2F, {{500, 0, 10}, {500, 0, 4000}}}},
-	{"TpcVsMomentumPi", "TpcVsMomentumPi;p GeV/c^2; TPC signal", {HistType::kTH2F, {{500, 0, 10}, {500, 0, 1000}}}},
-	{"TofVsMomentumPr", "TofVsMomentumPr;p GeV/c^2; TOF signal", {HistType::kTH2F, {{500, 0, 10}, {500, 0, 100000}}}},
-	{"TofVsMomentumKa", "TofVsMomentumKa;p GeV/c^2; TOF signal", {HistType::kTH2F, {{500, 0, 10}, {500, 0, 100000}}}},
-	{"TofVsMomentumPi", "TofVsMomentumPi;p GeV/c^2; TOF signal", {HistType::kTH2F, {{500, 0, 10}, {500, 0, 100000}}}},
+	{"TpcVsMomentumPr", "TpcVsMomentumPr;#it{p}_{T} GeV/c; TPC signal", {HistType::kTH2F, {{500, 0, 10}, {500, 0, 6000}}}},
+	{"TpcVsMomentumKa", "TpcVsMomentumKa;#it{p}_{T} GeV/c; TPC signal", {HistType::kTH2F, {{500, 0, 10}, {500, 0, 4000}}}},
+	{"TpcVsMomentumPi", "TpcVsMomentumPi;#it{p}_{T} GeV/c; TPC signal", {HistType::kTH2F, {{500, 0, 10}, {500, 0, 1000}}}},
+	{"TofVsMomentumPr", "TofVsMomentumPr;#it{p}_{T} GeV/c; TOF signal", {HistType::kTH2F, {{500, 0, 10}, {500, 0, 100000}}}},
+	{"TofVsMomentumKa", "TofVsMomentumKa;#it{p}_{T} GeV/c; TOF signal", {HistType::kTH2F, {{500, 0, 10}, {500, 0, 100000}}}},
+	{"TofVsMomentumPi", "TofVsMomentumPi;#it{p}_{T} GeV/c; TOF signal", {HistType::kTH2F, {{500, 0, 10}, {500, 0, 100000}}}},
 	{"ptPi", "pt pion", {HistType::kTH1F, {{100, -0.01, 10.01, "#it{p}_{T} (GeV/c)"}}}},
 	{"ptKa", "pt kaon", {HistType::kTH1F, {{100, -0.01, 10.01, "#it{p}_{T} (GeV/c)"}}}},
 	{"ptPr", "pt proton", {HistType::kTH1F, {{100, -0.01, 10.01, "#it{p}_{T} (GeV/c)"}}}},
@@ -128,7 +128,7 @@ static constexpr std::string_view nsigm[6] = {"NSigmaTpcVsMomentumPr", "NSigmaTp
 	{"NSigmaTofVsMomentumPr", "NSigmaTofVsMomentumPr;#it{p}_{T} (GeV/c); NSigma TOF", {HistType::kTH2F, {{500, 0, 10}, {500, -4, 4}}}},
 	{"NSigmaTofVsMomentumKa", "NSigmaTofVsMomentumKa;#it{p}_{T} (GeV/c); NSigma TOF", {HistType::kTH2F, {{500, 0, 10}, {500, -4, 4}}}},
 	{"NSigmaTofVsMomentumPi", "NSigmaTofVsMomentumPi;#it{p}_{T} (GeV/c); NSigma TOF", {HistType::kTH2F, {{500, 0, 10}, {500, -4, 4}}}},
-	{"NSigmaTpcVsMomentum", "#it{n}^{#sigma} TPS vs #it{p}_{T};#it{p}_{T} (GeV/c); #it{n}^{#sigma} TPC", {HistType::kTH2F, {{500, 0, 10}, {30, -4, 4}}}},
+	{"NSigmaTpcVsMomentum", "#it{n}^{#sigma} TPC vs #it{p}_{T};#it{p}_{T} (GeV/c); #it{n}^{#sigma} TPC", {HistType::kTH2F, {{500, 0, 10}, {30, -4, 4}}}},
 	{"NSigmaTofVsMomentum", "#it{n}^{#sigma} TOF vs #it{p}_{T};#it{p}_{T} (GeV/c); #it{n}^{#sigma} TOF", {HistType::kTH2F, {{500, 0, 10}, {30, -4, 4}}}}
 	}
   };
@@ -147,7 +147,7 @@ static constexpr std::string_view nsigm[6] = {"NSigmaTpcVsMomentumPr", "NSigmaTp
 	  {
 	    if (abs(track.tpcNSigmaPi()) < nsigmacut.value)
 	      {
-		registry.fill(HIST(sigvsp[2]), track.p(), track.tpcSignal());
+		registry.fill(HIST(sigvsp[2]), track.pt(), track.tpcSignal());
 		registry.fill(HIST(nsigm[2]), track.pt(), track.tpcNSigmaPi());
 		registry.fill(HIST("NSigmaTpcVsMomentum"), track.pt(), track.tpcNSigmaPi());
 		registry.fill(HIST("NSigmaTofVsMomentum"), track.pt(), track.tofNSigmaPi());
@@ -159,8 +159,8 @@ static constexpr std::string_view nsigm[6] = {"NSigmaTpcVsMomentumPr", "NSigmaTp
 	  {
 	    if (sqrt(pow(track.tpcNSigmaPi(), 2) + pow(track.tofNSigmaPi(),2)) < nsigmacut.value) // square root of tpcSignal^2 + tofSignal^2
 	      {
-		registry.fill(HIST(sigvsp[2]), track.p(), track.tpcSignal());
-		registry.fill(HIST(sigvsp[5]), track.p(), track.tofSignal());
+		registry.fill(HIST(sigvsp[2]), track.pt(), track.tpcSignal());
+		registry.fill(HIST(sigvsp[5]), track.pt(), track.tofSignal());
 		registry.fill(HIST(nsigm[2]), track.pt(), track.tpcNSigmaPi());
 		registry.fill(HIST(nsigm[5]), track.pt(), track.tofNSigmaPi());
 		registry.fill(HIST("NSigmaTpcVsMomentum"), track.pt(), track.tpcNSigmaPi());
@@ -176,7 +176,7 @@ static constexpr std::string_view nsigm[6] = {"NSigmaTpcVsMomentumPr", "NSigmaTp
 	  {
 	    if (abs(track.tpcNSigmaKa()) < nsigmacut.value)
 	      {
-		registry.fill(HIST(sigvsp[1]), track.p(), track.tpcSignal());
+		registry.fill(HIST(sigvsp[1]), track.pt(), track.tpcSignal());
 		registry.fill(HIST(nsigm[1]), track.pt(), track.tpcNSigmaKa());
 		registry.fill(HIST("NSigmaTpcVsMomentum"), track.pt(), track.tpcNSigmaKa());
 		registry.fill(HIST("NSigmaTofVsMomentum"), track.pt(), track.tofNSigmaKa());
@@ -187,8 +187,8 @@ static constexpr std::string_view nsigm[6] = {"NSigmaTpcVsMomentumPr", "NSigmaTp
 	  {
 	    if (sqrt(pow(track.tpcNSigmaKa(), 2) + pow(track.tofNSigmaKa(),2)) < nsigmacut.value) // square root of tpcSignal^2 + tofSignal^2
 	      {
-		registry.fill(HIST(sigvsp[1]), track.p(), track.tpcSignal());
-		registry.fill(HIST(sigvsp[4]), track.p(), track.tofSignal());
+		registry.fill(HIST(sigvsp[1]), track.pt(), track.tpcSignal());
+		registry.fill(HIST(sigvsp[4]), track.pt(), track.tofSignal());
 		registry.fill(HIST(nsigm[1]), track.pt(), track.tpcNSigmaKa());
 		registry.fill(HIST(nsigm[4]), track.pt(), track.tofNSigmaKa());
 		registry.fill(HIST("NSigmaTpcVsMomentum"), track.pt(), track.tpcNSigmaKa());
@@ -204,7 +204,7 @@ static constexpr std::string_view nsigm[6] = {"NSigmaTpcVsMomentumPr", "NSigmaTp
 	  {
 	    if (abs(track.tpcNSigmaPr()) < nsigmacut.value)
 	      {
-		registry.fill(HIST(sigvsp[0]), track.p(), track.tpcSignal());
+		registry.fill(HIST(sigvsp[0]), track.pt(), track.tpcSignal());
 		registry.fill(HIST(nsigm[0]), track.pt(), track.tpcNSigmaPr());
 		registry.fill(HIST("NSigmaTpcVsMomentum"), track.pt(), track.tpcNSigmaPr());
 		registry.fill(HIST("NSigmaTofVsMomentum"), track.pt(), track.tofNSigmaPr());
@@ -215,8 +215,8 @@ static constexpr std::string_view nsigm[6] = {"NSigmaTpcVsMomentumPr", "NSigmaTp
 	  {
 	    if (sqrt(pow(track.tpcNSigmaPr(), 2) + pow(track.tofNSigmaPr(),2)) < nsigmacut.value) // square root of tpcSignal^2 + tofSignal^2
 	      {
-		registry.fill(HIST(sigvsp[0]), track.p(), track.tpcSignal());
-		registry.fill(HIST(sigvsp[3]), track.p(), track.tofSignal());
+		registry.fill(HIST(sigvsp[0]), track.pt(), track.tpcSignal());
+		registry.fill(HIST(sigvsp[3]), track.pt(), track.tofSignal());
 		registry.fill(HIST(nsigm[0]), track.pt(), track.tpcNSigmaPr());
 		registry.fill(HIST(nsigm[3]), track.pt(), track.tofNSigmaPr());
 		registry.fill(HIST("NSigmaTpcVsMomentum"), track.pt(), track.tpcNSigmaPr());
@@ -248,9 +248,9 @@ struct PidMonitorsMc {
   HistogramRegistry registry {
     "registry",
       {
-       {"PDGPi", "PDGPi;p GeV/c; PDG", {HistType::kTH2F, {{500, 0, 10}, {8001, -4000.5, 4000.5}}}},
-       {"PDGKa", "PDGKa;p GeV/c; PDG", {HistType::kTH2F, {{500, 0, 10}, {8001, -4000.5, 4000.5}}}},
-       {"PDGPr", "PDGPr;p GeV/c; PDG", {HistType::kTH2F, {{500, 0, 10}, {8001, -4000.5, 4000.5}}}},
+       {"PDGPi", "PDGPi;#it{p}_{T} GeV/c; PDG", {HistType::kTH2F, {{500, 0, 10}, {8001, -4000.5, 4000.5}}}},
+       {"PDGKa", "PDGKa;#it{p}_{T} GeV/c; PDG", {HistType::kTH2F, {{500, 0, 10}, {8001, -4000.5, 4000.5}}}},
+       {"PDGPr", "PDGPr;#it{p}_{T} GeV/c; PDG", {HistType::kTH2F, {{500, 0, 10}, {8001, -4000.5, 4000.5}}}},
 	{"ptPi", "pt pion", {HistType::kTH1F, {{100, -0.01, 10.01, "#it{p}_{T} (GeV/c)"}}}},
 	{"ptKa", "pt kaon", {HistType::kTH1F, {{100, -0.01, 10.01, "#it{p}_{T} (GeV/c)"}}}},
 	{"ptPr", "pt proton", {HistType::kTH1F, {{100, -0.01, 10.01, "#it{p}_{T} (GeV/c)"}}}}
@@ -339,7 +339,7 @@ struct PidMonitorsMc {
 	  fillParticleHistos2(1,track,mcParticle);
 	  fillParticleHistos2(2,track,mcParticle);
 
-	  std::cout<<"track.pt: "<<track.pt()<<", mcParticle,pdgCode(): "<<mcParticle.pdgCode()<<std::endl;
+//	  std::cout<<"track.pt: "<<track.pt()<<", mcParticle,pdgCode(): "<<mcParticle.pdgCode()<<std::endl;
 	}
   
 	
@@ -354,9 +354,9 @@ struct EfficiencyPid {
   HistogramRegistry registry {
     "registry",
       {
-       {"PDGPi", "PDGPi;p GeV/c; PDG", {HistType::kTH2F, {{500, 0, 10}, {8001, -4000.5, 4000.5}}}},
-       {"PDGKa", "PDGKa;p GeV/c; PDG", {HistType::kTH2F, {{500, 0, 10}, {8001, -4000.5, 4000.5}}}},
-       {"PDGPr", "PDGPr;p GeV/c; PDG", {HistType::kTH2F, {{500, 0, 10}, {8001, -4000.5, 4000.5}}}},
+       {"PDGPi", "PDGPi;#it{p}_{T} GeV/c; PDG", {HistType::kTH2F, {{500, 0, 10}, {8001, -4000.5, 4000.5}}}},
+       {"PDGKa", "PDGKa;#it{p}_{T} GeV/c; PDG", {HistType::kTH2F, {{500, 0, 10}, {8001, -4000.5, 4000.5}}}},
+       {"PDGPr", "PDGPr;#it{p}_{T} GeV/c; PDG", {HistType::kTH2F, {{500, 0, 10}, {8001, -4000.5, 4000.5}}}},
 	{"ptPi", "pt pion", {HistType::kTH1F, {{100, -0.01, 10.01, "#it{p}_{T} (GeV/c)"}}}},
 	{"ptKa", "pt kaon", {HistType::kTH1F, {{100, -0.01, 10.01, "#it{p}_{T} (GeV/c)"}}}},
        {"ptPr", "pt proton", {HistType::kTH1F, {{100, -0.01, 10.01, "#it{p}_{T} (GeV/c)"}}}},
@@ -510,11 +510,11 @@ struct EfficiencyPid {
 WorkflowSpec defineDataProcessing(ConfigContext const& cfgc)
 {
   return WorkflowSpec{
-    adaptAnalysisTask<BasicHistogramsNoPID>(cfgc),
+//    adaptAnalysisTask<BasicHistogramsNoPID>(cfgc),
     adaptAnalysisTask<PidSignalsMonitorAllPart>(cfgc),
-    //adaptAnalysisTask<HistogramsWithFilters>(cfgc),
-   adaptAnalysisTask<PidMonitors>(cfgc),
-   // adaptAnalysisTask<PidMonitorsMc>(cfgc),
-    //adaptAnalysisTask<EfficiencyPid>(cfgc)
+//    adaptAnalysisTask<HistogramsWithFilters>(cfgc),
+//   adaptAnalysisTask<PidMonitors>(cfgc),
+//   adaptAnalysisTask<PidMonitorsMc>(cfgc),
+//    adaptAnalysisTask<EfficiencyPid>(cfgc)
       };
 }
