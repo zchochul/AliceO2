@@ -16,5 +16,6 @@ But sometimes you need to add more for it to work, for example while performing 
 But keep in mind not everything might be useful in your case. 
 ## Results
 Running command `./o2-analysistutorial-simple-analysis --aod-file <aod_file_name> -b` (and others of that type) creates .root file and .json file. <br>
-To enter .root file type: `root -l` and then `TBrowser`. <br>
+To enter .root file type: `root -l` and then `TBrowser`. (`-l` is optional but it runs root without additional information about it)<br>
 You can change histograms manually or you can write macros and run them on .root file. <br>
+More on root and how to use it [here](https://root.cern/manual/first_steps_with_root/) <br>
