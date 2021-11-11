@@ -1,7 +1,7 @@
 # AliceO2
 In this file crucial commands for my analysis are  listed:<br>
 ## How to create?
-In `~/alice/O2/Analysis/Tutorials/src/` place your code in C, then change CMake (add this file).
+In `~/alice/O2/Analysis/Tutorials/src/` place your code in C++, then change CMake (add this file).
 ## How to build?
 In `~/alice/sw/BUILD/O2-latest/O2` type `ninja stage/bin/your-analysis-file` to build your code. <br>
 Keep in mind that if you add a new file or modify CMakeList you need to use `cmake .` <br>
