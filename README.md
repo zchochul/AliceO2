@@ -15,6 +15,9 @@ But sometimes you need to add more for it to work. When you see `Exception caugh
 For example while performing PID analysis. In this case you need to type for example: <br>
 `./o2-analysistutorial-simple-analysis --aod-file <aod_file_name> --aod-memory-rate-limit 100000000000000 -b | o2-analysis-pid-tpc -b | o2-analysis-pid-tof -b | o2-analysis-trackselection -b | o2-analysis-tracksextention -b ` <br>
 But keep in mind not everything might be useful in your case. 
+### Possible errors
+While trying to run various O2 tasks/tutorials you can run into fatal errors with non-existing CCDB entries for specific data. <br>
+Usually adding `--isRun2MC` to executables (likely `o2-analysis-timestamp`) might help. We also added `isMC` to o2-analysis-event-selection. <br>
 ## Results
 Running command `./o2-analysistutorial-simple-analysis --aod-file <aod_file_name> -b` (and others of that type) creates .root file and .json file. <br>
 To enter .root file type: `root -l` and then `TBrowser`. (`-l` is optional but it runs root without additional information about it)<br>
