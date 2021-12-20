@@ -20,3 +20,6 @@ Running command `./o2-analysistutorial-simple-analysis --aod-file <aod_file_name
 To enter .root file type: `root -l` and then `TBrowser`. (`-l` is optional but it runs root without additional information about it)<br>
 You can change histograms manually or you can write macros and run them on .root file. <br>
 More on root and how to use it [here](https://root.cern/manual/first_steps_with_root/) <br>
+## Helpful commands
+Sometimes you might find `grep` command useful. It's especially useful, when you want to find tutorials with functions you are interested in. <br>
+You can read more [here](https://www.cyberciti.biz/faq/howto-use-grep-command-in-linux-unix/) <br>
