@@ -35,5 +35,10 @@ You can change histograms manually or you can write macros and run them on .root
 More on root and how to use it [here](https://root.cern/manual/first_steps_with_root/). <br>
 ## Helpful commands and pages
 Sometimes you might find `grep` command useful. It's especially useful, when you want to find tutorials with functions you are interested in. <br>
-You can read more [here](https://www.cyberciti.biz/faq/howto-use-grep-command-in-linux-unix/). <br>
 Additional Testing O2 Framework page - [here](https://twiki.cern.ch/twiki/bin/viewauth/ALICE/AliceO2WP14AF).
+# Femtodream / Alifemto
+Codes are available here: `O2Physics/PWGCF/FemtoDream/`<br>
+First of all you need to cut your AOD using this command: <br>
+`o2-analysis-timestamp --aod-file AO2D.root -b | o2-analysis-multiplicity-table -b | o2-analysis-event-selection --syst pp -b | o2-analysis-trackextension -b | o2-analysis-pid-tpc -b | o2-analysis-pid-tof -b | o2-analysis-weak-decay-indices -b | o2-analysis-lf-lambdakzerobuilder -b | o2-analysis-cf-femtodream-producer --aod-writer-keep AOD/FEMTODREAMPARTS/0,AOD/FEMTODREAMCOLS/0 --aod-writer-resfile FemtoAO2D -b --aod-memory-rate-limit 600000000` <br>
+Then you just need to run your code, for example something like that:<br>
+`o2-analysis-cf-femtodream-hash -b | o2-analysis-cf-femtodream-pair-track-track --aod-file FemtoAO2D.root --aod-memory-rate-limit 600000000 --ConfCutPartTwo 5543046 --ConfCutPartOne 5543046`<br>
