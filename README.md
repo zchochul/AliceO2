@@ -4,7 +4,8 @@ In this repository you can find instructions on how to get started with O2 Frame
 Build O2 with alibuild as explained [here](https://aliceo2group.github.io/analysis-framework/docs/installing/). You need to follow instructions [here](https://alice-doc.github.io/alice-analysis-tutorial/building/custom.html) but do not follow instructions on "build packages" there. You also need to acquire GRID certificate, it's explained in detail [here](https://alice-doc.github.io/alice-analysis-tutorial/start/cert.html).
 Keep in mind most of us use Ubuntu 18.04 / 20.04.
 ## How to obtain data files?
-To get AOD file go [here](https://alimonitor.cern.ch/trains/train.jsp?train_id=132) and scroll down. Choose train number you're interested in and click on run number (for example 246) and then on Test Results (in the middle). Scroll down and find full train option and then click on output. Now you're supposed to see a lot of files, but you're only interested in `AO2D.root` and it's usually the first. Then you need to only click on it and it will start to download.
+To get smaller AOD file go [here](https://alimonitor.cern.ch/trains/train.jsp?train_id=132) and scroll down. Choose train number you're interested in and click on run number (for example 246) and then on Test Results (in the middle). Scroll down and find full train option and then click on output. Now you're supposed to see a lot of files, but you're only interested in `AO2D.root` and it's usually the first. Then you need to only click on it and it will start to download.<br>
+When you want to run your analysis on a bigger file go [here](https://alimonitor.cern.ch/catalogue/index.jsp?path=%2Falice%2Fdata%2F2018%2FLHC18b%2F000285064%2Fpass1%2FPWGZZ%2FRun3_Conversion%2F267_20220301-1202_child_1#/alice/data/2018/LHC18b/000285064/pass1/PWGZZ/Run3_Conversion/267_20220301-1202_child_1).<br>
 Information about trains (job details) can be found [here](https://alimonitor.cern.ch/job_details.jsp).
 ### Possible errors
 If you can't even enter alimonitor it is possible that you haven't added your GRID certificate to your browser correctly.
@@ -34,11 +35,14 @@ To enter AnalysisResults.root file type: `root -l` and then `TBrowser`. (`-l` is
 You can change histograms manually or you can write macros and run them on .root file. <br>
 More on root and how to use it [here](https://root.cern/manual/first_steps_with_root/). <br>
 ## Helpful commands and pages
-Sometimes you might find `grep` command useful. It's especially useful, when you want to find tutorials with functions you are interested in. <br>
+This step may seem obvious, but sometimes you might find `grep` command useful. Especially, when you want to find tutorials with functions you are interested in. <br>
 Additional Testing O2 Framework page - [here](https://twiki.cern.ch/twiki/bin/viewauth/ALICE/AliceO2WP14AF).
 # Femtodream / Alifemto
-Codes are available here: `O2Physics/PWGCF/FemtoDream/`<br>
-First of all you need to cut your AOD using this command: <br>
-`o2-analysis-timestamp --aod-file AO2D.root -b | o2-analysis-multiplicity-table -b | o2-analysis-event-selection --syst pp -b | o2-analysis-trackextension -b | o2-analysis-pid-tpc -b | o2-analysis-pid-tof -b | o2-analysis-weak-decay-indices -b | o2-analysis-lf-lambdakzerobuilder -b | o2-analysis-cf-femtodream-producer --aod-writer-keep AOD/FEMTODREAMPARTS/0,AOD/FEMTODREAMCOLS/0 --aod-writer-resfile FemtoAO2D -b --aod-memory-rate-limit 600000000` <br>
+Example codes are available here: `O2Physics/PWGCF/FemtoDream/`<br>
+First of all you need to cut your AOD. U can use a shell script called `prod.sh` from this repo or type:  <br>
+`o2-analysis-cf-femtodream-producer-reduced --configuration json://prod-config.json  --aod-writer-resfile FemtoAO2D  --aod-writer-keep AOD/FEMTODREAMPARTS/0,AOD/FEMTODREAMCOLS/0,AOD/FEMTODEBUGPARTS/0 -b | o2-analysis-timestamp  --configuration json://prod-config.json -b | o2-analysis-multiplicity-table  --configuration json://prod-config.json -b | o2-analysis-event-selection  --configuration json://prod-config.json -b | o2-analysis-trackextension  --configuration json://prod-config.json -b | o2-analysis-pid-tpc  --configuration json://prod-config.json -b |  o2-analysis-pid-tof  --configuration json://prod-config.json --aod-memory-rate-limit 600000000 -b` <br>
+Make sure you have prod-config.json file, you can download it from this repo. You need to change the "aod-file" part to match with your .root file/files.<br>
 Then you just need to run your code, for example something like that:<br>
 `o2-analysis-cf-femtodream-hash -b | o2-analysis-cf-femtodream-pair-track-track --aod-file FemtoAO2D.root --aod-memory-rate-limit 600000000 --ConfCutPartTwo 5543046 --ConfCutPartOne 5543046`<br>
+### Possible errors
+You need to make sure your aod is properly produced for femto analysis. Using typical AOD files will cause errors (for example: `Couldn't get TTree "DF_2853960030894995121/O2femtodreamcols" from <your-AOD-file>`). <br>
