@@ -39,7 +39,7 @@ This step may seem obvious, but sometimes you might find `grep` command useful. 
 Additional Testing O2 Framework page - [here](https://twiki.cern.ch/twiki/bin/viewauth/ALICE/AliceO2WP14AF).
 # Femtodream / Alifemto
 Example codes are available here: `O2Physics/PWGCF/FemtoDream/`<br>
-First of all you need to cut your AOD. U can use a shell script called `prod.sh` from this repo or type:  <br>
+First of all you need to cut your AOD. After typing `alienv enter O2Physics/latest` run a shell script called `prod.sh` from this repo or type:  <br>
 `o2-analysis-cf-femtodream-producer-reduced --configuration json://prod-config.json  --aod-writer-resfile FemtoAO2D  --aod-writer-keep AOD/FEMTODREAMPARTS/0,AOD/FEMTODREAMCOLS/0,AOD/FEMTODEBUGPARTS/0 -b | o2-analysis-timestamp  --configuration json://prod-config.json -b | o2-analysis-multiplicity-table  --configuration json://prod-config.json -b | o2-analysis-event-selection  --configuration json://prod-config.json -b | o2-analysis-trackextension  --configuration json://prod-config.json -b | o2-analysis-pid-tpc  --configuration json://prod-config.json -b |  o2-analysis-pid-tof  --configuration json://prod-config.json --aod-memory-rate-limit 600000000 -b` <br>
 Make sure you have prod-config.json file, you can download it from this repo. You need to change the "aod-file" part to match with your .root file/files.<br>
 Then you just need to run your code, for example something like that:<br>
