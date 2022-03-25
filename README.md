@@ -39,6 +39,7 @@ This step may seem obvious, but sometimes you might find `grep` command useful. 
 Additional Testing O2 Framework page - [here](https://twiki.cern.ch/twiki/bin/viewauth/ALICE/AliceO2WP14AF).
 # Femtodream / Alifemto
 Example codes are available here: `O2Physics/PWGCF/FemtoDream/`<br>
+For this part I've used 267 train as my AOD.
 First of all you need to cut your AOD. After typing `alienv enter O2Physics/latest` run a shell script called `prod.sh` from this repo or type:  <br>
 `o2-analysis-cf-femtodream-producer-reduced --configuration json://prod-config.json  --aod-writer-resfile FemtoAO2D  --aod-writer-keep AOD/FEMTODREAMPARTS/0,AOD/FEMTODREAMCOLS/0,AOD/FEMTODEBUGPARTS/0 -b | o2-analysis-timestamp  --configuration json://prod-config.json -b | o2-analysis-multiplicity-table  --configuration json://prod-config.json -b | o2-analysis-event-selection  --configuration json://prod-config.json -b | o2-analysis-trackextension  --configuration json://prod-config.json -b | o2-analysis-pid-tpc  --configuration json://prod-config.json -b |  o2-analysis-pid-tof  --configuration json://prod-config.json --aod-memory-rate-limit 600000000 -b` <br>
 Make sure you have prod-config.json file, you can download it from this repo. You need to change the "aod-file" part to match with your .root file/files.<br>
@@ -46,3 +47,4 @@ Then you just need to run your code, for example something like that:<br>
 `o2-analysis-cf-femtodream-hash -b | o2-analysis-cf-femtodream-pair-track-track --aod-file FemtoAO2D.root --aod-memory-rate-limit 600000000 --ConfCutPartTwo 5543046 --ConfCutPartOne 5543046 -b`<br>
 ### Possible errors
 You need to make sure your aod is properly produced for femto analysis. Using typical AOD files will cause errors (for example: `Couldn't get TTree "DF_2853960030894995121/O2femtodreamcols" from <your-AOD-file>`). <br>
+Another problem I've encountered was the problem of leaves in several trees not filling up. To fix this, I've removed the negation in the if structure (line 149 of the femtoDreamProducerReducedTask.cxx file). This unfortunately did not fix the problem of the histograms produced by this task not filling up, I am still trying to fix this. The error is most likely in the femtoDreamPairTaskTrackTrack.cxx file.<br>
