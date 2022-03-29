@@ -3,6 +3,13 @@ In this repository you can find instructions on how to get started with O2 Frame
 ## How to install O2 Framework?
 Build O2 with alibuild as explained [here](https://aliceo2group.github.io/analysis-framework/docs/installing/). You need to follow instructions [here](https://alice-doc.github.io/alice-analysis-tutorial/building/custom.html) but do not follow instructions on "build packages" there. You also need to acquire GRID certificate, it's explained in detail [here](https://alice-doc.github.io/alice-analysis-tutorial/start/cert.html).
 Keep in mind most of us use Ubuntu 18.04 / 20.04.
+## Updating ALICE system
+ALICE O2 Framework is constantly evolving so remember to stay up-to-date with the official repo. In `alice/alidist`, `alice/O2` and `alice/O2Physics` use: <br>
+`git pull --rebase` <br>
+In case you have changed anything in the files of these folders you need to use this command:
+`git reset --hard` <br>
+Then just alibuild it with command: <br>
+`aliBuild build O2Physics --defaults o2` <br>
 ## How to obtain data files?
 To get smaller AOD file go [here](https://alimonitor.cern.ch/trains/train.jsp?train_id=132) and scroll down. Choose train number you're interested in and click on run number (for example 246) and then on Test Results (in the middle). Scroll down and find full train option and then click on output. Now you're supposed to see a lot of files, but you're only interested in `AO2D.root` and it's usually the first. Then you need to only click on it and it will start to download.<br>
 When you want to run your analysis on a bigger file go [here](https://alimonitor.cern.ch/catalogue/index.jsp?path=%2Falice%2Fdata%2F2018%2FLHC18b%2F000285064%2Fpass1%2FPWGZZ%2FRun3_Conversion%2F267_20220301-1202_child_1#/alice/data/2018/LHC18b/000285064/pass1/PWGZZ/Run3_Conversion/267_20220301-1202_child_1).<br>
@@ -50,5 +57,4 @@ To run a simple task type something like that:<br>
 ### Possible errors
 You need to make sure your aod is properly produced for femto analysis. Using typical AOD files will cause errors (for example: `Couldn't get TTree "DF_2853960030894995121/O2femtodreamcols" from <your-AOD-file>`). <br>
 Another problem I've encountered was the problem of leaves in several trees not filling up. To fix this, I've removed the negation in the if structure (line 149 of the femtoDreamProducerReducedTask.cxx file). This unfortunately did not fix the problem of the histograms produced by this task not filling up, I am still trying to fix this. The error is most likely in the femtoDreamPairTaskTrackTrack.cxx file.<br>
-`git pull --rebase`
-`git reset --hard`
+
