@@ -50,3 +50,5 @@ To run a simple task type something like that:<br>
 ### Possible errors
 You need to make sure your aod is properly produced for femto analysis. Using typical AOD files will cause errors (for example: `Couldn't get TTree "DF_2853960030894995121/O2femtodreamcols" from <your-AOD-file>`). <br>
 Another problem I've encountered was the problem of leaves in several trees not filling up. To fix this, I've removed the negation in the if structure (line 149 of the femtoDreamProducerReducedTask.cxx file). This unfortunately did not fix the problem of the histograms produced by this task not filling up, I am still trying to fix this. The error is most likely in the femtoDreamPairTaskTrackTrack.cxx file.<br>
+`git pull --rebase`
+`git reset --hard`
