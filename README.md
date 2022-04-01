@@ -57,6 +57,6 @@ To run a simple task type something like that:<br>
 ### Possible errors
 You need to **make sure your aod is properly produced for femto analysis**. Using typical AOD files will cause errors (for example: `Couldn't get TTree "DF_2853960030894995121/O2femtodreamcols" from <your-AOD-file>`). <br>
 Another problem I've encountered was the problem of **leaves in several trees not filling up**. In order to fix that you need to change <number> in line: <br>
-`Configurable<uint32_t> ConfCutPartOne{"ConfCutPartOne", <number>, "Particle 1 - Selection bit from cutCulator"};` to the number from cutCulator. And in order to find this number you need to run `o2-analysis-cf-femtodream-cutculator prod-config.json` and number representation value is your <number>. Another problem I've had was that cutculator could not find many variables and that was because of the fact that my system was outdated.
+`Configurable<uint32_t> ConfCutPartOne{"ConfCutPartOne", <number>, "Particle 1 - Selection bit from cutCulator"};` (in femtoDreamPairTaskTrackTrack.cxx) to the number from cutCulator. And in order to find this number you need to run `o2-analysis-cf-femtodream-cutculator prod-config.json` and number representation value is your <number>. Another problem I've had was that cutculator could not find many variables and that was because of the fact that my system was outdated.
 (If error `` occurs in `prod-config.json` you need to change "femto-dream-producer-reduced-task" to "femto-dream-producer-task", but it will be fixed later on)
 
