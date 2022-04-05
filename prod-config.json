@@ -7,7 +7,7 @@
         "start-value-enumeration": "0",
         "end-value-enumeration": "-1",
         "step-value-enumeration": "1",
-        "aod-file": "AO2Dtest.root"
+        "aod-file": "AO2D_267_1.root"
     },
     "internal-dpl-aod-index-builder": "",
     "internal-dpl-aod-spawner": "",
@@ -23,7 +23,7 @@
         "param-signal": "BetheBloch",
         "param-sigma": "TPCReso",
         "ccdb-url": "http:\/\/alice-ccdb.cern.ch",
-        "ccdbPath": "Analysis\/PID\/TPC",
+        "ccdbPath": "Analysis\/PID\/TPC\/Response",
         "ccdb-timestamp": "-1",
         "pid-el": "-1",
         "pid-mu": "-1",
@@ -36,13 +36,13 @@
         "pid-al": "-1"
     },
     "bc-selection-task": {
-        "processRun2": "false",
-        "processRun3": "true"
+        "processRun2": "true",
+        "processRun3": "false"
     },
     "tof-signal": "",
     "track-extension": {
-        "processRun2": "false",
-        "processRun3": "true"
+        "processRun2": "true",
+        "processRun3": "false"
     },
     "tof-pid": {
         "param-file": "",
@@ -67,17 +67,17 @@
         "muonSelection": "0",
         "customDeltaBC": "300",
         "isMC": "false",
-        "processRun2": "false",
-        "processRun3": "true"
+        "processRun2": "true",
+        "processRun3": "false"
     },
     "multiplicity-table": {
-        "processRun2": "false",
-        "processRun3": "true"
+        "processRun2": "true",
+        "processRun3": "false"
     },
-    "femto-dream-producer-reduced-task": {
+    "femto-dream-producer-task": { 
         "ConfDebugOutput": "true",
         "ConfIsTrigger": "false",
-        "ConfIsRun3": "true",
+        "ConfIsRun3": "false",
         "ConfEvtZvtx": "10",
         "ConfEvtTriggerCheck": "true",
         "ConfEvtTriggerSel": "0",
