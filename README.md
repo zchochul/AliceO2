@@ -29,7 +29,7 @@ Then `cp` it to directory with AOD file. (You can skip this step when you use `n
 If upon entering the `~/alice/sw/BUILD/O2Physics-latest-master/O2Physics` you don't see much text you probably don't have `eval "$(direnv hook bash)"` in your ~/.bashrc file. Type it there and open new terminal. <br>
 In general, in ~/.bashrc you should have following lines: <br>
 `export ALIBUILD_WORK_DIR="$HOME/alice/sw"` <br>
-`eval "`alienv shell-helper`"` <br>
+``eval "`alienv shell-helper`"`` <br>
 `eval "$(direnv hook bash)"` <br>
 This can be written anywhere and will work but try writing it in one place, for example at the end of ~/.bashrc file <br>
 ## How to run a code?
