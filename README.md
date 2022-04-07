@@ -20,9 +20,18 @@ If you can't even enter alimonitor it is possible that you haven't added your GR
 You can find useful examples on how to write your code in `~/alice/O2Physics/Tutorials/src/`. 
 Then in for example: `~/alice/O2Physics/Tutorials/src/` place your code in C++. Remember to always change CMakeList in `~/alice/O2Physics/Tutorials/` when you add new file to your analysis. Without that step, you won't be able to build it. 
 ## How to build?
+Go to `~/alice/sw/BUILD/O2Physics-latest-master/O2Physics`, as soon as you enter a lot of text should appear and it should look like this:
+![image](https://user-images.githubusercontent.com/87480906/162129203-4a4b833b-fefc-48c6-9229-908354cf0620.png)
 In `~/alice/sw/BUILD/O2Physics-latest-master/O2Physics` type `alienv load ninja/latest O2Physics/latest ` and then `ninja stage/bin/your-analysis-file` to build your code. 
 Keep in mind that if you add a new file or modify CMakeList you need to use `cmake .` 
 Then `cp` it to directory with AOD file. (You can skip this step when you use `ninja install` instead of `ninja`) 
+### Possible errors
+If upon entering the `~/alice/sw/BUILD/O2Physics-latest-master/O2Physics` you don't see much text you probably don't have `eval "$(direnv hook bash)"` in your ~/.bashrc file. Type it there and open new terminal. <br>
+In general, in ~/.bashrc you should have following lines: <br>
+`export ALIBUILD_WORK_DIR="$HOME/alice/sw"` <br>
+`eval "`alienv shell-helper`"` <br>
+`eval "$(direnv hook bash)"` <br>
+This can be written anywhere and will work but try writing it in one place, for example at the end of ~/.bashrc file <br>
 ## How to run a code?
 In your dir with AOD file type: <br>
 `alienv enter O2Physics/latest` and  `alien-token-init your-cern-nickname`<br>
