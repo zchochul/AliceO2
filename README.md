@@ -1,7 +1,7 @@
 # AliceO2
 In this repository you can find instructions on how to get started with O2 Framework. Keep in mind that this framework is constantly evolving and many files in this repository can be outdated.
 ## How to install O2 Framework?
-Build O2 with alibuild as explained [here](https://aliceo2group.github.io/analysis-framework/docs/installing/). You need to follow instructions [here](https://alice-doc.github.io/alice-analysis-tutorial/building/custom.html) but do not follow instructions on "build packages" there. You also need to acquire GRID certificate, it's explained in detail [here](https://alice-doc.github.io/alice-analysis-tutorial/start/cert.html).
+Build O2 with alibuild as explained in [ALICE O2 documentation](https://aliceo2group.github.io/analysis-framework/docs/installing/). You need to follow instructions in [Installation via alibuild](https://alice-doc.github.io/alice-analysis-tutorial/building/custom.html) but do not follow instructions on "build packages" there! You also need to acquire GRID certificate, it's explained in detail [here](https://alice-doc.github.io/alice-analysis-tutorial/start/cert.html).
 Keep in mind most of us use Ubuntu 18.04 / 20.04.
 ## Updating ALICE system
 ALICE O2 Framework is constantly evolving so remember to stay up-to-date with the official repo. In `alice/alidist`, `alice/O2` and `alice/O2Physics` use: <br>
@@ -22,7 +22,7 @@ Then in for example: `~/alice/O2Physics/Tutorials/src/` place your code in C++. 
 ## How to build?
 Go to `~/alice/sw/BUILD/O2Physics-latest-master/O2Physics`, as soon as you enter a lot of text should appear and it should look like this:
 ![image](https://user-images.githubusercontent.com/87480906/162129203-4a4b833b-fefc-48c6-9229-908354cf0620.png)
-In `~/alice/sw/BUILD/O2Physics-latest-master/O2Physics` type `alienv load ninja/latest O2Physics/latest ` and then `ninja stage/bin/your-analysis-file` to build your code. if you don't know what you should type in `your-analysis-file` place, open `CMakeList` and see how it is called there. <br>
+In `~/alice/sw/BUILD/O2Physics-latest-master/O2Physics` type `alienv load ninja/latest O2Physics/latest ` and then `ninja stage/bin/your-analysis-file` to build your code. If you don't know what you should type in `your-analysis-file` place, open `CMakeList` and see how it is called there. <br>
 Keep in mind that if you add a new file or modify CMakeList you need to use `cmake .` 
 Then `cp` it to directory with AOD file. (You can skip this step when you use `ninja install` instead of `ninja`) 
 ### Possible errors
