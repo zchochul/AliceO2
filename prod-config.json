@@ -130,19 +130,6 @@
                 "160"
             ]
         },
-        "ConfTrkITSnClsMin": {
-            "values": [
-                "-1",
-                "2",
-                "4"
-            ]
-        },
-        "ConfTrkITSnClsIbMin": {
-            "values": [
-                "-1",
-                "1"
-            ]
-        },
         "ConfTrkDCAxyMax": {
             "values": [
                 "0.10000000149011612",
