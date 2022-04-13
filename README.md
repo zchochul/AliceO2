@@ -60,12 +60,29 @@ For this part I've used 267 train as my AOD.
 First of all you need to cut your AOD. After typing `alienv enter O2Physics/latest` run a shell script called `prod.sh` from this repo or type:  <br>
 `o2-analysis-cf-femtodream-producer-reduced --configuration json://prod-config.json  --aod-writer-resfile FemtoAO2D  --aod-writer-keep AOD/FEMTODREAMPARTS/0,AOD/FEMTODREAMCOLS/0,AOD/FEMTODEBUGPARTS/0 -b | o2-analysis-timestamp  --configuration json://prod-config.json -b | o2-analysis-multiplicity-table  --configuration json://prod-config.json -b | o2-analysis-event-selection  --configuration json://prod-config.json -b | o2-analysis-trackextension  --configuration json://prod-config.json -b | o2-analysis-pid-tpc  --configuration json://prod-config.json -b |  o2-analysis-pid-tof  --configuration json://prod-config.json --aod-memory-rate-limit 600000000 -b` <br>
 Make sure you have prod-config.json file, you can download it from this repo. You need to change the "aod-file" part to match with your .root file/files.<br>
+### Cutculator
+Type: `alienv enter O2Physics/latest` and then `o2-analysis-cf-femtodream-cutculator prod-config.json`. The following should appear on the screen:<br>
+![image](https://user-images.githubusercontent.com/87480906/163264059-1c7a87d2-ba8f-4903-8ba9-4a91f2ee9ad1.png)<br>
+After answering the cutculator's questions you should see something like that:<br>
+
+![image](https://user-images.githubusercontent.com/87480906/163264481-98f87b78-fb4a-440e-b3c1-403dcd3a4d93.png)<br>
+
+Then you need to change <number> in lines: <br>
+`Configurable<uint32_t> ConfCutPartOne{"ConfCutPartOne", <number>, "Particle 1 - Selection bit from cutCulator"};` and similar line but with `ConfCutPartTwo`(in femtoDreamPairTaskTrackTrack.cxx) to the highlighted number from cutCulator.
+For more info check [Femto dream framework introduction](https://indico.cern.ch/event/1092615/contributions/4594901/attachments/2350467/4009563/tutorial.pdf).
+### Possible errors
+**Cutculator can't find variables** - [Maja Kabus](https://github.com/saganatt/) wrote a patch for that (string.patch). <br>
+Error: *terminate called after throwing an instance of 'boost::wrapexcept<boost::property_tree::ptree_bad_path>'* <br>
+
+  ![image](https://user-images.githubusercontent.com/87480906/163265426-b105502d-c74c-40e1-8140-66fde2363f1a.png)<br>
+
+  <br>Note that we ran the code on task `o2-analysis-cf-femtodream-producer-reduced`, but for now in `prod-config.json` you need to change that for `o2-analysis-cf-femtodream-producer` to fix this problem. That problem will be fixed later on.
+
 ## Running a simple task
 To run a simple task type something like that:<br>
 `o2-analysis-cf-femtodream-hash -b | o2-analysis-cf-femtodream-pair-track-track --aod-file FemtoAO2D.root --aod-memory-rate-limit 600000000 --ConfCutPartTwo 5543046 --ConfCutPartOne 5543046 -b`<br>
 ### Possible errors
 You need to **make sure your aod is properly produced for femto analysis**. Using typical AOD files will cause errors (for example: `Couldn't get TTree "DF_2853960030894995121/O2femtodreamcols" from <your-AOD-file>`). <br>
-Another problem I've encountered was the problem of **leaves in several trees not filling up**. In order to fix that you need to change <number> in line: <br>
-`Configurable<uint32_t> ConfCutPartOne{"ConfCutPartOne", <number>, "Particle 1 - Selection bit from cutCulator"};` (in femtoDreamPairTaskTrackTrack.cxx) to the number from cutCulator. And in order to find this number you need to run `o2-analysis-cf-femtodream-cutculator prod-config.json` and number representation value is your <number>. Another problem I've had was that cutculator could not find many variables and that was because of the fact that my system was outdated.
-(If error `` occurs in `prod-config.json` you need to change "femto-dream-producer-reduced-task" to "femto-dream-producer-task", but it will be fixed later on)
+Another problem I've encountered was the problem of **leaves in several trees not filling up**, make sure that you've changed `ConfCutPartOne` and `ConfCutPartTwo` value to the one from cutculator in run command and in code itself. 
+
 
