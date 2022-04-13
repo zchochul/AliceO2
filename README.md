@@ -52,10 +52,10 @@ For example: `./o2-analysis-mm-dndeta --aod-file AODmc2.root --aod-memory-rate-l
 Running command `./o2-analysistutorial-simple-analysis --aod-file <aod_file_name> -b` (and others of that type) creates .root file and .json file. <br>
 To enter AnalysisResults.root file type: `root -l` and then `new TBrowser`. (`-l` is optional but it runs root without additional information about it).<br>
 You can change histograms manually or you can write macros and run them on .root file. <br>
-More on root and how to use it [here](https://root.cern/manual/first_steps_with_root/). <br>
+More on root and how to use it [root.cern/manual/](https://root.cern/manual/first_steps_with_root/). <br>
 ## Helpful commands and pages
 This step may seem obvious, but sometimes you might find `grep` command useful. Especially, when you want to find tutorials with functions you are interested in. <br>
-Additional Testing O2 Framework page - [here](https://twiki.cern.ch/twiki/bin/viewauth/ALICE/AliceO2WP14AF).
+Additional Testing O2 Framework page - [twiki.cern.ch](https://twiki.cern.ch/twiki/bin/viewauth/ALICE/AliceO2WP14AF).
 # Femtodream / Alifemto
 Example codes are available here: `O2Physics/PWGCF/FemtoDream/`<br>
 For this part I've used 267 train as my AOD.
