@@ -1,5 +1,8 @@
 # AliceO2
-In this repository you can find instructions on how to get started with O2 Framework. Keep in mind that this framework is constantly evolving and many files in this repository can be outdated.
+In this repository you can find instructions on how to get started with O2 Framework. Keep in mind that this framework is constantly evolving and many files in this repository can be outdated.<br>
+Here are some links you may find useful:<br>
+-[ALICE O2 documentation](https://aliceo2group.github.io/analysis-framework/docs/installing/) <br>
+- [Analysis train : Run3_Conversion](https://alimonitor.cern.ch/trains/train.jsp?train_id=132)<br>
 ## How to install O2 Framework?
 Build O2 with alibuild as explained in [ALICE O2 documentation](https://aliceo2group.github.io/analysis-framework/docs/installing/). You need to follow instructions in [Installation via alibuild](https://alice-doc.github.io/alice-analysis-tutorial/building/custom.html) but do not follow instructions on "build packages" there! You also need to acquire GRID certificate, it's explained in detail [here](https://alice-doc.github.io/alice-analysis-tutorial/start/cert.html).
 Keep in mind most of us use Ubuntu 18.04 / 20.04.
