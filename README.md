@@ -50,7 +50,7 @@ Usually adding `--isRun2MC` to executables (likely `o2-analysis-timestamp`) migh
 For example: `./o2-analysis-mm-dndeta --aod-file AODmc2.root --aod-memory-rate-limit 100000000000000 -b | o2-analysis-pid-tpc -b | o2-analysis-pid-tof -b | o2-analysis-trackselection -b | o2-analysis-trackextension -b | o2-analysis-event-selection --isMC -b | o2-analysis-timestamp --isRun2MC -b `
 ## Results
 Running command `./o2-analysistutorial-simple-analysis --aod-file <aod_file_name> -b` (and others of that type) creates .root file and .json file. <br>
-To enter AnalysisResults.root file type: `root -l` and then `TBrowser`. (`-l` is optional but it runs root without additional information about it).<br>
+To enter AnalysisResults.root file type: `root -l` and then `new TBrowser`. (`-l` is optional but it runs root without additional information about it).<br>
 You can change histograms manually or you can write macros and run them on .root file. <br>
 More on root and how to use it [here](https://root.cern/manual/first_steps_with_root/). <br>
 ## Helpful commands and pages
