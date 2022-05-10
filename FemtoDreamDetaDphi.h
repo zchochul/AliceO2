@@ -1,24 +1,15 @@
-// Copyright 2019-2020 CERN and copyright holders of ALICE O2.
-// See https://alice-o2.web.cern.ch/copyright for details of the copyright holders.
-// All rights not expressly granted are reserved.
-//
-// This software is distributed under the terms of the GNU General Public
-// License v3 (GPL Version 3), copied verbatim in the file "COPYING".
-//
-// In applying this license CERN does not waive the privileges and immunities
-// granted to it by virtue of its status as an Intergovernmental Organization
-// or submit itself to any jurisdiction.
-
-/// \file FemtoDreamDetaDphiStar.h
-/// \brief FemtoDreamDetaDphiStar - Checks particles for the close pair rejection.
-/// \author Laura Serksnyte, TU München, laura.serksnyte@tum.de
-
 #ifndef ANALYSIS_TASKS_PWGCF_FEMTODREAM_FEMTODREAMDETADPHI_H_
 #define ANALYSIS_TASKS_PWGCF_FEMTODREAM_FEMTODREAMDETADPHI_H_
 
 #include "PWGCF/DataModel/FemtoDerived.h"
 #include "Framework/HistogramRegistry.h"
 #include <string>
+
+//from AliFemtoCorrFctnDEtaDPhiSimple.cxx
+#include <cstdio> 
+#include <TMath.h>
+#define PIH 1.57079632679489656 
+#define PIT 6.28318530717958623
 
 namespace o2::analysis
 {
@@ -45,26 +36,14 @@ class FemtoDreamDetaDphi
 
     if constexpr (mPartOneType == o2::aod::femtodreamparticle::ParticleType::kTrack && mPartTwoType == o2::aod::femtodreamparticle::ParticleType::kTrack) {
       std::string dirName = static_cast<std::string>(dirNames[0]);
-      histdetadpi[0][0] = mHistogramRegistry->add<TH2>((dirName + static_cast<std::string>(histNames[0][0])).c_str(), "; #Delta #eta; #Delta #phi", kTH2F, {{100, -0.15, 4.00}, {100, -0.15, 4.00}});
-      histdetadpi[0][1] = mHistogramRegistry->add<TH2>((dirName + static_cast<std::string>(histNames[1][0])).c_str(), "; #Delta #eta; #Delta #phi", kTH2F, {{100, -0.15, 4.00}, {100, -0.15, 4.00}}); //eta od -2 do 2, phi od 0,5 pi do 3/2pi
+      histdetadpi[0][0] = mHistogramRegistry->add<TH2>((dirName + static_cast<std::string>(histNames[0][0])).c_str(), "; #Delta #eta; #Delta #phi", kTH2F, {{100, -2.00, 2.00}, {100, PIH, 3*PIH}});
+      histdetadpi[0][1] = mHistogramRegistry->add<TH2>((dirName + static_cast<std::string>(histNames[1][0])).c_str(), "; #Delta #eta; #Delta #phi", kTH2F, {{100, -2.00, 2.00}, {100, PIH, 3*PIH}}); //eta od -2 do 2, phi od 0,5 pi do 3/2pi
       if (plotForEveryRadii) {
         for (int i = 0; i < 9; i++) {
-          histdetadpiRadii[0][i] = mHistogramRegistryQA->add<TH2>((dirName + static_cast<std::string>(histNamesRadii[0][i])).c_str(), "; #Delta #eta; #Delta #phi", kTH2F, {{100, -0.15, 4.00}, {100, -0.15, 4.00}});
+          histdetadpiRadii[0][i] = mHistogramRegistryQA->add<TH2>((dirName + static_cast<std::string>(histNamesRadii[0][i])).c_str(), "; #Delta #eta; #Delta #phi", kTH2F, {{100, -2.00, 2.00}, {100, PIH, 3*PIH}});
         }
       }
-    } //V0 niepotrzebne
-    if constexpr (mPartOneType == o2::aod::femtodreamparticle::ParticleType::kTrack && mPartTwoType == o2::aod::femtodreamparticle::ParticleType::kV0) {
-      for (int i = 0; i < 2; i++) {
-        std::string dirName = static_cast<std::string>(dirNames[1]);
-        histdetadpi[i][0] = mHistogramRegistry->add<TH2>((dirName + static_cast<std::string>(histNames[0][i])).c_str(), "; #Delta #eta; #Delta #phi", kTH2F, {{100, -0.15, 4.00}, {100, -0.15, 4.00}});
-        histdetadpi[i][1] = mHistogramRegistry->add<TH2>((dirName + static_cast<std::string>(histNames[1][i])).c_str(), "; #Delta #eta; #Delta #phi", kTH2F, {{100, -0.15, 4.00}, {100, -0.15, 4.00}});
-        if (plotForEveryRadii) {
-          for (int j = 0; j < 9; j++) {
-            histdetadpiRadii[i][j] = mHistogramRegistryQA->add<TH2>((dirName + static_cast<std::string>(histNamesRadii[i][j])).c_str(), "; #Delta #eta; #Delta #phi", kTH2F, {{100, -0.15, 4.00}, {100, -0.15, 4.00}});
-          }
-        }
-      }
-    }
+    } 
   }
   ///  Check if pair is close or not
   template <typename Part, typename Parts> ///tez niepotrzebne tutaj calc deta
@@ -104,7 +83,7 @@ class FemtoDreamDetaDphi
         auto daughter = particles.begin() + indexOfDaughter;
         auto deta = part1.eta() - daughter.eta();
        // auto dphiAvg = AveragePhiStar(part1, *daughter, i);
-	auto dphiAvg = part1.phi() - daughetr.phi(); //change here
+	auto dphiAvg = part1.phi() - daughter.phi(); //change here
         histdetadpi[i][0]->Fill(deta, dphiAvg);
         if (pow(dphiAvg, 2) / pow(deltaPhiMax, 2) + pow(deta, 2) / pow(deltaEtaMax, 2) < 1.) {//niepotrzebne
           pass = true;
@@ -122,7 +101,7 @@ class FemtoDreamDetaDphi
  private:
   HistogramRegistry* mHistogramRegistry = nullptr;   ///< For main output
   HistogramRegistry* mHistogramRegistryQA = nullptr; ///< For QA output
-  static constexpr std::string_view dirNames[2] = {"kTrack_kTrack/", "kTrack_kV0/"};// wystarczy Track
+  static constexpr std::string_view dirNames[2] = {"ZCH/", "ZCH/"};// wystarczy Track
 
   static constexpr std::string_view histNames[2][2] = {{"detadphidetadphi0Before_0", "detadphidetadphi0Before_1"},
                                                        {"detadphidetadphi0After_0", "detadphidetadphi0After_1"}};

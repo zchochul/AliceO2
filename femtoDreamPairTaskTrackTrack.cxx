@@ -28,6 +28,7 @@
 #include "FemtoDreamPairCleaner.h"
 #include "FemtoDreamContainer.h"
 #include "FemtoDreamDetaDphiStar.h"
+#include "FemtoDreamDetaDphi.h" //added here
 
 using namespace o2;
 using namespace o2::analysis::femtoDream;
@@ -117,6 +118,8 @@ struct femtoDreamPairTaskTrackTrack {
   FemtoDreamContainer<femtoDreamContainer::EventType::mixed, femtoDreamContainer::Observable::kstar> mixedEventCont;
   FemtoDreamPairCleaner<aod::femtodreamparticle::ParticleType::kTrack, aod::femtodreamparticle::ParticleType::kTrack> pairCleaner;
   FemtoDreamDetaDphiStar<aod::femtodreamparticle::ParticleType::kTrack, aod::femtodreamparticle::ParticleType::kTrack> pairCloseRejection;
+  //added here
+  FemtoDreamDetaDphi<aod::femtodreamparticle::ParticleType::kTrack, aod::femtodreamparticle::ParticleType::kTrack> pairClose;
   /// Histogram output
   HistogramRegistry qaRegistry{"TrackQA", {}, OutputObjHandlingPolicy::AnalysisObject};
   HistogramRegistry resultRegistry{"Correlations", {}, OutputObjHandlingPolicy::AnalysisObject};
@@ -138,6 +141,7 @@ struct femtoDreamPairTaskTrackTrack {
     pairCleaner.init(&qaRegistry);
     if (ConfIsCPR) {
       pairCloseRejection.init(&resultRegistry, &qaRegistry, 0.01, 0.01, false); /// \todo add config for Δη and ΔΦ cut values
+      pairClose.init(&resultRegistry, &qaRegistry, 0.01, 0.01); /// added here
     }
 
     vPIDPartOne = ConfPIDPartOne;
@@ -267,6 +271,9 @@ struct femtoDreamPairTaskTrackTrack {
         if (pairCloseRejection.isClosePair(p1, p2, parts, getMagneticFieldTesla(tmstamp))) {
           continue;
         }
+        if (pairClose.isClosePair(p1, p2, parts, getMagneticFieldTesla(tmstamp))) {//added here
+          continue;
+        }
       }
 
       // track cleaning
@@ -274,6 +281,7 @@ struct femtoDreamPairTaskTrackTrack {
         continue;
       }
       sameEventCont.setPair(p1, p2, multCol);
+	//tutaj
     }
   }
 
@@ -315,11 +323,15 @@ struct femtoDreamPairTaskTrackTrack {
         }
 
         if (ConfIsCPR) {
-          if (pairCloseRejection.isClosePair(p1, p2, parts, getMagneticFieldTesla(collision1.timestamp()))) {
+          if (pairCloseRejection.isClosePair(p1, p2, parts, getMagneticFieldTesla(collision1.timestamp()))) { //pairCLoseRejection nazwa klasy
+            continue;
+          }
+          if (pairClose.isClosePair(p1, p2, parts, getMagneticFieldTesla(collision1.timestamp()))) { //added here
             continue;
           }
         }
         mixedEventCont.setPair(p1, p2, collision1.multV0M()); // < \todo dirty trick, the multiplicity will be of course within the bin width used for the hashes
+		//tutaj
       }
     }
   }
