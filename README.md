@@ -91,4 +91,9 @@ Another problem I've encountered was the problem of **leaves in several trees no
 ## Creating <img src="https://render.githubusercontent.com/render/math?math={\color{white} \Delta \eta \Delta \varphi}"> task
 To do that, I've used existing `FemtoDreamDetaDphiStar.h`. To create <img src="https://render.githubusercontent.com/render/math?math={\color{white} \Delta \eta \Delta \varphi}"> histograms I'm using [`FemtoDreamDetaDphi.h`](https://github.com/zchochul/AliceO2/blob/main/FemtoDreamDetaDphi.h) and [`femtoDreamPairTaskTrackTrack.cxx`](https://github.com/zchochul/AliceO2/blob/main/femtoDreamPairTaskTrackTrack.cxx). I'm still working on it.
 
-
+# Fork
+According to [this tutorial](https://alisw.github.io/git-tutorial/) create fork of O2Physics repo. Then git do git config part and then point git to this place with git remote add origin. <br>
+To add something to your branch `git status` then `git add <file>` then `git push https://<token>@github.com/zchochul/O2Physics.git`. <br>
+To make pull request ... <- add here
+### Possible errors
+`git reset --hard upstream/master`
