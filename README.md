@@ -11,7 +11,7 @@ Keep in mind most of us use Ubuntu 18.04 / 20.04.
 ## Updating ALICE system
 ALICE O2 Framework is constantly evolving so remember to stay up-to-date with the official repo. To update it you need to do the following: <br>
 1. in `alice/O2` type `git pull --rebase`, <br>
-2. in `alice/O2Physics` type `git reset --hard`, <br>
+2. in `alice/O2Physics` type `git reset --hard` and then `git pull --rebase`, <br>
 3. in `alice/alidist` type `git pull --rebase upstream master`<br>
 4. then in `alice/` type `aliBuild -j6 build O2Physics --defaults o2` <br>
 
