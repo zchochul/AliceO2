@@ -132,6 +132,14 @@ Another problem I've encountered was the problem of **leaves in several trees no
 
 ## Creating <img src="https://render.githubusercontent.com/render/math?math={\color{white} \Delta \eta \Delta \varphi}"> task
 To do that, I've used existing `FemtoDreamDetaDphiStar.h`. To create <img src="https://render.githubusercontent.com/render/math?math={\color{white} \Delta \eta \Delta \varphi}"> histograms I'm using [`FemtoDreamDetaDphi.h`](https://github.com/zchochul/AliceO2/blob/main/FemtoDreamDetaDphi.h) and [`femtoDreamPairTaskTrackTrack.cxx`](https://github.com/zchochul/AliceO2/blob/main/femtoDreamPairTaskTrackTrack.cxx). 
-We are creating pararell directory to FemtoDream, called AliFemto. I'm still working on it.
+We are creating pararell directory to FemtoDream, called AliFemto. Our analysis is based on code from FemtoDream:
+1.  `femtoDreamPairTaskTrackTrack.cxx` -> `aliFemtoPairTaskTrackTrack.cxx`
+2.  `FemtoDreamParticleHisto.h` -> `AliFemtoParticleHisto.h`
+3.  `FemtoDreamEventHisto.h` -> `AliFemtoEventHisto.h`
+4.  `FemtoDreamPairCleaner.h` -> `AliFemtoPairCleaner.h`
+5.  `FemtoDreamDetaDphiStar.h` -> `AliFemtoDetaDphiStar.h`
+6.  `FemtoUtils.h` -> `AliFemtoUtils.h`
+7.  `PWGCF/DataModel/FemtoDerived.h` -> `AliFemtoDerived.h`
+All of the codes listed above are changed and added to our directory ;)
 
 
