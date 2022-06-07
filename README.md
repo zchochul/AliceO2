@@ -131,6 +131,7 @@ You need to **make sure your aod is properly produced for femto analysis**. Usin
 Another problem I've encountered was the problem of **leaves in several trees not filling up**, make sure that you've changed `ConfCutPartOne` and `ConfCutPartTwo` value to the one from cutculator in run command and in code itself. <br>
 
 ## Creating <img src="https://render.githubusercontent.com/render/math?math={\color{white} \Delta \eta \Delta \varphi}"> task
-To do that, I've used existing `FemtoDreamDetaDphiStar.h`. To create <img src="https://render.githubusercontent.com/render/math?math={\color{white} \Delta \eta \Delta \varphi}"> histograms I'm using [`FemtoDreamDetaDphi.h`](https://github.com/zchochul/AliceO2/blob/main/FemtoDreamDetaDphi.h) and [`femtoDreamPairTaskTrackTrack.cxx`](https://github.com/zchochul/AliceO2/blob/main/femtoDreamPairTaskTrackTrack.cxx). I'm still working on it.
+To do that, I've used existing `FemtoDreamDetaDphiStar.h`. To create <img src="https://render.githubusercontent.com/render/math?math={\color{white} \Delta \eta \Delta \varphi}"> histograms I'm using [`FemtoDreamDetaDphi.h`](https://github.com/zchochul/AliceO2/blob/main/FemtoDreamDetaDphi.h) and [`femtoDreamPairTaskTrackTrack.cxx`](https://github.com/zchochul/AliceO2/blob/main/femtoDreamPairTaskTrackTrack.cxx). 
+We are creating pararell directory to FemtoDream, called AliFemto. I'm still working on it.
 
 
