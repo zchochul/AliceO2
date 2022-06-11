@@ -95,6 +95,13 @@ If you want to add your file not to your branch only but also to main repo you n
 and then after clicking on _1 commits ahead_ this page will show up and on it you need to create pull request<br>
 ![image](https://user-images.githubusercontent.com/87480906/170225312-9e5479a9-b3a0-4ac5-8a10-7ad6653ce84b.png)
 
+### Adding changes to fork branch
+1.  `git pull --rebase` if you are not up-to-date with [AliceO2Group/O2Physics](https://github.com/AliceO2Group/O2Physics) repo.
+2.  `git add `
+3.  `git commit -m`
+4.  `git push -f origin master:alifemto` <- pushing to fork, branch: alifemto (but can be any other)
+
+The `-f` is actually required because of the rebase. Whenever you do a rebase you would need to do a force push because the remote branch cannot be fast-forwarded to your commit. You'd always want to make sure that you do a pull before pushing, but if you don't like to force push to master or dev for that matter, you can create a new branch to push to and then merge or make a PR. This action forces your remote repo to ignore differences in commits between your local and remote versions.
 
 ### Possible errors
 `git reset --hard upstream/master`
