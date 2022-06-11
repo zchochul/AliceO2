@@ -145,11 +145,12 @@ We are creating pararell directory to FemtoDream, called AliFemto. Our analysis 
 5.  `FemtoDreamDetaDphiStar.h` -> `AliFemtoDetaDphiStar.h`
 6.  `FemtoUtils.h` -> `AliFemtoUtils.h`
 7.  `PWGCF/DataModel/FemtoDerived.h` -> `AliFemtoDerived.h` 
-8.  `FemtoDreamMath.h` -> `AliFemtoMath.h`
-Working version of Femtodream we are working on:
-1.  `alice/alidist/` commit hash: 
-2.  `alice/O2Physics/` commit hash:
-3.  `alice/O2/` commit hash:
+8.  `FemtoDreamMath.h` -> `AliFemtoMath.h`<br>
+
+Version of Femtodream AliFemto is based on is:
+1.  `alice/alidist/` commit hash: **8ebd919bb75e468cb1a994f1012abfa22235ff2f**
+2.  `alice/O2Physics/` commit hash: **c3dcdbca87dc9535de85f9837ad777de475ceee3**
+3.  `alice/O2/` commit hash: **291457fce1bf6da3c0ac5cf1afe53a12624a3a6c**
 
 
 
