@@ -37,7 +37,7 @@ Go to `~/alice/sw/BUILD/O2Physics-latest-master/O2Physics`, as soon as you enter
 ![image](https://user-images.githubusercontent.com/87480906/162129203-4a4b833b-fefc-48c6-9229-908354cf0620.png)
 In `~/alice/sw/BUILD/O2Physics-latest-master/O2Physics` type `alienv load ninja/latest O2Physics/latest ` and then `ninja stage/bin/your-analysis-file` to build your code. If you don't know what you should type in `your-analysis-file` place, open `CMakeList` and see how it is called there. <br>
 Keep in mind that if you add a new file or modify CMakeList you need to use `cmake .` 
-Then `cp` it to directory with AOD file. (You can skip this step when you use `ninja install` instead of `ninja`) 
+Then, aftr building`cp` `stage/bin/<your-analysis-file>` to directory with AOD file. (You can skip this step when you use `ninja install` instead of `ninja`) 
 
 ### Possible errors
 If upon entering the `~/alice/sw/BUILD/O2Physics-latest-master/O2Physics` you don't see much text you probably don't have `eval "$(direnv hook bash)"` in your ~/.bashrc file. Type it there and open new terminal. <br>
