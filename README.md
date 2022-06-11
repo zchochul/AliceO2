@@ -15,6 +15,11 @@ ALICE O2 Framework is constantly evolving so remember to stay up-to-date with th
 3. in `alice/alidist` type `git pull --rebase upstream master`<br>
 4. then in `alice/` type `aliBuild -j6 build O2Physics --defaults o2` <br>
 
+Sometimes it is crucial to remember version you are on. In all repositories (in  `alice/alidist/`, `alice/O2/`, `alice/O2Physics`) type `git log`. To remember version you are on write down hash number. For example: <br>
+![image](https://user-images.githubusercontent.com/87480906/173186280-9b8004dd-8f3a-4e17-a120-7821924a37fc.png)<br>
+hash number in this case is: **291457fce1bf6da3c0ac5cf1afe53a12624a3a6c**
+
+
 ## How to obtain data files?
 To get smaller AOD file go [Analysis train : Run3_Conversion](https://alimonitor.cern.ch/trains/train.jsp?train_id=132) and scroll down. Choose train number you're interested in and click on run number (for example 246) and then on Test Results (in the middle). Scroll down and find full train option and then click on output. Now you're supposed to see a lot of files, but you're only interested in `AO2D.root` and it's usually the first. Then you need to only click on it and it will start to download.<br>
 When you want to run your analysis on a bigger file go [alimonitor.cern.ch/catalogue](https://alimonitor.cern.ch/catalogue/index.jsp?path=%2Falice%2Fdata%2F2018%2FLHC18b%2F000285064%2Fpass1%2FPWGZZ%2FRun3_Conversion%2F267_20220301-1202_child_1#/alice/data/2018/LHC18b/000285064/pass1/PWGZZ/Run3_Conversion/267_20220301-1202_child_1).<br>
@@ -130,7 +135,7 @@ To run a simple task type something like that:<br>
 You need to **make sure your aod is properly produced for femto analysis**. Using typical AOD files will cause errors (for example: `Couldn't get TTree "DF_2853960030894995121/O2femtodreamcols" from <your-AOD-file>`). <br>
 Another problem I've encountered was the problem of **leaves in several trees not filling up**, make sure that you've changed `ConfCutPartOne` and `ConfCutPartTwo` value to the one from cutculator in run command and in code itself. <br>
 
-## Creating <img src="https://render.githubusercontent.com/render/math?math={\color{black} \Delta \eta \Delta \varphi}"> task
+## Creating dEta dPhi task
 To do that, I've used existing `FemtoDreamDetaDphiStar.h`. To create <img src="https://render.githubusercontent.com/render/math?math={\color{white} \Delta \eta \Delta \varphi}"> histograms I'm using [`FemtoDreamDetaDphi.h`](https://github.com/zchochul/AliceO2/blob/main/FemtoDreamDetaDphi.h) and [`femtoDreamPairTaskTrackTrack.cxx`](https://github.com/zchochul/AliceO2/blob/main/femtoDreamPairTaskTrackTrack.cxx). 
 We are creating pararell directory to FemtoDream, called AliFemto. Our analysis is based on code from FemtoDream:
 1.  `femtoDreamPairTaskTrackTrack.cxx` -> `aliFemtoPairTaskTrackTrack.cxx`
@@ -141,7 +146,10 @@ We are creating pararell directory to FemtoDream, called AliFemto. Our analysis 
 6.  `FemtoUtils.h` -> `AliFemtoUtils.h`
 7.  `PWGCF/DataModel/FemtoDerived.h` -> `AliFemtoDerived.h` 
 8.  `FemtoDreamMath.h` -> `AliFemtoMath.h`
+Working version of Femtodream we are working on:
+1.  `alice/alidist/` commit hash: 
+2.  `alice/O2Physics/` commit hash:
+3.  `alice/O2/` commit hash:
 
-All of the codes listed above are changed and added to our directory ;) (for now codes are only available on this repository, I haven't tested them yet)<br>
 
 
