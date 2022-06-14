@@ -1,4 +1,9 @@
-# AliceO2
+# Table of contents
+1. [Alice O2 introduction](#AliceO2)
+2. [AliFemto](#AliFemto)
+3. [Github help ;)](#github)
+
+# AliceO2 <a name="AliceO2"></a>
 In this repository you can find instructions on how to get started with O2 Framework. Keep in mind that this framework is constantly evolving and many files in this repository can be outdated.<br>
 Here are some links you may find useful:<br>
 - [ALICE O2 documentation](https://aliceo2group.github.io/analysis-framework/docs/installing/) <br>
@@ -18,7 +23,6 @@ ALICE O2 Framework is constantly evolving so remember to stay up-to-date with th
 Sometimes it is crucial to remember version you are on. In all repositories (in  `alice/alidist/`, `alice/O2/`, `alice/O2Physics`) type `git log`. To remember version you are on write down hash number. For example: <br>
 ![image](https://user-images.githubusercontent.com/87480906/173186280-9b8004dd-8f3a-4e17-a120-7821924a37fc.png)<br>
 hash number in this case is: **291457fce1bf6da3c0ac5cf1afe53a12624a3a6c**
-
 
 ## How to obtain data files?
 To get smaller AOD file go [Analysis train : Run3_Conversion](https://alimonitor.cern.ch/trains/train.jsp?train_id=132) and scroll down. Choose train number you're interested in and click on run number (for example 246) and then on Test Results (in the middle). Scroll down and find full train option and then click on output. Now you're supposed to see a lot of files, but you're only interested in `AO2D.root` and it's usually the first. Then you need to only click on it and it will start to download.<br>
@@ -106,7 +110,7 @@ The `-f` is actually required because of the rebase. Whenever you do a rebase yo
 ### Possible errors
 `git reset --hard upstream/master`
 
-# Femtodream / Alifemto
+# Femtodream / Alifemto <a name="AliFemto"></a>
 Example codes are available here: `O2Physics/PWGCF/FemtoDream/`<br>
 For this part I've used 267 train as my AOD.
 
@@ -160,4 +164,4 @@ Version of Femtodream AliFemto is based on is:
 3.  `alice/O2/` commit hash: **291457fce1bf6da3c0ac5cf1afe53a12624a3a6c**
 
 
-
+# Github help ;) [work in progress c:] <a name="github"></a>
