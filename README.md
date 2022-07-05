@@ -1,3 +1,4 @@
+This repository is a collection of notes I collected while working with O2 software. Keep in mind that I am still working on this repository and it is not complete. If you have any comments feel free to email me: [zchochul@cern.ch](mailto:zchochul@cern.ch)
 # Table of contents
 1. [Alice O2 - introduction](#AliceO2)
 2. [Femtoscopy](#Femtoscopy)
