@@ -104,48 +104,21 @@ You can change histograms manually or you can write macros and run them on .root
 ## Helpful commands 
 This step may seem obvious, but sometimes you might find `grep` command useful. Especially, when you want to find tutorials with functions you are interested in. 
 
-# Forking official repo
-According to [this tutorial](https://alisw.github.io/git-tutorial/) create fork of [O2Physics repo](https://github.com/AliceO2Group/O2Physics). Then setup user configuration on your local computer:<br>
-```
-git config --global user.name "<Firstname> <Lastname>"
-git config --global user.email <your-email-address>
-git config --global user.github <your-github-username>
-```
-Then point git to this fork with:<br>
-```
-git remote add origin https://github.com/<your-github-username>/O2Physics
-```
-When you use `git status` you will be able to display the state of the working directory and the staging area. It lets you see which changes have been staged, which haven't, and which files aren't being tracked by Git. If you want to add files to your branch use:
-```
-git status <-- everything should be colored red
-git add <file> <-- adding file to commit
-git push https://<token>@github.com/zchochul/O2Physics.git <--pushing
-git commit -m <commit info> <-- submitting a commit
-```
-If you want to add your file not to your branch only but also to main repo you need to make pull request.<br>
-![image](https://user-images.githubusercontent.com/87480906/170225172-7c12f4bf-ea47-45e2-b060-d664a9ef46aa.png)<br>
-and then after clicking on _1 commits ahead_ this page will show up and on it you need to create pull request<br>
-![image](https://user-images.githubusercontent.com/87480906/170225312-9e5479a9-b3a0-4ac5-8a10-7ad6653ce84b.png)
-
-### Adding changes to fork branch
-1.  `git pull --rebase` if you are not up-to-date with [AliceO2Group/O2Physics](https://github.com/AliceO2Group/O2Physics) repo.
-2.  `git add `
-3.  `git commit -m`
-4.  `git push -f origin master:alifemto` <- pushing to fork, branch: alifemto (but can be any other)
-
-The `-f` is actually required because of the rebase. Whenever you do a rebase you would need to do a force push because the remote branch cannot be fast-forwarded to your commit. You'd always want to make sure that you do a pull before pushing, but if you don't like to force push to master or dev for that matter, you can create a new branch to push to and then merge or make a PR. This action forces your remote repo to ignore differences in commits between your local and remote versions.
-
-### Possible errors
-`git reset --hard upstream/master`
-
 # Femtoscopy <a name="Femtoscopy"></a>
 Example codes are available here: `O2Physics/PWGCF/FemtoDream/`<br>
 For this part I've used 267 train as my AOD.
 
 ## Preparing AOD
-First of all you need to cut your AOD. After typing `alienv enter O2Physics/latest` run a shell script called `prod.sh` from this repo or type:  <br>
+First of all you need to _simplify_ your AOD. After typing `alienv enter O2Physics/latest` run a shell script called <details><summary>`prod.sh`</summary>
+<p>
+
 `o2-analysis-cf-femtodream-producer-reduced --configuration json://prod-config.json  --aod-writer-resfile FemtoAO2D  --aod-writer-keep AOD/FEMTODREAMPARTS/0,AOD/FEMTODREAMCOLS/0,AOD/FEMTODEBUGPARTS/0 -b | o2-analysis-timestamp  --configuration json://prod-config.json -b | o2-analysis-multiplicity-table  --configuration json://prod-config.json -b | o2-analysis-event-selection  --configuration json://prod-config.json -b | o2-analysis-trackextension  --configuration json://prod-config.json -b | o2-analysis-pid-tpc  --configuration json://prod-config.json -b |  o2-analysis-pid-tof  --configuration json://prod-config.json --aod-memory-rate-limit 600000000 -b` <br>
-Make sure you have prod-config.json file, you can download it from this repo. You need to change the "aod-file" part to match with your .root file/files.<br>
+ 
+I'm changing it quite frequently so it's just a concept, but I'll try keep it up to date.
+
+</p>
+</details>  <br>
+Make sure you have `prod-config.json` file, you can download it from this repo. You need to change the "aod-file" part to match with your .root file/files (keep in mind this file also evolves, so this file may not be the latest version).<br>
 
 ### Cutculator
 Type: `alienv enter O2Physics/latest` and then `o2-analysis-cf-femtodream-cutculator prod-config.json`. The following should appear on the screen:<br>
@@ -193,3 +166,37 @@ Version of Femtodream AliFemto is based on is:
 
 
 # Github help ;) [work in progress c:] <a name="github"></a>
+# Forking official repo
+According to [this tutorial](https://alisw.github.io/git-tutorial/) create fork of [O2Physics repo](https://github.com/AliceO2Group/O2Physics). Then setup user configuration on your local computer:<br>
+```
+git config --global user.name "<Firstname> <Lastname>"
+git config --global user.email <your-email-address>
+git config --global user.github <your-github-username>
+```
+Then point git to this fork with:<br>
+```
+git remote add origin https://github.com/<your-github-username>/O2Physics
+```
+When you use `git status` you will be able to display the state of the working directory and the staging area. It lets you see which changes have been staged, which haven't, and which files aren't being tracked by Git. If you want to add files to your branch use:
+```
+git status <-- everything should be colored red
+git add <file> <-- adding file to commit
+git push https://<token>@github.com/zchochul/O2Physics.git <--pushing
+git commit -m <commit info> <-- submitting a commit
+```
+If you want to add your file not to your branch only but also to main repo you need to make pull request.<br>
+![image](https://user-images.githubusercontent.com/87480906/170225172-7c12f4bf-ea47-45e2-b060-d664a9ef46aa.png)<br>
+and then after clicking on _1 commits ahead_ this page will show up and on it you need to create pull request<br>
+![image](https://user-images.githubusercontent.com/87480906/170225312-9e5479a9-b3a0-4ac5-8a10-7ad6653ce84b.png)
+
+### Adding changes to fork branch
+1.  `git pull --rebase` if you are not up-to-date with [AliceO2Group/O2Physics](https://github.com/AliceO2Group/O2Physics) repo.
+2.  `git add `
+3.  `git commit -m`
+4.  `git push -f origin master:alifemto` <- pushing to fork, branch: alifemto (but can be any other)
+
+The `-f` is actually required because of the rebase. Whenever you do a rebase you would need to do a force push because the remote branch cannot be fast-forwarded to your commit. You'd always want to make sure that you do a pull before pushing, but if you don't like to force push to master or dev for that matter, you can create a new branch to push to and then merge or make a PR. This action forces your remote repo to ignore differences in commits between your local and remote versions.
+
+### Possible errors
+`git reset --hard upstream/master`
+
