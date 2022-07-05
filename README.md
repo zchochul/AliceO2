@@ -7,7 +7,8 @@
 In this repository you can find instructions on how to get started with O2 Framework. Keep in mind that this framework is constantly evolving and many files in this repository can be outdated.<br>
 Here are some links you may find useful:<br>
 - [ALICE O2 documentation](https://aliceo2group.github.io/analysis-framework/docs/installing/) - O2 documentation, <br>
-- [Analysis train : Run3_Conversion](https://alimonitor.cern.ch/trains/train.jsp?train_id=132) - information about converted trains (data information).<br>
+- [Analysis train : Run3_Conversion](https://alimonitor.cern.ch/trains/train.jsp?train_id=132) - information about converted trains (data information),<br>
+- [Testing the O2 Analysis Framework](https://twiki.cern.ch/twiki/bin/viewauth/ALICE/AliceO2WP14AF).
 
 ## How to install O2 Framework?
 Keep in mind most of us use Ubuntu 18.04 / 20.04. Firstly, build O2 with alibuild as explained in the [ALICE O2 documentation](https://aliceo2group.github.io/analysis-framework/docs/installing/). So, you need to follow instructions from [Installation via alibuild](https://alice-doc.github.io/alice-analysis-tutorial/building/custom.html) page, but do not follow instructions on "build packages" there! You also need to acquire GRID certificate, it's explained in detail here -> [_Get a Grid certificate_](https://alice-doc.github.io/alice-analysis-tutorial/start/cert.html).<br>
@@ -99,9 +100,8 @@ Running command `./o2-analysistutorial-simple-analysis --aod-file <aod_file_name
 To enter AnalysisResults.root file enter O2Physics environment (`enter O2Physics/latest`) and type: `root -l` and then `new TBrowser`. (`-l` is optional but it runs root without additional information about it).<br>
 You can change histograms manually or you can write macros and run them on .root file. If you've never written any root macros consider [_this repository_](https://github.com/zchochul/KADDre). You can find more on root and how to use it here -> [_root.cern/manual/_](https://root.cern/manual/first_steps_with_root/). <br>
 
-## Helpful commands and pages
+## Helpful commands 
 This step may seem obvious, but sometimes you might find `grep` command useful. Especially, when you want to find tutorials with functions you are interested in. 
-Additional Testing O2 Framework page - [twiki.cern.ch](https://twiki.cern.ch/twiki/bin/viewauth/ALICE/AliceO2WP14AF).
 
 # Forking official repo
 According to [this tutorial](https://alisw.github.io/git-tutorial/) create fork of [O2Physics repo](https://github.com/AliceO2Group/O2Physics). Then setup user configuration on your local computer:<br>
