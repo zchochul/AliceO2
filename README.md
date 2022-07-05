@@ -60,7 +60,7 @@ Keep in mind that if you add a new file or modify CMakeList you need to use `cma
 Then, after building part, copy this builded file to directory with AOD file (`cp stage/bin/<your-analysis-file>`). You can skip this step (copying) when you use `ninja install` instead of `ninja` or you can use alibuild.
 
 ### Possible errors
-If upon entering the `~/alice/sw/BUILD/O2Physics-latest-master/O2Physics` you don't see much text you probably don't have `eval "$(direnv hook bash)"` in your ~/.bashrc file. Type it there and open new terminal. <br>
+If upon entering the `~/alice/sw/BUILD/O2Physics-latest-master/O2Physics` you don't see much text you probably don't have `eval "$(direnv hook bash)"` in your ~/.bashrc file. Type it there and open a new terminal. <br>
 In general, in ~/.bashrc you should have following lines: <br>
 `export ALIBUILD_WORK_DIR="$HOME/alice/sw"` <br>
 ``eval "`alienv shell-helper`"`` <br>
@@ -68,28 +68,39 @@ In general, in ~/.bashrc you should have following lines: <br>
 This can be written anywhere and will work but try writing it in one place, for example at the end of ~/.bashrc file <br>
 
 ## How to run a code?
-In your dir with AOD file type: <br>
+In your directory with an AOD file type: <br>
 `alienv enter O2Physics/latest` and  `alien-token-init your-cern-nickname`<br>
 Then to run your code you only need to type: <br>
 `./o2-analysistutorial-simple-analysis --aod-file <aod_file_name> -b` <br>
 But sometimes you need to add more for it to work. When you see `Exception caught: Couldn't get TTree [sth]` you need to add it to your analysis. <br>
-For example while performing PID analysis. In this case you need to type for example: <br>
+<details><summary>Example</summary>
+<p>
+
+While performing PID analysis you need to type for example: <br>
 `./o2-analysistutorial-simple-analysis --aod-file <aod_file_name> --aod-memory-rate-limit 100000000000000 -b | o2-analysis-pid-tpc -b | o2-analysis-pid-tof -b | o2-analysis-trackselection -b | o2-analysis-tracksextention -b ` <br>
 But keep in mind not everything might be useful in your case and `-b` stops GUI from showing.
 
+</p>
+</details>
+
 ### Possible errors
+<details><summary>Fatal errors with non-existing CCDB entries.</summary>
+<p>
+
 While trying to run various O2 tasks/tutorials you can run into fatal errors with non-existing CCDB entries for specific data. <br>
 Usually adding `--isRun2MC` to executables (likely `o2-analysis-timestamp`) might help. We also added `--isMC` to o2-analysis-event-selection. <br>
 For example: `./o2-analysis-mm-dndeta --aod-file AODmc2.root --aod-memory-rate-limit 100000000000000 -b | o2-analysis-pid-tpc -b | o2-analysis-pid-tof -b | o2-analysis-trackselection -b | o2-analysis-trackextension -b | o2-analysis-event-selection --isMC -b | o2-analysis-timestamp --isRun2MC -b `
 
+</p>
+</details>
+
 ## Results
 Running command `./o2-analysistutorial-simple-analysis --aod-file <aod_file_name> -b` (and others of that type) creates .root file and .json file. <br>
-To enter AnalysisResults.root file type: `root -l` and then `new TBrowser`. (`-l` is optional but it runs root without additional information about it).<br>
-You can change histograms manually or you can write macros and run them on .root file. <br>
-More on root and how to use it [root.cern/manual/](https://root.cern/manual/first_steps_with_root/). <br>
+To enter AnalysisResults.root file enter O2Physics environment (`enter O2Physics/latest`) and type: `root -l` and then `new TBrowser`. (`-l` is optional but it runs root without additional information about it).<br>
+You can change histograms manually or you can write macros and run them on .root file. If you've never written any root macros consider [_this repository_](https://github.com/zchochul/KADDre). You can find more on root and how to use it here -> [_root.cern/manual/_](https://root.cern/manual/first_steps_with_root/). <br>
 
 ## Helpful commands and pages
-This step may seem obvious, but sometimes you might find `grep` command useful. Especially, when you want to find tutorials with functions you are interested in. <br>
+This step may seem obvious, but sometimes you might find `grep` command useful. Especially, when you want to find tutorials with functions you are interested in. 
 Additional Testing O2 Framework page - [twiki.cern.ch](https://twiki.cern.ch/twiki/bin/viewauth/ALICE/AliceO2WP14AF).
 
 # Forking official repo
