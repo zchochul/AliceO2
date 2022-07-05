@@ -6,11 +6,12 @@
 # AliceO2 <a name="AliceO2"></a>
 In this repository you can find instructions on how to get started with O2 Framework. Keep in mind that this framework is constantly evolving and many files in this repository can be outdated.<br>
 Here are some links you may find useful:<br>
-- [ALICE O2 documentation](https://aliceo2group.github.io/analysis-framework/docs/installing/) - O2 documentation <br>
-- [Analysis train : Run3_Conversion](https://alimonitor.cern.ch/trains/train.jsp?train_id=132) - information about converted trains (data information)<br>
+- [ALICE O2 documentation](https://aliceo2group.github.io/analysis-framework/docs/installing/) - O2 documentation, <br>
+- [Analysis train : Run3_Conversion](https://alimonitor.cern.ch/trains/train.jsp?train_id=132) - information about converted trains (data information).<br>
 
 ## How to install O2 Framework?
-Keep in mind most of us use Ubuntu 18.04 / 20.04. Firstly, build O2 with alibuild as explained in the [ALICE O2 documentation](https://aliceo2group.github.io/analysis-framework/docs/installing/). So, you need to follow instructions from [Installation via alibuild](https://alice-doc.github.io/alice-analysis-tutorial/building/custom.html) page, but do not follow instructions on "build packages" there! You also need to acquire GRID certificate, it's explained in detail here -> [_Get a Grid certificate_](https://alice-doc.github.io/alice-analysis-tutorial/start/cert.html).
+Keep in mind most of us use Ubuntu 18.04 / 20.04. Firstly, build O2 with alibuild as explained in the [ALICE O2 documentation](https://aliceo2group.github.io/analysis-framework/docs/installing/). So, you need to follow instructions from [Installation via alibuild](https://alice-doc.github.io/alice-analysis-tutorial/building/custom.html) page, but do not follow instructions on "build packages" there! You also need to acquire GRID certificate, it's explained in detail here -> [_Get a Grid certificate_](https://alice-doc.github.io/alice-analysis-tutorial/start/cert.html).<br>
+Keep in mind that it may not be easy and can take quite a long time. The first time I built this system it took me a while.
 
 
 ## Updating ALICE system
@@ -20,9 +21,18 @@ ALICE O2 Framework is constantly evolving so remember to stay up-to-date with th
 3. in `alice/alidist` type `git pull --rebase upstream master`<br>
 4. then in `alice/` type `aliBuild -j6 build O2Physics --defaults o2` <br>
 
-Sometimes it is crucial to remember version you are on. In all repositories (in  `alice/alidist/`, `alice/O2/`, `alice/O2Physics`) type `git log`. To remember version you are on write down hash number. For example: <br>
+Unfortunately, it takes a while and you have to do it quite often due to the constantly evolving system.<br>
+
+### Remembering the repo version
+Sometimes it is crucial to remember version you are on. In all repositories (in  `alice/alidist/`, `alice/O2/`, `alice/O2Physics`) type `git log`. To remember version you are on write down hash number.<br>
+<details><summary>Here is an example ;)</summary>
+<p>
+
 ![image](https://user-images.githubusercontent.com/87480906/173186280-9b8004dd-8f3a-4e17-a120-7821924a37fc.png)<br>
 hash number in this case is: **291457fce1bf6da3c0ac5cf1afe53a12624a3a6c**
+
+</p>
+</details>
 
 ## How to obtain data files?
 To get smaller AOD file go [Analysis train : Run3_Conversion](https://alimonitor.cern.ch/trains/train.jsp?train_id=132) and scroll down. Choose train number you're interested in and click on run number (for example 246) and then on Test Results (in the middle). Scroll down and find full train option and then click on output. Now you're supposed to see a lot of files, but you're only interested in `AO2D.root` and it's usually the first. Then you need to only click on it and it will start to download.<br>
