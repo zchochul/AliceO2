@@ -1,6 +1,6 @@
 # Table of contents
-1. [Alice O2 introduction](#AliceO2)
-2. [AliFemto](#AliFemto)
+1. [Alice O2 - introduction](#AliceO2)
+2. [Femtoscopy](#Femtoscopy)
 3. [Github help ;)](#github)
 
 # AliceO2 <a name="AliceO2"></a>
@@ -110,7 +110,7 @@ The `-f` is actually required because of the rebase. Whenever you do a rebase yo
 ### Possible errors
 `git reset --hard upstream/master`
 
-# Femtodream / Alifemto <a name="AliFemto"></a>
+# Femtoscopy <a name="Femtoscopy"></a>
 Example codes are available here: `O2Physics/PWGCF/FemtoDream/`<br>
 For this part I've used 267 train as my AOD.
 
