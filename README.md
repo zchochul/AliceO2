@@ -104,9 +104,9 @@ You can change histograms manually or you can write macros and run them on .root
 ## Helpful commands 
 This step may seem obvious, but sometimes you might find `grep` command useful. Especially, when you want to find tutorials with functions you are interested in. 
 
-# Femtoscopy <a name="Femtoscopy"></a>
-Example codes are available here: `O2Physics/PWGCF/FemtoDream/`<br>
-For this part I've used 267 train as my AOD.
+# Femtoscopy (FemtoWorld)<a name="Femtoscopy"></a>
+Example codes are available here: `O2Physics/PWGCF/`
+For data I've used 267 train.
 
 ## Preparing AOD
 First of all you need to _simplify_ your AOD. After typing `alienv enter O2Physics/latest` run a shell script called <details><summary>`prod.sh`</summary>
