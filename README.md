@@ -166,7 +166,7 @@ Version of Femtodream AliFemto is based on is:
 
 
 # Github help ;) [work in progress c:] <a name="github"></a>
-# Forking official repo
+## Forking official repo
 According to [this tutorial](https://alisw.github.io/git-tutorial/) create fork of [O2Physics repo](https://github.com/AliceO2Group/O2Physics). Then setup user configuration on your local computer:<br>
 ```
 git config --global user.name "<Firstname> <Lastname>"
@@ -189,6 +189,10 @@ If you want to add your file not to your branch only but also to main repo you n
 and then after clicking on _1 commits ahead_ this page will show up and on it you need to create pull request<br>
 ![image](https://user-images.githubusercontent.com/87480906/170225312-9e5479a9-b3a0-4ac5-8a10-7ad6653ce84b.png)
 
+### Clang formatting 
+In order to add changes to official repo, your code needs to pass clang formatting test. 
+What you need to do is quite easy, just enter clang environment by using `alienv enter Clang/latest` and then in the directory you have files you want to add, type `find . -iname "*.h" -o -iname "*.cxx" | xargs clang-format -style=file -i`. Keep in mind that this command changes only .h and .cxx, but you can add more or change to fit your files.
+
 ### Adding changes to fork branch
 1.  `git pull --rebase` if you are not up-to-date with [AliceO2Group/O2Physics](https://github.com/AliceO2Group/O2Physics) repo.
 2.  `git add `
@@ -199,4 +203,5 @@ The `-f` is actually required because of the rebase. Whenever you do a rebase yo
 
 ### Possible errors
 `git reset --hard upstream/master`
+
 
