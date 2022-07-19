@@ -101,7 +101,17 @@ Running command `./o2-analysistutorial-simple-analysis --aod-file <aod_file_name
 To enter AnalysisResults.root file enter O2Physics environment (`enter O2Physics/latest`) and type: `root -l` and then `new TBrowser`. (`-l` is optional but it runs root without additional information about it).<br>
 You can change histograms manually or you can write macros and run them on .root file. If you've never written any root macros consider [_this repository_](https://github.com/zchochul/KADDre). You can find more on root and how to use it here -> [_root.cern/manual/_](https://root.cern/manual/first_steps_with_root/). <br>
 
-## Helpful commands 
+## Useful tutorials and commands 
+There has been a series of tutorials led by Victor Luis Gonzalez. It's an amazing source of examples! Most of those sessions are recorded and all of them have slides attached to them, I've listed them below, feel free to check them ;) <br>
+Tutorials by Victor Gonzalez:<br>
+ 1. [Getting started: Configuring tasks, selecting collisions, filling outputs](https://indico.cern.ch/event/1171307/) <br>
+ 2. [Basic error recognition, json config files](https://indico.cern.ch/event/1172366/) <br>
+ 3. [Templates and process switch](https://indico.cern.ch/event/1175793/)<br>
+ 4. [Templates continuation, how to not repeat code](https://indico.cern.ch/event/1178484/) <br>
+ 5. [CCDB: Correcting for NUA, NUE, ...](https://indico.cern.ch/event/1180289/)<br>
+
+
+
 This step may seem obvious, but sometimes you might find `grep` command useful. Especially, when you want to find tutorials with functions you are interested in. 
 
 # Femtoscopy (FemtoWorld)<a name="Femtoscopy"></a>
