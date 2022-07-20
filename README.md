@@ -80,12 +80,40 @@ But sometimes you need to add more for it to work. When you see `Exception caugh
 
 While performing PID analysis you need to type for example: <br>
 `./o2-analysistutorial-simple-analysis --aod-file <aod_file_name> --aod-memory-rate-limit 100000000000000 -b | o2-analysis-pid-tpc -b | o2-analysis-pid-tof -b | o2-analysis-trackselection -b | o2-analysis-tracksextention -b ` <br>
-But keep in mind not everything might be useful in your case and `-b` stops GUI from showing.
+ Those o2-analysis-pid-tpc tasks are called **helper tasks** and they are used to produce tables that will be later used in the analysis. But keep in mind not everything might be useful in your case and `-b` stops GUI from showing.
 
 </p>
 </details>
 
 ### Possible errors
+<details><summary>Couldn't get TTree.</summary>
+<p>
+
+ Sometimes you may get an error, for example: `[ERROR] Exception caught: Couldn't get TTree "DF_2853960297589372650/O2v0dataext from <your AOD file>"`. It means that this `v0dataext` couldn't be found in your AOD file or it wasn't produced by any attached helper task, _helper tasks are attached to your analysis like in the **Example** toggle above_. <br>
+ So now you know which table is missing but finding the right task to add is still very confusing. Don't worry, there are two paths you can choose ;)<br>
+ 1. Easier one <br>
+ Here is tutorial from [ ALICE O2 documentation- Tree not found ](https://aliceo2group.github.io/analysis-framework/docs/troubleshooting/treenotfound.html) and it's useful if you want to find more common tasks. So basically you need to enter [ALICE O2 documentation - helper task tables](https://aliceo2group.github.io/analysis-framework/docs/datamodel/helperTaskTables.html) and then you just search the table you are missing and you will find the task you need to attach.<br>
+ 2. More difficult one <br>
+ So now, you need to enter directory `alice/O2Physics`. Then imagine you are missing `pidtofka` table. You will need to use grep command (if you didn't know it already check [this page](https://www.cyberciti.biz/faq/howto-use-grep-command-in-linux-unix/) ;)). Here is an example to make it easier:
+ ```c
+grep -rnw . -e "PIDTOFKA"
+grep -rnw . -e "PIDTOFKa"
+grep -rnw . -e "pidTOFKa"
+```
+ Now you should have a list of files where this phrase occurs. Next you need to find out the name of the file which produces this table. And then you need to go to `CMakeLists.txt` file and there you will find the name of the task you are looking for. If you are not familiar with CMakeLists don't worry! You can see that it has many sections but they all look alike, and here is an example:
+  ```c
+o2physics_add_dpl_workflow(<task-name>
+                    SOURCES <C++ file>
+                    PUBLIC_LINK_LIBRARIES O2::Framework O2::DetectorsBase O2Physics::AnalysisCore
+                    COMPONENT_NAME Analysis)
+```
+So you need to find the **task-name** which will correspond to the **C++ file** you've found using grep ;) <br>
+ 
+
+ 
+</p>
+</details>
+
 <details><summary>Fatal errors with non-existing CCDB entries.</summary>
 <p>
 
@@ -109,8 +137,6 @@ Tutorials by Victor Gonzalez:<br>
  3. [Templates and process switch](https://indico.cern.ch/event/1175793/)<br>
  4. [Templates continuation, how to not repeat code](https://indico.cern.ch/event/1178484/) <br>
  5. [CCDB: Correcting for NUA, NUE, ...](https://indico.cern.ch/event/1180289/)<br>
-
-
 
 This step may seem obvious, but sometimes you might find `grep` command useful. Especially, when you want to find tutorials with functions you are interested in. 
 
