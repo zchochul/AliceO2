@@ -210,13 +210,17 @@ Then point git to this fork with:<br>
 ```
 git remote add origin https://github.com/<your-github-username>/O2Physics
 ```
-When you use `git status` you will be able to display the state of the working directory and the staging area. It lets you see which changes have been staged, which haven't, and which files aren't being tracked by Git. If you want to add files to your branch use:
-```
-git status <-- everything should be colored red
-git add <file> <-- adding file to commit
-git push https://<token>@github.com/zchochul/O2Physics.git <--pushing
-git commit -m <commit info> <-- submitting a commit
-```
+When you use `git status` you will be able to display the state of the working directory and the staging area. It lets you see which changes have been staged, which haven't, and which files aren't being tracked by Git. If you want to add files to your branch (for example **femtoworld**) use:
+ 1. `git branch -vvv` <-- it tells you on which branch you are on <br>
+ 2. `git checkout femtoworld` <-- in this way you can switch to your desired branch <br>
+ 3. `git status`  <-- everything not added should be colored red <br>
+ 4. `git add <file>` <-- adding file to commit, now in `git status` they will be colored green<br>
+ 5.  `git commit -m "<commit-name>" `<-- submitting a commit <br>
+ 6. `git push -f` <-- pushing <br>
+ 
+
+The `-f` is actually required because of the rebase. Whenever you do a rebase you would need to do a force push because the remote branch cannot be fast-forwarded to your commit. You'd always want to make sure that you do a pull before pushing, but if you don't like to force push to master or dev for that matter, you can create a new branch to push to and then merge or make a PR. This action forces your remote repo to ignore differences in commits between your local and remote versions.<br>
+                                       
 If you want to add your file not to your branch only but also to main repo you need to make pull request.<br>
 ![image](https://user-images.githubusercontent.com/87480906/170225172-7c12f4bf-ea47-45e2-b060-d664a9ef46aa.png)<br>
 and then after clicking on _1 commits ahead_ this page will show up and on it you need to create pull request<br>
@@ -226,15 +230,23 @@ and then after clicking on _1 commits ahead_ this page will show up and on it yo
 In order to add changes to official repo, your code needs to pass clang formatting test. 
 What you need to do is quite easy, just enter clang environment by using `alienv enter Clang/latest` and then in the directory you have files you want to add, type `find . -iname "*.h" -o -iname "*.cxx" | xargs clang-format -style=file -i`. Keep in mind that this command changes only .h and .cxx, but you can add more or change to fit your files.
 
-### Adding changes to fork branch
-1.  `git pull --rebase` if you are not up-to-date with [AliceO2Group/O2Physics](https://github.com/AliceO2Group/O2Physics) repo.
-2.  `git add `
-3.  `git commit -m`
-4.  `git push -f origin master:femtoworld` <- pushing to fork, branch: femtoworld (but can be any other)
-
-The `-f` is actually required because of the rebase. Whenever you do a rebase you would need to do a force push because the remote branch cannot be fast-forwarded to your commit. You'd always want to make sure that you do a pull before pushing, but if you don't like to force push to master or dev for that matter, you can create a new branch to push to and then merge or make a PR. This action forces your remote repo to ignore differences in commits between your local and remote versions.
-
 ### Possible errors
-`git reset --hard upstream/master`
+<details><summary>`git reset --hard upstream/master`.</summary>
+<p>
+
+</p>
+</details>
+ 
+<details><summary>Branch is not following the branch on remote</summary>
+<p>
+ 
+You need to use:
+ ```c
+ git fetch origin
+ git branch --set-upstream-to=origin/femtoworld
+ ```
+ 
+</p>
+</details>
 
 
