@@ -230,7 +230,7 @@ What you need to do is quite easy, just enter clang environment by using `alienv
 1.  `git pull --rebase` if you are not up-to-date with [AliceO2Group/O2Physics](https://github.com/AliceO2Group/O2Physics) repo.
 2.  `git add `
 3.  `git commit -m`
-4.  `git push -f origin master:alifemto` <- pushing to fork, branch: alifemto (but can be any other)
+4.  `git push -f origin master:femtoworld` <- pushing to fork, branch: femtoworld (but can be any other)
 
 The `-f` is actually required because of the rebase. Whenever you do a rebase you would need to do a force push because the remote branch cannot be fast-forwarded to your commit. You'd always want to make sure that you do a pull before pushing, but if you don't like to force push to master or dev for that matter, you can create a new branch to push to and then merge or make a PR. This action forces your remote repo to ignore differences in commits between your local and remote versions.
 
