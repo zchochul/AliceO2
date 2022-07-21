@@ -140,6 +140,12 @@ Tutorials by Victor Gonzalez:<br>
 
 This step may seem obvious, but sometimes you might find `grep` command useful. Especially, when you want to find tutorials with functions you are interested in. 
 
+## Sending a debug file
+Sometimes you may encounter an error. Screenshot of a problem may not be enough to help you. You will need to send a debug file, which simply contains everything that appears to you on the screen after building or running something. So if the command shows you something on the screen simply pipe it to debug.txt like that:
+  ```c
+command > debug.txt 2>&1
+```
+
 # Femtoscopy (FemtoWorld)<a name="Femtoscopy"></a>
 Example codes are available here: `O2Physics/PWGCF/`
 For data I've used 267 train.
