@@ -197,6 +197,12 @@ Version of Femtodream FemtoWorld is based on is:
 2.  `alice/O2Physics/` commit hash: **c3dcdbca87dc9535de85f9837ad777de475ceee3**
 3.  `alice/O2/` commit hash: **291457fce1bf6da3c0ac5cf1afe53a12624a3a6c**
 
+## FemtoWorld tasks
+ - [x] Test if first version of the code works locally<br>
+ - [ ] Add it to the official repo <br>
+ - [ ] Test it on the hyperloop <br>
+ - [ ] Create dEta dPhi task <br> 
+ - [ ] Create an invariant mass histogram <br>
 
 # Github help ;) [work in progress c:] <a name="github"></a>
 ## Forking official repo
