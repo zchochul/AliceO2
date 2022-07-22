@@ -199,6 +199,7 @@ Version of Femtodream FemtoWorld is based on is:
 
 ## FemtoWorld tasks
  - [x] Test if first version of the code works locally<br>
+ - [ ] Sort the code into folders: `Core` for internal classes definition,`DataModel` for internal columns/tables definitions, `TableProducer` for tasks which generate internal tables to be consumed by other task, `Tasks` for analysis tasks
  - [ ] Add it to the official repo <br>
  - [ ] Test it on the hyperloop <br>
  - [ ] Create dEta dPhi task <br> 
