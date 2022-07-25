@@ -87,6 +87,16 @@ While performing PID analysis you need to type for example: <br>
 </details>
 
 ### Possible errors
+
+<details><summary>FDD conversion</summary>
+<p>
+
+For converted data when using train number larger than 267 we did not include fdd converter helper task. We received an error type: `Couldn't get TTree O2fdd`.
+
+</p>
+</details>
+
+
 <details><summary>Couldn't get TTree.</summary>
 <p>
 
@@ -205,7 +215,7 @@ Version of Femtodream FemtoWorld is based on is:
  - [x] Test if first version of the code works locally<br>
  - [x] Sort the code into folders: `Core` for internal classes definition,`DataModel` for internal columns/tables definitions, `TableProducer` for tasks which generate internal tables to be consumed by other task, `Tasks` for analysis tasks
  - [x] Add it to the official repo <br>
- - [ ] Test it on the hyperloop <br>
+ - [x] Test it on the hyperloop <br>
  - [ ] Create dEta dPhi task <br> 
  - [ ] Create an invariant mass histogram <br>
 
