@@ -216,7 +216,7 @@ Version of Femtodream FemtoWorld is based on is:
  - [x] Sort the code into folders: `Core` for internal classes definition,`DataModel` for internal columns/tables definitions, `TableProducer` for tasks which generate internal tables to be consumed by other task, `Tasks` for analysis tasks
  - [x] Add it to the official repo <br>
  - [x] Test it on the hyperloop <br>
- - [ ] Create dEta dPhi task <br> 
+ - [x] Create a dEta dPhi histogram <br> 
  - [ ] Create an invariant mass histogram <br>
 
 # Github help ;) [work in progress c:] <a name="github"></a>
