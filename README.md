@@ -236,7 +236,7 @@ When you use `git status` you will be able to display the state of the working d
  2. `git checkout femtoworld` <-- in this way you can switch to your desired branch <br>
  3. `git status`  <-- everything not added should be colored red <br>
  4. `git add <file>` <-- adding file to commit, now in `git status` they will be colored green<br>
- 5.  `git commit -m "<commit-name>" `<-- submitting a commit <br>
+ 5.  `git commit -am "<commit-name>" `<-- submitting a commit, (a for all files and all changes)<br>
  6. `git push -f` <-- pushing <br>
  
 
