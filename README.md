@@ -21,7 +21,7 @@ ALICE O2 Framework is constantly evolving so remember to stay up-to-date with th
 1. in `alice/O2` type `git pull --rebase`, <br>
 2. in `alice/O2Physics` type `git reset --hard` and then `git pull --rebase`, <br>
 3. in `alice/alidist` type `git pull --rebase upstream master`<br>
-4. then in `alice/` type `aliBuild -j6 build O2Physics --defaults o2` <br>
+4. then in `alice/` type `aliBuild build O2Physics --defaults o2 --debug` <br>
 
 Unfortunately, it takes a while and you have to do it quite often due to the constantly evolving system.<br>
 
