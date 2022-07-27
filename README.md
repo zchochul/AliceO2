@@ -165,16 +165,9 @@ Example codes are available here: `O2Physics/PWGCF/`
 For data I've used 267 train.
 
 ## Preparing AOD
-First of all you need to _simplify_ your AOD. After typing `alienv enter O2Physics/latest` run a shell script called <details><summary>`prod.sh`</summary>
-<p>
-
-`o2-analysis-cf-femtodream-producer-reduced --configuration json://prod-config.json  --aod-writer-resfile FemtoAO2D  --aod-writer-keep AOD/FEMTODREAMPARTS/0,AOD/FEMTODREAMCOLS/0,AOD/FEMTODEBUGPARTS/0 -b | o2-analysis-timestamp  --configuration json://prod-config.json -b | o2-analysis-multiplicity-table  --configuration json://prod-config.json -b | o2-analysis-event-selection  --configuration json://prod-config.json -b | o2-analysis-trackextension  --configuration json://prod-config.json -b | o2-analysis-pid-tpc  --configuration json://prod-config.json -b |  o2-analysis-pid-tof  --configuration json://prod-config.json --aod-memory-rate-limit 600000000 -b` <br>
- 
-I'm changing it quite frequently so it's just a concept, but I'll try keep it up to date.
-
-</p>
-</details>  <br>
-Make sure you have `prod-config.json` file, you can download it from this repo. You need to change the "aod-file" part to match with your .root file/files (keep in mind this file also evolves, so this file may not be the latest version).<br>
+First of all you need to _simplify_ your AOD. After typing `alienv enter O2Physics/latest` run a shell script called [`prod.sh`](https://github.com/zchochul/AliceO2/blob/main/prod.sh) I'm changing it quite frequently so it's just a concept, but I'll try keep it up to date. To run it you need to simply type `./prod.sh prod-config.json`.
+ <br>
+Make sure you have [`prod-config.json`](https://github.com/zchochul/AliceO2/blob/main/prod-config.json) file, you can download it from this repo. You need to change the "aod-file" part to match with your .root file/files (keep in mind this file also evolves, so this file may not be the latest version).<br>
 
 ### Cutculator
 Type: `alienv enter O2Physics/latest` and then `o2-analysis-cf-femtodream-cutculator prod-config.json`. The following should appear on the screen:<br>
@@ -196,8 +189,7 @@ Error: *terminate called after throwing an instance of 'boost::wrapexcept<boost:
   <br>Note that we ran the code on task `o2-analysis-cf-femtodream-producer-reduced`, but for now in `prod-config.json` you need to change that for `o2-analysis-cf-femtodream-producer` to fix this problem. That problem will be fixed later on.
 
 ## Running a simple task
-To run a simple task type something like that:<br>
-`o2-analysis-cf-femtodream-hash -b | o2-analysis-cf-femtodream-pair-track-track --aod-file FemtoAO2D.root --aod-memory-rate-limit 600000000 --ConfCutPartTwo 5543046 --ConfCutPartOne 5543046 -b`<br>
+To FemtoWorld task I'm using [`post.sh`](https://github.com/zchochul/AliceO2/blob/main/post.sh) and [`post-config.json`](https://github.com/zchochul/AliceO2/blob/main/post-config.json) files. You need to be in the O2Physics environment (type `alienv enter O2Physics/latest`).<br>
 
 ### Possible errors
 You need to **make sure your aod is properly produced for femto analysis**. Using typical AOD files will cause errors (for example: `Couldn't get TTree "DF_2853960030894995121/O2femtodreamcols" from <your-AOD-file>`). <br>
@@ -220,6 +212,7 @@ Version of Femtodream FemtoWorld is based on is:
  - [ ] Create an invariant mass histogram <br>
 
 # Github help ;) [work in progress c:] <a name="github"></a>
+Here I've listed some steps but if it doesn't work in your case please follow [@saganatt's github instructions](https://github.com/zchochul/AliceO2) they are better ;)
 ## Forking official repo
 According to [this tutorial](https://alisw.github.io/git-tutorial/) create fork of [O2Physics repo](https://github.com/AliceO2Group/O2Physics). Then setup user configuration on your local computer:<br>
 ```
