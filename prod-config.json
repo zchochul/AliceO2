@@ -7,7 +7,7 @@
 		"start-value-enumeration": "0",
 		"end-value-enumeration": "-1",
 		"step-value-enumeration": "1",
-		"aod-file": "AOD_261.root"
+		"aod-file": "275AOD.root"
 	},
 	"internal-dpl-aod-index-builder": "",
 	"internal-dpl-aod-spawner": "",
@@ -22,7 +22,7 @@
 	"tpc-pid": {
 		"param-file": "",
 		"param-signal": "BetheBloch",
-		"param-sigma": "TPCReso",
+		"param-sigma": "TPCResoParams",
 		"ccdb-url": "http:\/\/alice-ccdb.cern.ch",
 		"ccdbPath": "Analysis\/PID\/TPC\/Response",
 		"ccdb-timestamp": "-1",
@@ -48,7 +48,7 @@
 	"tof-pid-base": {},
 	"tof-pid": {
 		"param-file": "",
-		"param-sigma": "TOFReso",
+		"param-sigma": "TOFResoParams",
 		"ccdb-url": "http:\/\/alice-ccdb.cern.ch",
 		"ccdbPath": "Analysis\/PID\/TOF",
 		"ccdb-timestamp": "-1",
