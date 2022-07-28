@@ -212,7 +212,7 @@ Version of Femtodream FemtoWorld is based on is:
  - [ ] Create an invariant mass histogram <br>
 
 # Github help ;) [work in progress c:] <a name="github"></a>
-Here I've listed some steps but if it doesn't work in your case please follow [@saganatt's github instructions](https://github.com/zchochul/AliceO2) they are better ;)
+Here I've listed some steps but if it doesn't work in your case please follow [@saganatt's github instructions](https://github.com/zchochul/AliceO2/blob/main/gitInstructions.md) they are better ;)
 ## Forking official repo
 According to [this tutorial](https://alisw.github.io/git-tutorial/) create fork of [O2Physics repo](https://github.com/AliceO2Group/O2Physics). Then setup user configuration on your local computer:<br>
 ```
