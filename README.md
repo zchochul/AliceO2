@@ -177,7 +177,7 @@ After answering the cutculator's questions you should see something like that:<b
 
 Then you need to change number in lines: <br>
 `Configurable<uint32_t> ConfCutPartOne{"ConfCutPartOne", <number>, "Particle 1 - Selection bit from cutCulator"};` and similar line but with `ConfCutPartTwo`(in femtoDreamPairTaskTrackTrack.cxx) to the highlighted number from cutCulator.
-For more info check [Femto dream framework introduction](https://indico.cern.ch/event/1092615/contributions/4594901/attachments/2350467/4009563/tutorial.pdf).
+For more info check [Femto dream framework introduction](https://indico.cern.ch/event/1092615/contributions/4594901/attachments/2350467/4009563/tutorial.pdf). 
 
 ### Possible errors
 **Cutculator can't find variables** - [Maja Kabus](https://github.com/saganatt/) wrote a patch for that (string.patch). <br>
