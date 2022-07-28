@@ -6,14 +6,14 @@ This repository is a collection of notes I collected while working with O2 softw
 3. [Github help ;)](#github)<br>
 
 # AliceO2 <a name="AliceO2"></a>
-In this repository you can find instructions on how to get started with O2 Framework. Keep in mind that this framework is constantly evolving and many files in this repository can be outdated.<br>
+In this repository you can find instructions on how to get started with ALICE O2 Framework. Keep in mind that this framework is constantly evolving and many files in this repository can be outdated.<br>
 Here are some links you may find useful:<br>
 - [ALICE O2 documentation](https://aliceo2group.github.io/analysis-framework/docs/installing/) - O2 documentation, <br>
 - [Analysis train : Run3_Conversion](https://alimonitor.cern.ch/trains/train.jsp?train_id=132) - information about converted trains (data information),<br>
 - [Testing the O2 Analysis Framework](https://twiki.cern.ch/twiki/bin/viewauth/ALICE/AliceO2WP14AF).
 
 ## How to install O2 Framework?
-Keep in mind most of us use Ubuntu 18.04 / 20.04. Firstly, build O2 with alibuild as explained in the [ALICE O2 documentation](https://aliceo2group.github.io/analysis-framework/docs/installing/). So, you need to follow instructions from [Installation via alibuild](https://alice-doc.github.io/alice-analysis-tutorial/building/custom.html) page, but do not follow instructions on "build packages" there! You also need to acquire GRID certificate, it's explained in detail here -> [_Get a Grid certificate_](https://alice-doc.github.io/alice-analysis-tutorial/start/cert.html).<br>
+Keep in mind most of us use Ubuntu 18.04 / 20.04. Firstly, build O2 with alibuild as explained in the [ALICE O2 documentation](https://aliceo2group.github.io/analysis-framework/docs/installing/). So, you need to follow instructions from [Installation via alibuild](https://alice-doc.github.io/alice-analysis-tutorial/building/custom.html) page, but **DO NOT** follow instructions on "build packages" there! You also need to acquire GRID certificate, it's explained in detail here -> [_Get a Grid certificate_](https://alice-doc.github.io/alice-analysis-tutorial/start/cert.html).<br>
 Keep in mind that it may not be easy and can take quite a long time. The first time I built this system it took me a while.
 
 ## Updating ALICE system
