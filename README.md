@@ -172,7 +172,8 @@ Firstly, create a JIRA ticket for your analysis on the [alice.its.cern.ch/jira](
 - Public Result - `Yes`<br>
 
 You do it once per analysis. Now you should be able to to see it on the [AliHyperloop page](https://alimonitor.cern.ch/hyperloop/). It can take some time to synchronize JIRA with Hyperloop.
- 
+When you click on your analysis you will be able to see all thge wagons that are created for this analysis (now it's empty click on the `Add new wagon`). In wagon name write the wagon name, then version of the O2Physics (choose the latest version of the repo, but you can choose a different one if different version produces errors for you). In workflow name choose the main task you want to run. And then you save.<br>
+ You can later configure it. As you know tasks usually need a lot of the helper tasks. You need to add them in the dependencies. You also need to add **Datasets**. Choose if you want to work with Data or MC, then choose type of collision and a period you are interested in. You will get a list of datasets available for now. But this part is also constantly evolving too, so there are a lot of new datasets comming ;)
 
  
 # Femtoscopy (FemtoWorld)<a name="Femtoscopy"></a>
