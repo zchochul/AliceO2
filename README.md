@@ -160,7 +160,13 @@ command > debug.txt 2>&1
 ```
 
 # Hyperloop <a name="Hyperloop"></a>
-
+Firstly, create a JIRA ticket for your analysis on the [alice.its.cern.ch/jira](https://alice.its.cern.ch/jira/secure/Dashboard.jspa). Click on the **Create** button. Then in my case I'm choosing: <br>
+- Project -> PWG-CF (PWGCF),<br>
+- Issue Type -> Analysis, <br>
+- Summary -> <>, <br>
+- Component/s - ,<br>
+- Run 3 analysis - ,<br>
+- Analyzers - add analyzers from your team, remember to add yourself ;), <br> 
 
 # Femtoscopy (FemtoWorld)<a name="Femtoscopy"></a>
 Example codes are available here: `O2Physics/PWGCF/`
