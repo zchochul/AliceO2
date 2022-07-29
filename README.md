@@ -12,7 +12,7 @@ Here are some links you may find useful:<br>
 - [@saganatt's Learning O2 repo ;)](https://github.com/saganatt/Learning-O2).<br>
 
 ## How to install O2 Framework?
-Keep in mind most of us use Ubuntu 18.04 / 20.04. Firstly, build O2 with alibuild as explained in the [ALICE O2 documentation](https://aliceo2group.github.io/analysis-framework/docs/installing/). So, you need to follow instructions from [Installation via alibuild](https://alice-doc.github.io/alice-analysis-tutorial/building/custom.html) page, but **DO NOT** follow instructions on "build packages" there! You also need to acquire GRID certificate, it's explained in detail here -> [_Get a Grid certificate_](https://alice-doc.github.io/alice-analysis-tutorial/start/cert.html).<br>
+Keep in mind most of us use Ubuntu 18.04 / 20.04. Firstly, build O2 with alibuild as explained in the [ALICE O2 documentation](https://aliceo2group.github.io/analysis-framework/docs/installing/). So, you need to follow instructions from [Installation via alibuild](https://alice-doc.github.io/alice-analysis-tutorial/building/custom.html) page, but **DO NOT** follow instructions on "build packages" there! You also need to acquire GRID certificate, it's explained in detail here -> [_Get a Grid certificate_](https://alice-doc.github.io/alice-analysis-tutorial/start/cert.html).
 Keep in mind that it may not be easy and can take quite a long time. The first time I built this system it took me a while.
 
 ## Updating ALICE system
@@ -36,8 +36,11 @@ hash number in this case is: **291457fce1bf6da3c0ac5cf1afe53a12624a3a6c**
 </details>
 
 ## How to obtain data files?
-To get smaller AOD file go to -> [_Analysis train : Run3_Conversion_](https://alimonitor.cern.ch/trains/train.jsp?train_id=132) and scroll down. Choose train number you're interested in and click on run number (for example 246) and then on Test Results (in the middle). Scroll down and find full train option and then click on output. Now you're supposed to see a lot of files, but you're only interested in `AO2D.root` and it's usually the first. Then you need to only click on it and it will start to download.<br>
-When you want to run your analysis on a bigger file go -> [_alimonitor.cern.ch/catalogue_](https://alimonitor.cern.ch/catalogue/index.jsp?path=%2Falice%2Fdata%2F2018%2FLHC18b%2F000285064%2Fpass1%2FPWGZZ%2FRun3_Conversion%2F267_20220301-1202_child_1#/alice/data/2018/LHC18b/000285064/pass1/PWGZZ/Run3_Conversion/267_20220301-1202_child_1). This may take a while, as the files are quite large. <br>
+To get smaller AOD file go to -> [_Analysis train : Run3_Conversion_](https://alimonitor.cern.ch/trains/train.jsp?train_id=132) and scroll down. Choose train number you're interested in and click on run number (for example 246). Now you have two options, you can download:
+**Smaller file**<br>
+Then you need to click on the **Test Results** (in the middle). Scroll down and find full train option and then click on output. Now you're supposed to see a lot of files, but you're only interested in `AO2D.root`. Then you need to only click on it and it will start to download.<br>
+**Bigger file**<br>
+You need to find the table with {Status, Files, Processing, Merging, Statistics} rows. In the **Processing** row click on the _processing progress_. It will redirect you to the _alimonitor.cern.ch/catalogue_. Click on the output directory you are interested in. Then scroll down and find _AOD_ directory, then enter another directory (I think it doesn't really matter which one) and then download the _AO2D.root_ file. This may take a while, as the files are quite large. Please save the path your AOD is from (I have a .txt file with [names : paths]).<br>
 Information about trains (job details) can be found here -> [_alimonitor.cern.ch/job_details_](https://alimonitor.cern.ch/job_details.jsp).
 
 ### Possible errors
