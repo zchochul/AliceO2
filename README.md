@@ -160,14 +160,21 @@ command > debug.txt 2>&1
 ```
 
 # Hyperloop <a name="Hyperloop"></a>
-Firstly, create a JIRA ticket for your analysis on the [alice.its.cern.ch/jira](https://alice.its.cern.ch/jira/secure/Dashboard.jspa). Click on the **Create** button. Then in my case I'm choosing: <br>
-- Project -> PWG-CF (PWGCF),<br>
-- Issue Type -> Analysis, <br>
-- Summary -> <>, <br>
-- Component/s - ,<br>
-- Run 3 analysis - ,<br>
-- Analyzers - add analyzers from your team, remember to add yourself ;), <br> 
+ You can find useful information on the [ALICE O2 documentation](https://aliceo2group.github.io/analysis-framework/docs/hyperloop/).
+Firstly, create a JIRA ticket for your analysis on the [alice.its.cern.ch/jira](https://alice.its.cern.ch/jira/secure/Dashboard.jspa). You have to log in. Click on the **Create** button on the top of the page. You need to fill the table. For example: <br>
+- Project -> `PWG-CF (PWGCF)`, so here select your PWG<br>
+- Issue Type -> `Analysis`, only those will be linked to the Hyperloop system,<br>
+- Summary -> <name-of-your-analysis>, it should be as broad as the analysis you are doing, but it should be informative <br>
+- Component/s - `PAG-CORRELATION-EBYE` choose your PAG<br>
+- Run 3 analysis - `Yes`, always<br>
+- Analyzers - add analyzers from your team, remember to add yourself ;), those people will be able to work with you on this project,<br> 
+- Data Set - you can write there anything, <br>
+- Public Result - `Yes`<br>
 
+You do it once per analysis. Now you should be able to to see it on the [AliHyperloop page](https://alimonitor.cern.ch/hyperloop/). It can take some time to synchronize JIRA with Hyperloop.
+ 
+
+ 
 # Femtoscopy (FemtoWorld)<a name="Femtoscopy"></a>
 Example codes are available here: `O2Physics/PWGCF/`
 For data I've used 267 train.
