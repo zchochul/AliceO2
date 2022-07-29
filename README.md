@@ -62,7 +62,7 @@ Go to `~/alice/sw/BUILD/O2Physics-latest-master/O2Physics`.
 
 In `~/alice/sw/BUILD/O2Physics-latest-master/O2Physics` enter ninja and O2Physics environment (`alienv load ninja/latest O2Physics/latest `). Then build your task using `ninja stage/bin/<your-analysis-file>`. If you don't know what you should type in <`your-analysis-file`> place, open `CMakeList.txt` and see how your analysis is called there. <br>
 Keep in mind that if you add a new file or modify CMakeList you need to use `cmake .` 
-Then, after building part, copy this builded file to directory with AOD file (`cp stage/bin/<your-analysis-file>`). You can skip this step (copying) when you use `ninja install` instead of `ninja` or you can use alibuild.
+Then, after building part, copy this builded file to directory with AOD file (`cp stage/bin/<your-analysis-file>`). You can skip this step (copying) when you use `ninja install` instead of `ninja` or you can use alibuild (`aliBuild build O2Physics --defaults o2 --debug` in the `~/alice/`).
 
 ### Possible errors
 If upon entering the `~/alice/sw/BUILD/O2Physics-latest-master/O2Physics` you don't see much text you probably don't have `eval "$(direnv hook bash)"` in your ~/.bashrc file. Type it there and open a new terminal. <br>
@@ -70,7 +70,7 @@ In general, in ~/.bashrc you should have following lines: <br>
 `export ALIBUILD_WORK_DIR="$HOME/alice/sw"` <br>
 ``eval "`alienv shell-helper`"`` <br>
 `eval "$(direnv hook bash)"` <br>
-This can be written anywhere and will work but try writing it in one place, for example at the end of ~/.bashrc file <br>
+This can be written anywhere and it will work, but try writing it in one place, for example at the end of ~/.bashrc file <br>
 
 ## How to run a code?
 In your directory with an AOD file type: <br>
@@ -211,7 +211,11 @@ Version of Femtodream FemtoWorld is based on is:
  - [x] Add it to the official repo <br>
  - [x] Test it on the hyperloop <br>
  - [x] Create a dEta dPhi histogram <br> 
- - [ ] Create an invariant mass histogram <br>
+ - [x] Create an invariant mass histogram <br>
+ - [x] dE/dX TPC vs p histogram <br>
+ - [ ] TOF vs p histogram <br>
+ - [ ] histograms for the rejected particles <br>
+ 
 
 # Github help ;) [work in progress c:] <a name="github"></a>
 Here I've listed some steps but if it doesn't work in your case please follow [@saganatt's github instructions](https://github.com/zchochul/AliceO2/blob/main/gitInstructions.md) they are better ;)
