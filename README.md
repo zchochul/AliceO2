@@ -220,19 +220,7 @@ Version of Femtodream FemtoWorld is based on is:
 1.  `alice/alidist/` commit hash: **8ebd919bb75e468cb1a994f1012abfa22235ff2f**
 2.  `alice/O2Physics/` commit hash: **c3dcdbca87dc9535de85f9837ad777de475ceee3**
 3.  `alice/O2/` commit hash: **291457fce1bf6da3c0ac5cf1afe53a12624a3a6c**
-
-## FemtoWorld tasks
- - [x] Test if first version of the code works locally<br>
- - [x] Sort the code into folders: `Core` for internal classes definition,`DataModel` for internal columns/tables definitions, `TableProducer` for tasks which generate internal tables to be consumed by other task, `Tasks` for analysis tasks
- - [x] Add it to the official repo <br>
- - [x] Test it on the hyperloop <br>
- - [x] Create a dEta dPhi histogram <br> 
- - [x] Create an invariant mass histogram <br>
- - [x] dE/dX TPC vs p histogram <br>
- - [ ] TOF vs p histogram <br>
- - [ ] histograms for the rejected particles <br>
  
-
 # Github help ;) [work in progress c:] <a name="github"></a>
 Here I've listed some steps but if it doesn't work in your case please follow [@saganatt's github instructions](https://github.com/zchochul/AliceO2/blob/main/gitInstructions.md) they are better ;)
 ## Forking official repo
