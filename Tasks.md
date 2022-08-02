@@ -1,0 +1,12 @@
+## FemtoWorld tasks
+ - [x] Test if first version of the code works locally<br>
+ - [x] Sort the code into folders: `Core` for internal classes definition,`DataModel` for internal columns/tables definitions, `TableProducer` for tasks which generate internal tables to be consumed by other task, `Tasks` for analysis tasks
+ - [x] Add it to the official repo <br>
+ - [x] Test it on the hyperloop <br>
+ - [x] Create a dEta dPhi histogram <br> 
+ - [x] Create an invariant mass histogram <br>
+ - [x] dE/dX TPC vs p histogram <br>
+ - [ ] fix femtoworld after magnetic field changes, <br>
+ - [ ] add previous histograms, <br> 
+ - [ ] TOF vs p histogram <br>
+ - [ ] histograms for the rejected particles <br>
