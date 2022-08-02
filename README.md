@@ -9,11 +9,12 @@ This repository is a collection of notes I collected while working with O2 softw
 In this repository you can find instructions on how to get started with ALICE O2 Framework. Keep in mind that this framework is constantly evolving and many files in this repository can be outdated.<br>
 Here are some links you may find useful:<br>
 - [ALICE O2 documentation](https://aliceo2group.github.io/analysis-framework/docs/installing/) - O2 documentation, <br>
-- [@saganatt's Learning O2 repo ;)](https://github.com/saganatt/Learning-O2).<br>
+- [@saganatt's Learning O2 repo ;)](https://github.com/saganatt/Learning-O2),<br>
+- [@lbariogl, @saganatt & @zchochul O2Physics Tutorial for CF](https://github.com/CF-tutorials/O2Physics/tree/tutorial/PWGCF/Tutorial).<br>
 
 ## How to install O2 Framework?
 Keep in mind most of us use Ubuntu 18.04 / 20.04. Firstly, build O2 with alibuild as explained in the [ALICE O2 documentation](https://aliceo2group.github.io/analysis-framework/docs/installing/). So, you need to follow instructions from [Installation via alibuild](https://alice-doc.github.io/alice-analysis-tutorial/building/custom.html) page, but **DO NOT** follow instructions on "build packages" there! You also need to acquire GRID certificate, it's explained in detail here -> [_Get a Grid certificate_](https://alice-doc.github.io/alice-analysis-tutorial/start/cert.html).
-Keep in mind that it may not be easy and can take quite a long time. The first time I built this system it took me a while.
+Keep in mind that it may not be easy and can take quite a long time. 
 
 ## Updating ALICE system
 ALICE O2 Framework is constantly evolving so remember to stay up-to-date with the official repo. To update it you need to do the following: <br>
@@ -24,7 +25,7 @@ ALICE O2 Framework is constantly evolving so remember to stay up-to-date with th
 
 Unfortunately, it takes a while and you have to do it quite often due to the constantly evolving system.<br>
 
-### Remembering the repo version
+### Tip: Remembering the repo version
 Sometimes it is crucial to remember version you are on. In all repositories (in  `alice/alidist/`, `alice/O2/`, `alice/O2Physics`) type `git log`. To remember version you are on write down hash number.<br>
 <details><summary>Here is an example ;)</summary>
 <p>
@@ -36,10 +37,10 @@ hash number in this case is: **291457fce1bf6da3c0ac5cf1afe53a12624a3a6c**
 </details>
 
 ## How to obtain data files?
-To get smaller AOD file go to -> [_Analysis train : Run3_Conversion_](https://alimonitor.cern.ch/trains/train.jsp?train_id=132) and scroll down. Choose train number you're interested in and click on run number (for example 246). Now you have two options, you can download:<br>
-**Smaller file**<br>
+To get AOD file go to -> [_Analysis train : Run3_Conversion_](https://alimonitor.cern.ch/trains/train.jsp?train_id=132) and scroll down. Choose train number you're interested in and click on run number (for example 246). Now you have two options, you can download:<br>
+**Smaller file:**<br>
 Then you need to click on the **Test Results** (in the middle). Scroll down and find full train option and then click on output. Now you're supposed to see a lot of files, but you're only interested in `AO2D.root`. Then you need to only click on it and it will start to download.<br>
-**Bigger file**<br>
+**Bigger file:**<br>
 You need to find the table with {Status, Files, Processing, Merging, Statistics} rows. In the **Processing** row click on the _processing progress_. It will redirect you to the _alimonitor.cern.ch/catalogue_. Click on the output directory you are interested in. Then scroll down and find _AOD_ directory, then enter another directory (I think it doesn't really matter which one) and then download the _AO2D.root_ file. This may take a while, as the files are quite large. Please save the path your AOD is from (I have a .txt file with [names : paths]).<br>
 Information about trains (job details) can be found here -> [_alimonitor.cern.ch/job_details_](https://alimonitor.cern.ch/job_details.jsp).
 
@@ -48,9 +49,9 @@ If you can't even enter alimonitor it is possible that you haven't added your GR
 
 ## How to create a task?
 You can find useful examples on how to write your code in `~/alice/O2Physics/Tutorials/src/`. 
-Then place your code in C++ in for example: `~/alice/O2Physics/Tutorials/src/`. Remember to always change CMakeList in the parent folder (in this case `~/alice/O2Physics/Tutorials/`) when you add a new file to your analysis. Without that step, you won't be able to build it. 
+Then place your code in C++ somewhere, for example: `~/alice/O2Physics/Tutorials/src/`. Remember to always change CMakeList in the parent folder (in this case `~/alice/O2Physics/Tutorials/`) when you add a new file to your analysis. Without that step, you won't be able to build it. When you add a new file remember to use `cmake .` command before building (it will be explained in the [How to build a task section](#How_to_build)).
 
-## How to build a task?
+## How to build a task? <a name="How_to_build"></a>
 Go to `~/alice/sw/BUILD/O2Physics-latest-master/O2Physics`.
 <details><summary>As soon as you enter a lot of text should appear and it should look like this:</summary>
 <p>
