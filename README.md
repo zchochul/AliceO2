@@ -162,6 +162,8 @@ command > debug.txt 2>&1
 
 # Hyperloop <a name="Hyperloop"></a>
  You can find useful information on the [ALICE O2 documentation](https://aliceo2group.github.io/analysis-framework/docs/hyperloop/).
+ 
+## Creating a JIRA ticket
 Firstly, create a JIRA ticket for your analysis on the [alice.its.cern.ch/jira](https://alice.its.cern.ch/jira/secure/Dashboard.jspa). You have to log in. Click on the **Create** button on the top of the page. You need to fill the table. For example: <br>
 - Project -> `PWG-CF (PWGCF)`, so here select your PWG<br>
 - Issue Type -> `Analysis`, only those will be linked to the Hyperloop system,<br>
@@ -173,9 +175,15 @@ Firstly, create a JIRA ticket for your analysis on the [alice.its.cern.ch/jira](
 - Public Result - `Yes`<br>
 
 You do it once per analysis. Now you should be able to to see it on the [AliHyperloop page](https://alimonitor.cern.ch/hyperloop/). It can take some time to synchronize JIRA with Hyperloop.
+
+## Creating wagons, adding dependencies
 When you click on your analysis you will be able to see all thge wagons that are created for this analysis (now it's empty click on the `Add new wagon`). In wagon name write the wagon name, then version of the O2Physics (choose the latest version of the repo, but you can choose a different one if different version produces errors for you). In workflow name choose the main task you want to run. And then you save.<br>
  You can later configure it. As you know tasks usually need a lot of the helper tasks. You need to add them in the dependencies. You also need to add **Datasets**. Choose if you want to work with Data or MC, then choose type of collision and a period you are interested in. You will get a list of datasets available for now. But this part is also constantly evolving too, so there are a lot of new datasets comming ;) <br>
+ 
+## Running a test
  Now, the good information for the people previously working with the AliPhysics, the tests are done here automatically ;) When the test is done you should see a :heavy_check_mark: :sunny: or :heavy_check_mark: :exclamation:. This means that the analysis went okay. But if you see a :bomb:, it means that something went wrong. Maybe there weren't enough helper tasks added or maybe the dataset is faulty. But if everything is okay you can click on the :sunny: and find _test output_ with the _AnalysisResults.root_.
+
+## Running a long train
 
  
 # Femtoscopy (FemtoWorld)<a name="Femtoscopy"></a>
