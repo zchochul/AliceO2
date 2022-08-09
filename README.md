@@ -184,7 +184,9 @@ When you click on your analysis you will be able to see all thge wagons that are
  Now, the good information for the people previously working with the AliPhysics, the tests are done here automatically ;) When the test is done you should see a :heavy_check_mark: :sunny: or :heavy_check_mark: :exclamation:. This means that the analysis went okay. But if you see a :bomb:, it means that something went wrong. Maybe there weren't enough helper tasks added or maybe the dataset is faulty. But if everything is okay you can click on the :sunny: and find _test output_ with the _AnalysisResults.root_.
 
 ## Running a long train
-
+You have to create a request on the ALICE's `O2 Hyperloop Operation` mattermost channel simply by writing on the chat to the **train operators**. It is crucial that in order to turn on the long train beforehand to have an acccpeted test with small dataset linked to this long train. That's what I can see after this request: <br>
+![image](https://user-images.githubusercontent.com/87480906/183655686-5bb0d603-9f17-4fe7-8444-6a1fa6e6ce4c.png)<br>
+When it's finished it will say **Done**. Then you need to click on the **Train number** and then on the **Merge output** and you need to download the _AnalysisResults.root_ file and open it with root.
  
 # Femtoscopy (FemtoWorld)<a name="Femtoscopy"></a>
 Example codes are available here: `O2Physics/PWGCF/`.For data I've used 267 train.<br>
