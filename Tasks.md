@@ -6,7 +6,8 @@
  - [x] Create a dEta dPhi histogram <br> 
  - [x] Create an invariant mass histogram <br>
  - [x] dE/dX TPC vs p histogram <br>
- - [ ] fix femtoworld after magnetic field changes, <br>
- - [ ] add previous histograms, <br> 
- - [ ] TOF vs p histogram <br>
- - [ ] histograms for the rejected particles <br>
+ - [x] fix femtoworld after magnetic field changes, <br>
+ - [x] add previous histograms, <br> 
+ - [x] TOF vs p histogram <br>
+ - [x] histograms for the rejected particles <br>
+ - [ ] Test it on the Hyperloop <br>
