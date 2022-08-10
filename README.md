@@ -66,12 +66,28 @@ Keep in mind that if you add a new file or modify CMakeList you need to use `cma
 Then, after building part, copy this builded file to directory with AOD file (`cp stage/bin/<your-analysis-file>`). You can skip this step (copying) when you use `ninja install` instead of `ninja` or you can use alibuild (`aliBuild build O2Physics --defaults o2 --debug` in the `~/alice/`).
 
 ### Possible errors
+<details><summary>You don't see a lot of text after entering the directory</summary>
+<p>
+
 If upon entering the `~/alice/sw/BUILD/O2Physics-latest-master/O2Physics` you don't see much text you probably don't have `eval "$(direnv hook bash)"` in your ~/.bashrc file. Type it there and open a new terminal. <br>
 In general, in ~/.bashrc you should have following lines: <br>
 `export ALIBUILD_WORK_DIR="$HOME/alice/sw"` <br>
 ``eval "`alienv shell-helper`"`` <br>
 `eval "$(direnv hook bash)"` <br>
 This can be written anywhere and it will work, but try writing it in one place, for example at the end of ~/.bashrc file <br>
+
+</p>
+</details>
+<details><summary>Coudln't find O2Physics/latest</summary>
+<p>
+
+So there are two options:<br>
+1. When you builded the O2 there was an error and it didn't compiled completly. You have to correct the mistakes and try to build again. <br>
+2. If it did in fact compiled completly there is an other error (I had it only once but it is possible xD). You need to change the `/latest` part for something you have in the `~/alice/sw/ubuntu2004_x86-64/O2` directory. But when I fully built again, the error disappeared.
+
+</p>
+</details>
+
 
 ## How to run a code?
 In your directory with an AOD file type: <br>
