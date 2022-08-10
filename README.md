@@ -107,6 +107,17 @@ While performing PID analysis you need to type for example: <br>
 
 ### Possible errors
 
+<details><summary>Segmentation fault and returning to the command line</summary>
+<p>
+
+Make sure you use `-b` after every helper task. For example: <br>
+ ```c
+ ./o2-analysistutorial-simple-analysis --aod-file <aod_file_name> --aod-memory-rate-limit 100000000000000 -b | o2-analysis-pid-tpc -b | o2-analysis-pid-tof -b | o2-analysis-trackselection -b | o2-analysis-tracksextention -b 
+ ```
+
+</p>
+</details>
+
 <details><summary>FDD conversion</summary>
 <p>
 
