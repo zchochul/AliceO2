@@ -100,7 +100,8 @@ But sometimes you need to add more for it to work. When you see `Exception caugh
 
 While performing PID analysis you need to type for example: <br>
 `./o2-analysistutorial-simple-analysis --aod-file <aod_file_name> --aod-memory-rate-limit 100000000000000 -b | o2-analysis-pid-tpc -b | o2-analysis-pid-tof -b | o2-analysis-trackselection -b | o2-analysis-tracksextention -b ` <br>
- Those o2-analysis-pid-tpc tasks are called **helper tasks** and they are used to produce tables that will be later used in the analysis. But keep in mind not everything might be useful in your case and `-b` stops GUI from showing.
+ Those o2-analysis-pid-tpc and other tasks are called **helper tasks** and they are used to produce tables that will be later used in the analysis. But keep in mind not everything might be useful in your case. <br>
+The `-b` option stops GUI from showing. In `--aod-memory-rate-limit 100000000000000` option tells you the largest shared memory size in bytes that is allowed to be filled with tables that are read from input files.
 
 </p>
 </details>
