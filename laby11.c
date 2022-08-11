@@ -1,7 +1,8 @@
 //sygnal do wycinania ...
 double Sygnal(double *x, double *par){
   if(x[0]>=1.01&&x[0]<=1.03){
-    return par[0]*exp(-0.5*((x[0]-par[1])/par[2])*((x[0]-par[1])/par[2]));
+    //return par[0]*exp(-0.5*((x[0]-par[1])/par[2])*((x[0]-par[1])/par[2]));
+    return (0.5*par[0]*par[1]/TMath::Pi()) / TMath::Max(1.e-10, (x[0]-par[2])*(x[0]-par[2])+ .25*par[1]*par[1]);
   }
   else{
     TF1::RejectPoint();//omijamy ...
@@ -11,7 +12,8 @@ double Sygnal(double *x, double *par){
 
 //sygnal całkowity...
 double Sygnal2(double *x, double *par){
-    return par[0]*exp(-0.5*((x[0]-par[1])/par[2])*((x[0]-par[1])/par[2]));
+   // return par[0]*exp(-0.5*((x[0]-par[1])/par[2])*((x[0]-par[1])/par[2]));
+   return (0.5*par[0]*par[1]/TMath::Pi()) / TMath::Max(1.e-10, (x[0]-par[2])*(x[0]-par[2])+ .25*par[1]*par[1]);
 }
 
 //tło do wycinania...
@@ -25,6 +27,11 @@ double background(double *x, double *par){
   }
 }
 
+//lorentz
+Double_t lorentzianPeak(Double_t *x, Double_t *par) {
+      return (0.5*par[0]*par[1]/TMath::Pi()) / TMath::Max(1.e-10,(x[0]-par[2])*(x[0]-par[2])+ .25*par[1]*par[1]);
+   }
+
 //tło całkowite...
 double background2(double *x, double *par){
   return par[0] + par[1]*x[0] + par[2]*x[0]*x[0];
@@ -32,16 +39,18 @@ double background2(double *x, double *par){
 
 //tło +sygnał...
 double fitter(double *x, double *par){
-	return  par[0] + par[1]*x[0] + par[2]*x[0]*x[0]+ par[3]*exp(-0.5*((x[0]-par[4])/par[5])*((x[0]-par[4])/par[5]));
+	return  par[0] + par[1]*x[0] + par[2]*x[0]*x[0]+ //par[3]*exp(-0.5*((x[0]-par[4])/par[5])*((x[0]-par[4])/par[5]));
+   (0.5*par[3]*par[4]/TMath::Pi()) / TMath::Max(1.e-10, (x[0]-par[5])*(x[0]-par[5])+ .25*par[4]*par[4]);
  }
 
 void laby11(){
-   TCanvas* can=new TCanvas("can","zadanie11",10,10,1000,400);
+   TCanvas* can=new TCanvas("can","Fitting",10,10,1000,400);
    can->Divide(2,1);
    can->cd(1);
    TFile* plik=new TFile("nazwa.root");
    TH1D* hist=(TH1D*)plik->Get("same");//otwieranie pliku root...
    TH1D* hist2=(TH1D*)plik->Get("mixed");//otwieranie pliku root...
+   
    hist->Sumw2();
    hist->Divide(hist2);
    //hist->Rebin(10);
@@ -49,7 +58,7 @@ void laby11(){
    int nBins=hist->GetEntries();//ile binów...
    TF1* function1=new TF1("function1",background,0,2,3);
    hist->Draw();//data histogram
-   hist->SetTitle("Hiperfitowanie");
+   hist->SetTitle("Fitting");
    hist->Fit(function1,"N");//fitowanie tła
    double par1=function1->GetParameter(0);
    double par2=function1->GetParameter(1);
@@ -80,9 +89,9 @@ void laby11(){
    double par4=sygnal->GetParameter(0);
    double par5=sygnal->GetParameter(1);
    double par6=sygnal->GetParameter(2);
-   cout<<"scaling coefficient= "<< par4<<endl;
-    cout<<"mean= "<< par5<<endl;
-    cout<<"sigma= "<< abs(par6)<<endl;
+   //cout<<"scaling coefficient= "<< par4<<endl;
+    cout<<"mean= "<< par6<<endl;
+    cout<<"sigma= "<< abs(par5)<<endl;
  
    //sygnal dopasowanie ostateczne...
    TF1* sygnal2=new TF1("sygnal2",Sygnal2,0,3,3);
@@ -91,18 +100,36 @@ void laby11(){
    
    sygnal2->Draw("same");
    
-    double sigma2_1 = par5-2*abs(par6);
-    double sigma2_2 = par5+2*abs(par6);
-        TLine* l = new TLine((double)sigma2_1,0,sigma2_1,400);
-      l->SetLineColor(kPink+6);
-            l->SetLineStyle(2);
-            l->SetLineWidth(2);
-           TLine* l2 = new TLine((double)sigma2_2,0,sigma2_2,400);
-      l2->SetLineColor(kPink+6);
-                  l2->SetLineStyle(2);
-            l2->SetLineWidth(2);         
-      l->Draw("same");
-      l2->Draw("same");
+    double sigma2_1 = par6-2*abs(par5);
+    double sigma2_2 = par6+2*abs(par5);
+    double sigma3_1 = par6-3*abs(par5);
+    double sigma3_2 = par6+3*abs(par5);
+    cout << "sigma3_1 = " << sigma3_1<< endl;
+    cout << "sigma2_1 = " << sigma2_1<< endl;
+    cout << "mean= " << par6 << endl;
+    cout << "sigma2_2 = " << sigma2_2<< endl;
+    cout << "sigma3_2 = " << sigma3_2<< endl;
+
+      TLine* l21 = new TLine((double)sigma2_1,0,sigma2_1,400);
+            l21->SetLineColor(kPink+6);
+            l21->SetLineStyle(2);
+            l21->SetLineWidth(2);
+      TLine* l22 = new TLine((double)sigma2_2,0,sigma2_2,400);
+            l22->SetLineColor(kPink+6);
+            l22->SetLineStyle(2);
+            l22->SetLineWidth(2);   
+      TLine* l31 = new TLine((double)sigma3_1,0,sigma3_1,400);
+            l31->SetLineColor(kPink+8);
+            l31->SetLineStyle(2);
+            l31->SetLineWidth(2);
+      TLine* l32 = new TLine((double)sigma3_2,0,sigma3_2,400);
+            l32->SetLineColor(kPink+8);
+            l32->SetLineStyle(2);
+            l32->SetLineWidth(2);       
+      l21->Draw("same");
+      l22->Draw("same");
+      l31->Draw("same");
+      l32->Draw("same");
    //to i to...
    TF1* fitdata=new TF1("fitdata",fitter,0,25,6);
    fitdata->SetParameters(par1,par2,par3,par4,par5,par6);
@@ -111,7 +138,18 @@ void laby11(){
    double num = sygnal2->Integral((double)sigma2_1,(double)sigma2_2);
       double den = fitdata->Integral((double)sigma2_1,(double)sigma2_2);
       cout<<sigma2_2<<" "<<sigma2_1<<endl;
-      cout<<"purity = "<<num/den<<endl;
+      float purity = num/den;
+      cout<<"purity = "<<purity<<endl;
+  
+   //napis------------------------------------
+   
+   TLatex *jj=new TLatex(.15, .8,   Form("#frac{S}{S+B} = %.2f for 2#sigma", purity));
+   jj->SetNDC();
+   jj->Draw();
+   TLatex *j=new TLatex(.15, .7,   Form("#sigma= %.4f", par5));
+   j->SetNDC();
+   //j->Draw();
+    //---------------------koniec napisu
    can->cd(2);
    his2->Draw();
    sygnal2->Draw("same");
