@@ -10,10 +10,10 @@ double scale_invmixed;
 double scale_invsame;
 
 
-void FemtoWorldAnalysisMacro(const char *infile = "~/Downloads/DrugiLongTrain.root", Int_t n=1,const int Mbins=4){
+void FemtoWorldAnalysisMacro(const char *infile = "~/Downloads/AnalysisResults.root", Int_t n=1,const int Mbins=4){
     TFile *ifile = new TFile(infile);
     TCanvas *c1 = new TCanvas("c1", "Okienko", 10, 10, 1000, 800);
-    c1->Divide(2,1);
+    c1->Divide(3,2);
 
     //-------------------------------DETA---DPHI---------------------------------------------------------------------
     num = (TH2D*)ifile->Get(Form("femto-world-pair-task-track-track/SameEvent/relPairDetaDphi"));
@@ -29,7 +29,8 @@ void FemtoWorldAnalysisMacro(const char *infile = "~/Downloads/DrugiLongTrain.ro
     //num->GetYaxis()->SetRangeUser(-1.8,1.8);
     //num->GetYaxis()->SetLimits(-1.5,1.5);
     c1->cd(1);
-    num->Draw("surf1");
+    num->SetTitle("#Delta #eta #Delta #varphi");
+    num->DrawCopy("surf1");
     //-------------------------------------------------------------------------------------------------------------------
     //--------------------------INVARIANT----MASS-----------------------------------------------------------------------
     InvSame = (TH1D*)ifile->Get(Form("femto-world-pair-task-track-track/SameEvent/relPairInvariantMass"));
@@ -44,6 +45,33 @@ void FemtoWorldAnalysisMacro(const char *infile = "~/Downloads/DrugiLongTrain.ro
     InvSame->SetLineColor(kRed);
     InvMixed->SetLineColor(kBlack);
     c1->cd(2);
-    InvSame->Draw();
-    InvMixed->Draw("Same");
+    InvSame->SetTitle("Sygnal and background");
+    InvSame->DrawCopy();
+    InvMixed->DrawCopy("Same");
+
+    c1->cd(3);
+    InvSame->SetTitle("Sygnal and background (narrow)");
+    InvSame->GetXaxis()->SetRangeUser(1.00, 1.05);
+    InvSame->DrawCopy();
+    InvMixed->GetXaxis()->SetRangeUser(1.00, 1.05);
+    InvMixed->DrawCopy("Same");
+
+    TFile *file =TFile::Open("nazwa.root","recreate");
+    InvSame->SetName("same");
+    InvMixed->SetName("mixed");
+   
+   InvSame->Write();
+   InvMixed->Write();
+   //----------------------------------ratio---------------------------------------------------------------
+   c1->cd(4);
+    InvSame->Divide(InvMixed);
+    InvSame->SetTitle("Ratio (broad)");
+    InvSame->GetXaxis()->SetRangeUser(0.9, 3.00);
+    InvMixed->GetXaxis()->SetRangeUser(0.9, 3.00);
+    InvSame->DrawCopy();
+   //----------
+   c1->cd(5);
+   InvSame->SetTitle("Ratio (narrow)");
+   InvSame->GetXaxis()->SetRangeUser(1.00, 1.05);
+   InvSame->DrawCopy();
 }
