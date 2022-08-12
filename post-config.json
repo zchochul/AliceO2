@@ -183,8 +183,8 @@
 			]
 		},
 		"ccfgNspecies": "1",
-		"ConfPDGCodePartOne": "2212",
-		"ConfCutPartOne": "84035877", 
+		"ConfPDGCodePartOne": "211",
+		"ConfCutPartOne": "84035878", 
 		"ConfPIDPartOne": {
 			"values": [
 				"0"

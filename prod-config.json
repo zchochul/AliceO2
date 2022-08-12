@@ -232,6 +232,149 @@
 		"ConfInvMassLowLimit": "0",
 		"ConfInvMassUpLimit": "100"
 	},
+	"femto-world-producer-task": {
+		"ConfDebugOutput": "true",
+		"ConfIsTrigger": "false",
+		"ConfIsRun3": "false",
+		"ConfEvtZvtx": "10",
+		"ConfEvtTriggerCheck": "true",
+		"ConfEvtTriggerSel": "0",
+		"ConfEvtOfflineCheck": "true",
+		"ConfStoreV0": "true",
+		"ConfTrkSign": {
+			"values": [
+				"-1",
+				"1"
+			]
+		},
+		"ConfTrkPtMin": {
+			"values": [
+				"0.4",
+				"0.6",
+				"0.5"
+			]
+		},
+		"ConfTrkEtaMax": {
+			"values": [
+				"0.8",
+				"0.7",
+				"0.9"
+			]
+		},
+		"ConfTrkTPCnClsMin": {
+			"values": [
+				"80",
+				"70",
+				"60"
+			]
+		},
+		"ConfTrkTPCfClsMin": {
+			"values": [
+				"0.7",
+				"0.8",
+				"0.9"
+			]
+		},
+		"ConfTrkTPCcRowsMin": {
+			"values": [
+				"70",
+				"60",
+				"80"
+			]
+		},
+		"ConfTrkTPCsClsMax": {
+			"values": [
+				"0.1",
+				"160"
+			]
+		},
+		"ConfTrkITSnClsMin": {
+			"values": [
+				"-1",
+				"2",
+				"4"
+			]
+		},
+		"ConfTrkITSnClsIbMin": {
+			"values": [
+				"-1",
+				"1"
+			]
+		},
+		"ConfTrkDCAxyMax": {
+			"values": [
+				"0.1",
+				"3.5"
+			]
+		},
+		"ConfTrkDCAzMax": {
+			"values": [
+				"0.2",
+				"3.5"
+			]
+		},
+		"ConfTrkPIDnSigmaMax": {
+			"values": [
+				"3.5",
+				"3",
+				"2.5"
+			]
+		},
+		"ConfTrkTPIDspecies": {
+			"values": [
+				"2",
+				"4"
+			]
+		},
+		"ConfV0Sign": {
+			"values": [
+				"-1",
+				"1"
+			]
+		},
+		"ConfV0PtMin": {
+			"values": [
+				"0.3",
+				"0.4",
+				"0.5"
+			]
+		},
+		"ConfV0DCAdaughMax": {
+			"values": [
+				"1.2",
+				"1.5"
+			]
+		},
+		"ConfV0CPAMin": {
+			"values": [
+				"0.90",
+				"0.995"
+			]
+		},
+		"ConfV0TranRadMin": {
+			"values": [
+				"0.2"
+			]
+		},
+		"ConfV0TranRadMax": {
+			"values": [
+				"100"
+			]
+		},
+		"ConfV0DecVecMax": {
+			"values": [
+				"100"
+			]
+		},
+		"ConfV0DaughTPIDspecies": {
+			"values": [
+				"2",
+				"4"
+			]
+		},
+		"ConfInvMassLowLimit": "0",
+		"ConfInvMassUpLimit": "100"
+	},
 	"track-selection": {
 		"isRun3": "false"
 	},
