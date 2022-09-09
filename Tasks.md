@@ -10,4 +10,7 @@
  - [x] add previous histograms, <br> 
  - [x] TOF vs p histogram <br>
  - [x] histograms for the rejected particles <br>
- - [ ] Test it on the Hyperloop <br>
+ - [x] Test it on the Hyperloop <br>
+ - [x] Create tables for the phi candidates <br>
+ - [x] Create phi-track task <br>
+ - [ ] Add PID and $\eta$ and $\varphi$ cuts <br>  
