@@ -1,0 +1,20 @@
+# Short summary
+1. [Main informations](#Main)<br>
+2. [Github repository with O2 instructions](#GithubO2Instructions)<br>
+2. [O2 tutorial with Luca Barioglio and Maja Kabus](#PWGCFTutorial)<br>
+3. [FemtoWorld](#PWGCFFemtoWorld)<br>
+
+# Main informations <a name="Main"></a>
+Affiliation: _Warsaw University of Technology_ <br>
+Supervisor: _Dr inż. Łukasz Graczykowski_ <br>
+Thesis topic: _Analysis of angular correlations of protons with $\Phi$ mesons in proton-proton collisions in the ALICE experiment_ <br>
+
+# Github repository with O2 instructions<a name="GithubO2Instructions"></a>
+For almost a year now, I've been writing down all the information I thought is needed to better understand O2 software, on my repository on github. This mainly refers to basic operations in the O2 environment. For example, instructions with examples on how to build a system, upgrade, add your files and much more. In the instructions, I also included information on how to efficiently deal with errors that can sometimes occur. <br>
+Link to this repository can be found here -> [Link to the repository](https://github.com/zchochul/AliceO2/#readme) <br>
+
+# O2 tutorial with Luca Barioglio and Maja Kabus  <a name="PWGCFTutorial"></a>
+I also helped organize a workshop with O2 along with Luca Barioglio and Maja Kabus. The code from the workshop is posted in the O2 tree.  The files can be found in the folder: `alice/O2Physics/PWGCF/Tutorial/` ([Link to the official github repository](https://github.com/AliceO2Group/O2Physics/tree/master/PWGCF/Tutorial)).<br>
+My contribution was mainly to prepare a concise manual (in markdown) and to describe the structures learned in each of the smaller tutorials the workshop consisted of. <br>
+
+# FemtoWorld <a name="PWGCFFemtoWorld"></a>
