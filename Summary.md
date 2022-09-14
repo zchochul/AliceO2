@@ -10,7 +10,7 @@ Supervisor: _Dr inż. Łukasz Graczykowski_ <br>
 Thesis topic: Analysis of angular correlations of protons with $\Phi$ mesons in proton-proton collisions in the ALICE experiment <br>
 
 # Github repository with O2 instructions<a name="GithubO2Instructions"></a>
-For almost a year now, I've been writing down all the information I thought is needed to better understand O2 software, on my repository on github. This mainly refers to basic operations in the O2 environment. For example, instructions with examples on how to build a system, upgrade, add your files and much more. In the instructions, I also included information on how to efficiently deal with errors that can sometimes occur. <br>
+For almost a year now, I've been writing down in my repository on github all the information I thought is needed to better understand O2 software. This mainly refers to basic operations in the O2 environment. For example, instructions with examples on how to build a system, upgrade, add your files and much more. In the instructions, I also included information on how to efficiently deal with errors that can sometimes occur. <br>
 Link to this repository can be found here -> [Link to the repository](https://github.com/zchochul/AliceO2/#readme) <br>
 
 # O2 tutorial with Luca Barioglio and Maja Kabus  <a name="PWGCFTutorial"></a>
