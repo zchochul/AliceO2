@@ -180,6 +180,8 @@ Tutorials by Victor Gonzalez:<br>
  4. [Templates continuation, how to not repeat code](https://indico.cern.ch/event/1178484/) <br>
  5. [CCDB: Correcting for NUA, NUE, ...](https://indico.cern.ch/event/1180289/)<br>
 
+Tutorials done for ALICE by David Dobrigkeit Chinellato -> [link to the tutorial on indico](https://indico.cern.ch/event/1200252/timetable/) <br>
+
 This step may seem obvious, but sometimes you might find `grep` command useful. Especially, when you want to find tutorials with functions you are interested in. 
 
 ## Sending a debug file
