@@ -227,25 +227,6 @@ First of all you need to _simplify_ your AOD. After typing `alienv enter O2Physi
  <br>
 Make sure you have [`prod-config.json`](https://github.com/zchochul/AliceO2/blob/main/prod-config.json) file, you can download it from this repo. You need to change the "aod-file" part to match with your .root file/files (keep in mind this file also evolves, so this file may not be the latest version).<br>
 
-### Cutculator
-Type: `alienv enter O2Physics/latest` and then `o2-analysis-cf-femtodream-cutculator prod-config.json`. The following should appear on the screen:<br>
-![image](https://user-images.githubusercontent.com/87480906/163264059-1c7a87d2-ba8f-4903-8ba9-4a91f2ee9ad1.png)<br>
-After answering the cutculator's questions you should see something like that:<br>
-
-![image](https://user-images.githubusercontent.com/87480906/163264481-98f87b78-fb4a-440e-b3c1-403dcd3a4d93.png)<br>
-
-Then you need to change number in lines: <br>
-`Configurable<uint32_t> ConfCutPartOne{"ConfCutPartOne", <number>, "Particle 1 - Selection bit from cutCulator"};` and similar line but with `ConfCutPartTwo`(in femtoDreamPairTaskTrackTrack.cxx) to the highlighted number from cutCulator.
-For more info check [Femto dream framework introduction](https://indico.cern.ch/event/1092615/contributions/4594901/attachments/2350467/4009563/tutorial.pdf). 
-
-### Possible errors
-**Cutculator can't find variables** - [Maja Kabus](https://github.com/saganatt/) wrote a patch for that (string.patch). <br>
-Error: *terminate called after throwing an instance of 'boost::wrapexcept<boost::property_tree::ptree_bad_path>'* <br>
-
-  ![image](https://user-images.githubusercontent.com/87480906/163265426-b105502d-c74c-40e1-8140-66fde2363f1a.png)<br>
-
-  <br>Note that we ran the code on task `o2-analysis-cf-femtodream-producer-reduced`, but for now in `prod-config.json` you need to change that for `o2-analysis-cf-femtodream-producer` to fix this problem. That problem will be fixed later on.
-
 ## Running a simple task
 To FemtoWorld task I'm using [`post.sh`](https://github.com/zchochul/AliceO2/blob/main/post.sh) and [`post-config.json`](https://github.com/zchochul/AliceO2/blob/main/post-config.json) files. You need to be in the O2Physics environment (type `alienv enter O2Physics/latest`).<br>
 
@@ -276,11 +257,12 @@ git remote add origin https://github.com/<your-github-username>/O2Physics
 ```
 When you use `git status` you will be able to display the state of the working directory and the staging area. It lets you see which changes have been staged, which haven't, and which files aren't being tracked by Git. If you want to add files to your branch (for example **femtoworld**) use:
  1. `git branch -vvv` <-- it tells you on which branch you are on <br>
- 2. `git checkout femtoworld` <-- in this way you can switch to your desired branch <br>
- 3. `git status`  <-- everything not added should be colored red <br>
- 4. `git add <file>` <-- adding file to commit, now in `git status` they will be colored green<br>
- 5.  `git commit -am "<commit-name>" `<-- submitting a commit, (a for all files and all changes)<br>
- 6. `git push -f` <-- pushing <br>
+ 2. `git checkout <desired-branch>` <-- in this way you can switch to your desired branch <br>
+ 3. `git fetch upstream` and `git rebase upstream/master` <-- to update the master branch of your forked repository
+ 4. `git status`  <-- everything not added should be colored red <br>
+ 5. `git add <file>` <-- adding file to commit, now in `git status` they will be colored green<br>
+ 6.  `git commit -am "<commit-name>" `<-- submitting a commit, (a for all files and all changes)<br>
+ 7. `git push -f` <-- pushing <br>
  
 
 The `-f` is actually required because of the rebase. Whenever you do a rebase you would need to do a force push because the remote branch cannot be fast-forwarded to your commit. You'd always want to make sure that you do a pull before pushing, but if you don't like to force push to master or dev for that matter, you can create a new branch to push to and then merge or make a PR. This action forces your remote repo to ignore differences in commits between your local and remote versions.<br>
