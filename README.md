@@ -36,7 +36,7 @@ hash number in this case is: **291457fce1bf6da3c0ac5cf1afe53a12624a3a6c**
 </p>
 </details>
 
-## How to obtain data files?
+## How to obtain data files? (Run3 converted data example)
 To get AOD file go to -> [_Analysis train : Run3_Conversion_](https://alimonitor.cern.ch/trains/train.jsp?train_id=132) and scroll down. Choose train number you're interested in and click on run number (for example 246). Now you have two options, you can download:<br>
 **Smaller file:**<br>
 Then you need to click on the **Test Results** (in the middle). Scroll down and find full train option and then click on output. Now you're supposed to see a lot of files, but you're only interested in `AO2D.root`. Then you need to only click on it and it will start to download.<br>
@@ -78,7 +78,7 @@ This can be written anywhere and it will work, but try writing it in one place, 
 
 </p>
 </details>
-<details><summary>Coudln't find O2Physics/latest</summary>
+<details><summary>Couldn't find O2Physics/latest</summary>
 <p>
 
 So there are two options:<br>
