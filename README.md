@@ -1,4 +1,4 @@
-This repository is a collection of notes I collected while working with O2 software. Keep in mind that I am still working on this repository and it is not complete. If you have any comments feel free to email me: [zchochul@cern.ch](mailto:zchochul@cern.ch)
+This repository is a collection of notes I've written while working with the O2 software. Keep in mind that I am still working on this repository and it is definately not complete. If you have any suggestions feel free to email me: [zchochul@cern.ch](mailto:zchochul@cern.ch)
 # Table of contents
 1. [Alice O2 - introduction](#AliceO2)<br>
 2. [Hyperloop](#Hyperloop)<br>
@@ -16,14 +16,44 @@ Here are some links you may find useful:<br>
 Keep in mind most of us use Ubuntu 18.04 / 20.04. Firstly, build O2 with alibuild as explained in the [ALICE O2 documentation](https://aliceo2group.github.io/analysis-framework/docs/installing/). So, you need to follow instructions from [Installation via alibuild](https://alice-doc.github.io/alice-analysis-tutorial/building/custom.html) page, but **DO NOT** follow instructions on "build packages" there! You also need to acquire GRID certificate, it's explained in detail here -> [_Get a Grid certificate_](https://alice-doc.github.io/alice-analysis-tutorial/start/cert.html).
 Keep in mind that it may not be easy and can take quite a long time. 
 
-## Updating ALICE system
-ALICE O2 Framework is constantly evolving so remember to stay up-to-date with the official repo. To update it you need to do the following: <br>
-1. in `alice/O2` type `git pull --rebase`, <br>
-2. in `alice/O2Physics` type `git reset --hard` and then `git pull --rebase`, <br>
-3. in `alice/alidist` type `git pull --rebase upstream master`<br>
-4. then in `alice/` type `aliBuild build O2Physics --defaults o2 --debug` <br>
+### Possible errors
+<details><summary>WSL 2 error - `c++: fatal error: Killed signal terminated program cc1plus`</summary>
+<p>
 
-Unfortunately, it takes a while and you have to do it quite often due to the constantly evolving system.<br>
+That means the compilation uses too much RAM of what is available in the WSL2, compile with flag `-j6` <br>
+```c
+ aliBuild -j6 build O2Physics --defaults o2
+ ```
+
+
+</p>
+</details>
+
+## Updating ALICE system
+ALICE O2 Framework is constantly evolving so remember to stay up-to-date with the official repo. To update it you need to do the following: <br><br>
+In `alice/O2` type <br>
+
+```c 
+git pull --rebase
+``` 
+
+In `alice/O2Physics` type 
+```c
+git reset --hard
+git pull --rebase
+```
+
+In `alice/alidist` type 
+```c
+git pull --rebase upstream master
+```
+
+Last, but not least in `alice/` type
+```c
+aliBuild build O2Physics --defaults o2 --debug
+``` 
+
+Unfortunately, it takes a while and you have to do it quite often due to the constantly evolving system. If you are working with WSL 2, you might want to use option `-j6` while building with aliBuild ;)<br>
 
 ### Tip: Remembering the repo version
 Sometimes it is crucial to remember version you are on. In all repositories (in  `alice/alidist/`, `alice/O2/`, `alice/O2Physics`) type `git log`. To remember version you are on write down hash number.<br>
