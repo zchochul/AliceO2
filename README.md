@@ -5,8 +5,9 @@ This repository is a collection of notes I've written while working with the O2 
 2. [Femtoscopy](#Femtoscopy)<br>
 3. [Github help ;)](#github)<br>
 
+
 # AliceO2 <a name="AliceO2"></a>
-In this repository you can find instructions on how to get started with ALICE O2 Framework. Keep in mind that this framework is constantly evolving and many files in this repository can be outdated.<br>
+In this repository you can find instructions on how to get started with ALICE O2 Framework. Keep in mind that this framework is constantly evolving and many files in this repository can be outdated. <br>
 Here are some links you may find useful:<br>
 - [ALICE O2 documentation](https://aliceo2group.github.io/analysis-framework/docs/installing/) - O2 documentation, <br>
 - [@saganatt's Learning O2 repo ;)](https://github.com/saganatt/Learning-O2),<br>
@@ -24,7 +25,6 @@ That means the compilation uses too much RAM of what is available in the WSL2, c
 ```c
  aliBuild -j6 build O2Physics --defaults o2
  ```
-
 
 </p>
 </details>
@@ -53,7 +53,7 @@ Last, but not least in `alice/` type
 aliBuild build O2Physics --defaults o2 --debug
 ``` 
 
-Unfortunately, it takes a while and you have to do it quite often due to the constantly evolving system. If you are working with WSL 2, you might want to use option `-j6` while building with aliBuild ;)<br>
+Unfortunately, it takes a while and you have to do it quite often due to the constantly evolving system. You might want to use a bash script to update (look for `aliBuild.sh` in this repository). If you are working with WSL 2, you might want to use option `-j6` while building with aliBuild ;). <br>
 
 ### Tip: Remembering the repo version
 Sometimes it is crucial to remember version you are on. In all repositories (in  `alice/alidist/`, `alice/O2/`, `alice/O2Physics`) type `git log`. To remember version you are on write down hash number.<br>
