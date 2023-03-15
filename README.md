@@ -281,7 +281,7 @@ git config --global user.name "<Firstname> <Lastname>"
 git config --global user.email <your-email-address>
 git config --global user.github <your-github-username>
 ```
-Then point git to this fork with:<br>
+Then (while at your O2Physics directory) point git to this fork with:<br>
 ```
 git remote add origin https://github.com/<your-github-username>/O2Physics
 ```
