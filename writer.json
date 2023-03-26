@@ -1,0 +1,16 @@
+{
+    "OutputDirector": {
+      "debugmode": true,
+      "resfile": "ntfMergedFemtoAO2D",
+      "resfilemode": "RECREATE",
+      "ntfmerge": 9,
+      "OutputDescriptors": [
+        {
+          "table": "AOD/FEMTOWORLDPARTS/0"
+        },
+        {
+          "table": "AOD/FEMTOWORLDCOLS/0"
+        }
+      ]
+    }
+  }
