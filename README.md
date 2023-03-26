@@ -253,19 +253,34 @@ Example codes are available here: `O2Physics/PWGCF/`.For data I've used 267 trai
 Here you can find: [FemtoWorld to do list](https://github.com/zchochul/AliceO2/blob/main/Tasks.md)
 
 ## Preparing AOD
-First of all you need to _simplify_ your AOD. After typing `alienv enter O2Physics/latest` run a shell script called [`prod.sh`](https://github.com/zchochul/AliceO2/blob/main/prod.sh) I'm changing it quite frequently so it's just a concept, but I'll try keep it up to date. To run it you need to simply type `./prod.sh prod-config.json`.
+First of all you need to _simplify_ your AOD. After typing `alienv enter O2Physics/latest` run a shell script called [`prod.sh`](https://github.com/zchochul/AliceO2/blob/main/prod.sh) I'm changing it quite frequently so it's just a concept, but I'll try keep it up to date. To run it you need to simply type:
+```c
+prod.sh prod-config.json writer.json
+``` 
  <br>
-Make sure you have [`prod-config.json`](https://github.com/zchochul/AliceO2/blob/main/prod-config.json) file, you can download it from this repo. You need to change the "aod-file" part to match with your .root file/files (keep in mind this file also evolves, so this file may not be the latest version).<br>
+Make sure you have [`prod-config.json`](https://github.com/zchochul/AliceO2/blob/main/prod-config.json) file, you can download it from this repo. You need to change the "aod-file" part to match with your <name>.root file/files (keep in mind this file also evolves, so this file may not be the latest version).<br>
 
 ## Running a simple task
-To FemtoWorld task I'm using [`post.sh`](https://github.com/zchochul/AliceO2/blob/main/post.sh) and [`post-config.json`](https://github.com/zchochul/AliceO2/blob/main/post-config.json) files. You need to be in the O2Physics environment (type `alienv enter O2Physics/latest`).<br>
+I was working on two main tasks in the FemtoWorld directory. The track-track one and the track-Phi one. The rest may not work and they are not updated by me. To run the track-track task type:
+
+```c
+post.sh post-config.json
+```
+
+and to run track-Phi use:
+
+```c
+postphi.sh post-config.json
+```
+
+You need to be in the O2Physics environment (type `alienv enter O2Physics/latest`). Files mentioned above can be found in the files of this repository. I try to update it frequently. If by any chance you have any errors while running that, please message me on mattermost.
 
 ### Possible errors
 You need to **make sure your aod is properly produced for femto analysis**. Using typical AOD files will cause errors (for example: `Couldn't get TTree "DF_2853960030894995121/O2femtodreamcols" from <your-AOD-file>`). <br>
 Another problem I've encountered was the problem of **leaves in several trees not filling up**, make sure that you've changed `ConfCutPartOne` and `ConfCutPartTwo` value to the one from cutculator in run command and in code itself. <br>
 
-## Creating dEta dPhi task
-To do that, I've used existing code from FemtoDream directory. We are creating pararell directory to FemtoDream, called FemtoWorld.
+### FemtoWorld history
+This directory was first created during my bachelor studies. As a base we've used the FemtoDream directory, but we are doing quite different things with it. Special thanks for the help with developing this software goes to my supervisors dr Łukasz Graczykowski and dr Małgorzata Janik. They introduced me to the beautiful world of particle physics, thus fulfilling my childhood dream. Thank you so much for your patience in answering the multitude of questions I have. I am also very grateful to Maja Kabus, who helped me and continues to help me understand this complex software. I would also like to thank every person I have not named who has helped me develop this software. I am very grateful for your comments and suggestions :blush: <br>
 
 Version of Femtodream FemtoWorld is based on is:
 1.  `alice/alidist/` commit hash: **8ebd919bb75e468cb1a994f1012abfa22235ff2f**
