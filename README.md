@@ -1,10 +1,12 @@
-This repository is a collection of notes I've written while working with the O2 software. Keep in mind that I am still working on this repository and it is definately not complete. If you have any suggestions feel free to email me: [zchochul@cern.ch](mailto:zchochul@cern.ch)
+This repository is a collection of notes I've written while working with the O2 software. Keep in mind that I am still working on this repository and it is definately not complete. If you have any suggestions feel free to email me: [zchochul@cern.ch](mailto:zchochul@cern.ch).
 # Table of contents
 1. [Alice O2 - introduction](#AliceO2)<br>
 2. [Hyperloop](#Hyperloop)<br>
 2. [Femtoscopy](#Femtoscopy)<br>
 3. [Github help ;)](#github)<br>
 
+# ALICE
+If you are new to the ALICE experiment, there are a lot of acronyms used here. You can find a lot of them listed here: [ALICE acronym list](https://jinst.sissa.it/LHC/ALICE/ch10.pdf)
 
 # AliceO2 <a name="AliceO2"></a>
 In this repository you can find instructions on how to get started with ALICE O2 Framework. Keep in mind that this framework is constantly evolving and many files in this repository can be outdated. <br>
