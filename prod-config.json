@@ -1,6 +1,12 @@
 {
     "internal-dpl-aod-reader": {
-        "aod-file": "AOD\/275.root"
+        "time-limit": "0",
+        "orbit-offset-enumeration": "0",
+        "orbit-multiplier-enumeration": "0",
+        "start-value-enumeration": "0",
+        "end-value-enumeration": "-1",
+        "step-value-enumeration": "1",
+        "aod-file": "/home/katgwi/data_alice/run2/AO2D-319.root"
     },
     "collision-converter": {
         "doNotSwap": "false"
@@ -23,6 +29,10 @@
     "track-extension": {
         "processRun2": "true",
         "processRun3": "false"
+    },
+    "pid-multiplicity": {
+        "processIU": "false",
+        "processStandard": "true"
     },
     "lambdakzero-builder": {
         "dcanegtopv": "0.100000001",
@@ -64,6 +74,9 @@
         "doDummyZeq": "0",
         "processRun2": "true",
         "processRun3": "false"
+    },
+    "track-selection": {
+        "isRun3": "false"
     },
     "centrality-table":{
         "estRun2V0M":"1"
@@ -126,6 +139,429 @@
     "tof-pid-beta": {
         "tof-expreso": "80"
     },
+    "tof-pid-full": {
+        "param-file": "",
+        "param-sigma": "TOFResoParams",
+        "ccdb-url": "http://alice-ccdb.cern.ch",
+        "ccdbPath": "Analysis/PID/TOF",
+        "ccdb-timestamp": "-1",
+        "enableTimeDependentResponse": "false",
+        "pid-el": "-1",
+        "pid-mu": "-1",
+        "pid-pi": "-1",
+        "pid-ka": "-1",
+        "pid-pr": "-1",
+        "pid-de": "-1",
+        "pid-tr": "-1",
+        "pid-he": "-1",
+        "pid-al": "-1",
+        "processWSlice": "true",
+        "processWoSlice": "false"
+    },
+    "tpc-pid-full": {
+        "param-file": "",
+        "ccdb-url": "http://alice-ccdb.cern.ch",
+        "ccdbPath": "Analysis/PID/TPC/Response",
+        "ccdb-timestamp": "0",
+        "useNetworkCorrection": "false",
+        "autofetchNetworks": "true",
+        "networkPathLocally": "network.onnx",
+        "enableNetworkOptimizations": "true",
+        "networkPathCCDB": "Analysis/PID/TPC/ML",
+        "pid-el": "-1",
+        "pid-mu": "-1",
+        "pid-pi": "-1",
+        "pid-ka": "-1",
+        "pid-pr": "-1",
+        "pid-de": "-1",
+        "pid-tr": "-1",
+        "pid-he": "-1",
+        "pid-al": "-1"
+    },
+    "tof-event-time": {
+        "param-file": "",
+        "param-sigma": "TOFReso",
+        "ccdb-url": "http://alice-ccdb.cern.ch",
+        "ccdbPath": "Analysis/PID/TOF",
+        "ccdb-timestamp": "-1",
+        "processRun2": "true",
+        "processNoFT0": "false",
+        "processFT0": "false",
+        "processOnlyFT0": "false"
+    },
+    "bayes-pid": {
+        "param-file-TOF": "",
+        "param-file-TPC": "",
+        "param-tof-sigma": "TOFReso",
+        "enableTOF": "true",
+        "enableTPC": "true",
+        "ccdb-url": "http://alice-ccdb.cern.ch",
+        "ccdbPathTOF": "Analysis/PID/TOF",
+        "ccdbPathTPC": "Analysis/PID/TPC/Response",
+        "ccdb-timestamp": "-1",
+        "pid-el": "1",
+        "pid-mu": "1",
+        "pid-pi": "1",
+        "pid-ka": "1",
+        "pid-pr": "1",
+        "pid-de": "1",
+        "pid-tr": "1",
+        "pid-he": "1",
+        "pid-al": "1"
+    },
+    "track-to-collision-associator": {
+        "nSigmaForTimeCompat": "4.",
+        "timeMargin": "0.",
+        "applyIsGlobalTrackWoDCA": "true",
+        "applyMinimalTrackSelForRun2": "false"
+    },
+    "hf-track-index-skim-creator": {
+        "process2And3Prongs": "true",
+        "processNo2And3Prongs": "false",
+        "isRun2": "true",
+        "debug": "false",
+        "fillHistograms": "true",
+        "do3Prong": "1",
+        "doPvRefit": "false",
+        "ptTolerance": "0.1",
+        "bz": "5",
+        "propagateToPCA": "true",
+        "useAbsDCA": "true",
+        "maxR": "5",
+        "maxDZIni": "999",
+        "minParamChange": "0.001",
+        "minRelChi2Change": "0.9",
+        "binsPtD0ToPiK": {
+            "values": [
+                "0.",
+                "5.",
+                "1000."
+            ]
+        },
+        "cutsD0ToPiK": {
+            "values": [
+                ["1.61", "2.12", "0.5", "0.00"],
+                ["1.61", "2.12", "0.5", "0.00"]
+            ]
+        },
+        "binsPtJpsiToEE": {
+            "values": [
+                "0.",
+                "5.",
+                "1000."
+            ]
+        },
+        "cutsJpsiToEE": {
+            "values": [
+                ["2.5", "4.1", "-2.", "1000.00"],
+                ["2.5", "4.1", "-2.", "1000.00"]
+            ]
+        },
+        "binsPtJpsiToMuMu": {
+            "values": [
+                "0.",
+                "5.",
+                "1000."
+            ]
+        },
+        "cutsJpsiToMuMu": {
+            "values": [
+                ["2.5", "4.1", "-2.", "1000.00"],
+                ["2.5", "4.1", "-2.", "1000.00"]
+            ]
+        },
+        "binsPtDplusToPiKPi": {
+            "values": [
+                "1.",
+                "5.",
+                "1000."
+            ]
+        },
+        "cutsDplusToPiKPi": {
+            "values": [
+                ["1.67", "2.07", "0.7", "0.03"],
+                ["1.67", "2.07", "0.7", "0.03"]
+            ]
+        },
+        "binsPtDsToKKPi": {
+            "values": [
+                "1.5",
+                "5.",
+                "1000."
+            ]
+        },
+        "cutsDsToKKPi": {
+            "values": [
+                ["1.74", "2.18", "0.94", "0.02"],
+                ["1.74", "2.18", "0.94", "0.02"]
+            ]
+        },
+        "binsPtLcToPKPi": {
+            "values": [
+                "4.",
+                "5.",
+                "1000."
+            ]
+        },
+        "cutsLcToPKPi": {
+            "values": [
+                ["1.98", "2.58", "-2.", "0.0"],
+                ["1.98", "2.58", "-2.", "0.0"]
+            ]
+        },
+        "binsPtXicToPKPi": {
+            "values": [
+                "4.",
+                "5.",
+                "1000."
+            ]
+        },
+        "cutsXicToPKPi": {
+            "values": [
+                ["2.10", "2.80", "-2.", "0.0"],
+                ["2.10", "2.80", "-2.", "0.0"]
+            ]
+        },
+        "axisPvRefitDeltaX": {
+            "values": [
+                "1000",
+                "-0.5",
+                "0.5"
+            ]
+        },
+        "axisPvRefitDeltaY": {
+            "values": [
+                "1000",
+                "-0.5",
+                "0.5"
+            ]
+        },
+        "axisPvRefitDeltaZ": {
+            "values": [
+                "1000",
+                "-0.5",
+                "0.5"
+            ]
+        }
+    },
+    "hf-candidate-creator-2prong": {
+        "isRun2": "true",
+        "doPvRefit": "false",
+        "bz": "5",
+        "propagateToPCA": "true",
+        "maxR": "5",
+        "maxDZIni": "999",
+        "minParamChange": "0.001",
+        "minRelChi2Change": "0.9",
+        "fillHistograms": "true"
+    },
+    "hf-candidate-selector-d0": {
+        "ptCandMin": "0",
+        "ptCandMax": "50",
+        "ptPidTpcMin": "0.15",
+        "ptPidTpcMax": "10",
+        "nSigmaTpcMax": "3",
+        "nSigmaTpcCombinedMax": "5",
+        "ptPidTofMin": "0.15",
+        "ptPidTofMax": "10",
+        "nSigmaTofMax": "3",
+        "nSigmaTofCombinedMax": "5",
+        "binsPt": {
+            "values": [
+                "0",
+                "0.5",
+                "1",
+                "1.5",
+                "2",
+                "2.5",
+                "3",
+                "3.5",
+                "4",
+                "4.5",
+                "5",
+                "5.5",
+                "6",
+                "6.5",
+                "7",
+                "7.5",
+                "8",
+                "9",
+                "10",
+                "12",
+                "16",
+                "20",
+                "24",
+                "36",
+                "50",
+                "100"
+            ]
+        },
+        "cuts": {
+            "labels_rows": [
+                "pT bin 0",
+                "pT bin 1",
+                "pT bin 2",
+                "pT bin 3",
+                "pT bin 4",
+                "pT bin 5",
+                "pT bin 6",
+                "pT bin 7",
+                "pT bin 8",
+                "pT bin 9",
+                "pT bin 10",
+                "pT bin 11",
+                "pT bin 12",
+                "pT bin 13",
+                "pT bin 14",
+                "pT bin 15",
+                "pT bin 16",
+                "pT bin 17",
+                "pT bin 18",
+                "pT bin 19",
+                "pT bin 20",
+                "pT bin 21",
+                "pT bin 22",
+                "pT bin 23",
+                "pT bin 24"
+            ],
+            "labels_cols": [
+                "m",
+                "DCA",
+                "cos theta*",
+                "pT K",
+                "pT Pi",
+                "d0K",
+                "d0pi",
+                "d0d0",
+                "cos pointing angle",
+                "cos pointing angle xy",
+                "normalized decay length XY",
+                "decay length",
+                "decay length XY",
+                "minimum decay length"
+            ],
+            "values": [
+                [ "0.4", "0.035", "0.8", "0.5", "0.5", "0.1", "0.1", "-5.e-5", "0.80", "0.", "0.", "10.0", "10.0", "0.06" ],
+                [ "0.4", "0.035", "0.8", "0.5", "0.5", "0.1", "0.1", "-5.e-5", "0.80", "0.", "0.", "10.0", "10.0", "0.06" ],
+                [ "0.4", "0.030", "0.8", "0.4", "0.4", "0.1", "0.1", "-25.e-5", "0.80", "0.", "0.", "10.0", "10.0", "0.06" ],
+                [ "0.4", "0.030", "0.8", "0.4", "0.4", "0.1", "0.1", "-25.e-5", "0.80", "0.", "0.", "10.0", "10.0", "0.06" ],
+                [ "0.4", "0.030", "0.8", "0.7", "0.7", "0.1", "0.1", "-20.e-5", "0.90", "0.", "0.", "10.0", "10.0", "0.06" ],
+                [ "0.4", "0.030", "0.8", "0.7", "0.7", "0.1", "0.1", "-20.e-5", "0.90", "0.", "0.", "10.0", "10.0", "0.06" ],
+                [ "0.4", "0.030", "0.8", "0.7", "0.7", "0.1", "0.1", "-12.e-5", "0.85", "0.", "0.", "10.0", "10.0", "0.06" ],
+                [ "0.4", "0.030", "0.8", "0.7", "0.7", "0.1", "0.1", "-12.e-5", "0.85", "0.", "0.", "10.0", "10.0", "0.06" ],
+                [ "0.4", "0.030", "0.8", "0.7", "0.7", "0.1", "0.1", "-8.e-5", "0.85", "0.", "0.", "10.0", "10.0", "0.06" ],
+                [ "0.4", "0.030", "0.8", "0.7", "0.7", "0.1", "0.1", "-8.e-5", "0.85", "0.", "0.", "10.0", "10.0", "0.06" ],
+                [ "0.4", "0.030", "0.8", "0.7", "0.7", "0.1", "0.1", "-8.e-5", "0.85", "0.", "0.", "10.0", "10.0", "0.06" ],
+                [ "0.4", "0.030", "0.8", "0.7", "0.7", "0.1", "0.1", "-8.e-5", "0.85", "0.", "0.", "10.0", "10.0", "0.06" ],
+                [ "0.4", "0.030", "0.8", "0.7", "0.7", "0.1", "0.1", "-8.e-5", "0.85", "0.", "0.", "10.0", "10.0", "0.06" ],
+                [ "0.4", "0.030", "0.8", "0.7", "0.7", "0.1", "0.1", "-8.e-5", "0.85", "0.", "0.", "10.0", "10.0", "0.06" ],
+                [ "0.4", "0.030", "0.8", "0.7", "0.7", "0.1", "0.1", "-7.e-5", "0.85", "0.", "0.", "10.0", "10.0", "0.06" ],
+                [ "0.4", "0.030", "0.8", "0.7", "0.7", "0.1", "0.1", "-7.e-5", "0.85", "0.", "0.", "10.0", "10.0", "0.06" ],
+                [ "0.4", "0.030", "0.9", "0.7", "0.7", "0.1", "0.1", "-5.e-5", "0.85", "0.", "0.", "10.0", "10.0", "0.06" ],
+                [ "0.4", "0.030", "0.9", "0.7", "0.7", "0.1", "0.1", "-5.e-5", "0.85", "0.", "0.", "10.0", "10.0", "0.06" ],
+                [ "0.4", "0.030", "0.9", "0.7", "0.7", "0.1", "0.1", "-5.e-5", "0.85", "0.", "0.", "10.0", "10.0", "0.06" ],
+                [ "0.4", "0.030", "1.0", "0.7", "0.7", "0.1", "0.1", "10.e-5", "0.85", "0.", "0.", "10.0", "10.0", "0.06" ],
+                [ "0.4", "0.030", "1.0", "0.7", "0.7", "0.1", "0.1", "1000.e-5", "0.85", "0.", "0.", "10.0", "10.0", "0.06" ],
+                [ "0.4", "0.030", "1.0", "0.7", "0.7", "0.1", "0.1", "1000.e-5", "0.85", "0.", "0.", "10.0", "10.0", "0.06" ],
+                [ "0.4", "0.030", "1.0", "0.7", "0.7", "0.1", "0.1", "1000.e-5", "0.85", "0.", "0.", "10.0", "10.0", "0.06" ],
+                [ "0.4", "0.030", "1.0", "0.7", "0.7", "0.1", "0.1", "1000.e-5", "0.85", "0.", "0.", "10.0", "10.0", "0.06" ],
+                [ "0.4", "0.030", "1.0", "0.6", "0.6", "0.1", "0.1", "1000.e-5", "0.80", "0.", "0.", "10.0", "10.0", "0.06" ]
+            ]
+        }
+    },
+    "hf-track-index-skim-creator-tag-sel-tracks": {
+        "isRun2": "true",
+        "fillHistograms": "true",
+        "debug": "true",
+        "bz": "5",
+        "doPvRefit": "false",
+        "doCutQuality": "true",
+        "useIsGlobalTrack": "false",
+        "tpcNClsFoundMin": "71",
+        "binsPtTrack": {
+            "values": [
+                "0.",
+                "0.5",
+                "1.",
+                "1.5",
+                "2.",
+                "3.",
+                "100."
+            ]
+        },
+        "ptMinTrack2Prong": "0.4",
+        "cutsTrack2Prong": {
+            "values": [
+                ["0.03", "1.0"],
+                ["0.03", "1.0"],
+                ["0.03", "1.0"],
+                ["0.03", "1.0"],
+                ["0.00", "10."],
+                ["0.00", "10."]
+            ]
+        },
+        "etaMaxTrack2Prong": "0.8",
+        "ptMinTrack3Prong": "0.4",
+        "cutsTrack3Prong": {
+            "values": [
+                ["0.03", "1.0"],
+                ["0.03", "1.0"],
+                ["0.03", "1.0"],
+                ["0.03", "1.0"],
+                ["0.00", "10."],
+                ["0.00", "10."]
+            ]
+        },
+        "etaMaxTrack3Prong": "0.8",
+        "ptMinTrackBach": "0.3",
+        "cutsTrackBach": {
+            "values": [
+                ["0.00", "1.0"],
+                ["0.00", "1.0"],
+                ["0.00", "1.0"],
+                ["0.00", "1.0"],
+                ["0.00", "1.0"],
+                ["0.00", "1.0"]
+            ]
+        },
+        "etaMaxTrackBach": "0.8",
+        "axisPvRefitDeltaX": {
+            "values": [
+                "1000",
+                "-0.5",
+                "0.5"
+            ]
+        },
+        "axisPvRefitDeltaY": {
+            "values": [
+                "1000",
+                "-0.5",
+                "0.5"
+            ]
+        },
+        "axisPvRefitDeltaZ": {
+            "values": [
+                "1000",
+                "-0.5",
+                "0.5"
+            ]
+        }
+    },
+    "hf-track-index-skim-creator-tag-sel-collisions": {
+        "fillHistograms": "true",
+        "xVertexMin": "-100",
+        "xVertexMax": "100",
+        "yVertexMin": "-100",
+        "yVertexMax": "100",
+        "zVertexMin": "-100",
+        "zVertexMax": "100",
+        "nContribMin": "0",
+        "chi2Max": "0",
+        "triggerClassName": "kINT7",
+        "useSel8Trigger": "false",
+        "processTrigSel": "false",
+        "processNoTrigSel": "true"
+    },
     "femto-world-producer-task": {
         "ConfDebugOutput": "true",
         "ConfIsTrigger": "false",
@@ -136,6 +572,7 @@
         "ConfEvtOfflineCheck": "false",
         "ConfStoreV0": "false",
         "ConfStorePhi": "true",
+        "ConfStoreD0D0bar": "true",
         "ConfRejectNotPropagatedTracks": "false",
         "ConfRejectITSHitandTOFMissing": "false",
         "ConfTrkSign": {
