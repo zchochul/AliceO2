@@ -55,7 +55,7 @@ Last, but not least in `alice/` type
 aliBuild build O2Physics --defaults o2 --debug
 ``` 
 
-Unfortunately, it takes a while and you have to do it quite often due to the constantly evolving system. You might want to use a bash script to update (look for `aliBuild.sh` in this repository). If you are working with WSL 2, you might want to use option `-j6` while building with aliBuild ;). <br>
+Unfortunately, it takes a while and you have to do it quite often due to the constantly evolving system. You might want to use a bash script to update (look for `aliBuild.sh` in this repository). If you are working with WSL 2, you might want to use option `-j6` while building with aliBuild ;). Sometimes there are some errors if you are doing an update from the different branch than master.<br>
 
 ### Tip: Remembering the repo version
 Sometimes it is crucial to remember version you are on. In all repositories (in  `alice/alidist/`, `alice/O2/`, `alice/O2Physics`) type `git log`. To remember version you are on write down hash number.<br>
@@ -68,13 +68,32 @@ hash number in this case is: **291457fce1bf6da3c0ac5cf1afe53a12624a3a6c**
 </p>
 </details>
 
-## How to obtain data files? (Run3 converted data example)
+## How to obtain data files for Run 2 Converted data? 
 To get AOD file go to -> [_Analysis train : Run3_Conversion_](https://alimonitor.cern.ch/trains/train.jsp?train_id=132) and scroll down. Choose train number you're interested in and click on run number (for example 246). Now you have two options, you can download:<br>
 **Smaller file:**<br>
 Then you need to click on the **Test Results** (in the middle). Scroll down and find full train option and then click on output. Now you're supposed to see a lot of files, but you're only interested in `AO2D.root`. Then you need to only click on it and it will start to download.<br>
 **Bigger file:**<br>
 You need to find the table with {Status, Files, Processing, Merging, Statistics} rows. In the **Processing** row click on the _processing progress_. It will redirect you to the _alimonitor.cern.ch/catalogue_. Click on the output directory you are interested in. Then scroll down and find _AOD_ directory, then enter another directory (I think it doesn't really matter which one) and then download the _AO2D.root_ file. This may take a while, as the files are quite large. Please save the path your AOD is from (I have a .txt file with [names : paths]).<br>
 Information about trains (job details) can be found here -> [_alimonitor.cern.ch/job_details_](https://alimonitor.cern.ch/job_details.jsp).
+
+## How to obtain data files for Run3 data?
+
+**Quick version**<br>
+Go to the Hyperloop page and look for the datasets linked to the dataset you are using. So now let's do the example ;) Go to the Hyperloop page and choose the desired dataset. I will be doing that for the **LHC22o_pass2_test_small (DATA)** ([link](https://alimonitor.cern.ch/hyperloop/view-dataset/297)). Under the name of the dataset there is a jira ticket so sometimes there are crucial information there. Look at the ** Productions** section. You have there a listo of runs, remember a run number from there and look for it in the MonALISA page that's linked above. <br>
+
+<details><summary>This is a hint where to look for the link!</summary>
+<p>
+
+![image](https://user-images.githubusercontent.com/87480906/235240978-81356c8f-eb5a-4336-8d78-0ffd1695d7d0.png)
+
+</p>
+</details>
+ 
+ When you follow the link look for the run number I've asked you to remember. CLick on the link of its output directory. It should send you to the MonALISA repository. Now choose one of the directories of the type `o2_ctf_run527734_orbit` and than go into whichever directory (so for example 001) and you should be able to find there a AO2D.root file.
+
+**Advanced version :)**<br>
+Firstly look on the DPG page for the recommended datasets for each period ([link to the DPG page](https://twiki.cern.ch/twiki/bin/viewauth/ALICE/AliDPGRun3DataSets)). Than you can go to the MonALISA page ([link to the MonALISA catalogue](https://alimonitor.cern.ch/catalogue/#/alice/cern.ch/data)). Here you need to fo to alice/data and go to the year you are interested in (on the DPG page there were datasets `LHCXYz_passN`, so to find desired dataset go to the year 20XY). At the time of writing this, I know that the calibration of the TPC for the high interaction rate (IR) may not be fully correct. That for sure will be changed in the future ;)
+QC summary data -> [link to the spreadsheet](https://docs.google.com/spreadsheets/d/14vXFYVx3oVE8wgJKmIBhjvAt6NpGp7D6H4AmBM9E0Cw/edit#gid=1454168024).<br>
 
 ### Possible errors
 If you can't even enter alimonitor it is possible that you haven't added your GRID certificate to your browser correctly. Follow instructions on the [_Get a Grid certificate_](https://alice-doc.github.io/alice-analysis-tutorial/start/cert.html) page.
