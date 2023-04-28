@@ -94,6 +94,7 @@ Go to the Hyperloop page and look for the datasets linked to the dataset you are
 **Advanced version :)**<br>
 Firstly look on the DPG page for the recommended datasets for each period ([link to the DPG page](https://twiki.cern.ch/twiki/bin/viewauth/ALICE/AliDPGRun3DataSets)). Than you can go to the MonALISA page ([link to the MonALISA catalogue](https://alimonitor.cern.ch/catalogue/#/alice/cern.ch/data)). Here you need to fo to alice/data and go to the year you are interested in (on the DPG page there were datasets `LHCXYz_passN`, so to find desired dataset go to the year 20XY). At the time of writing this, I know that the calibration of the TPC for the high interaction rate (IR) may not be fully correct. That for sure will be changed in the future ;)
 QC summary data -> [link to the spreadsheet](https://docs.google.com/spreadsheets/d/14vXFYVx3oVE8wgJKmIBhjvAt6NpGp7D6H4AmBM9E0Cw/edit#gid=1454168024).<br>
+example file I've been using for now: `/alice/data/2022/LHC22o/528347/apass3/0130/o2_ctf_run00528347_orbit0002457600_tf0000000001_epn136/001`.
 
 ### Possible errors
 If you can't even enter alimonitor it is possible that you haven't added your GRID certificate to your browser correctly. Follow instructions on the [_Get a Grid certificate_](https://alice-doc.github.io/alice-analysis-tutorial/start/cert.html) page.
