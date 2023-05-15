@@ -1,4 +1,4 @@
-This repository is a collection of notes I've written while working with the O2 software. Keep in mind that I am still working on this repository and it is definately not complete. If you have any suggestions feel free to email me: [zchochul@cern.ch](mailto:zchochul@cern.ch).
+This repository is a collection of notes I've written while working with the O2 software. Keep in mind that I am still working on this repository and it is definately not complete. If you have any suggestions feel free to message me on mattermost :)
 # Table of contents
 1. [Alice O2 - introduction](#AliceO2)<br>
 2. [Hyperloop](#Hyperloop)<br>
