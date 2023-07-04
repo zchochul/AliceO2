@@ -6,7 +6,7 @@
         "start-value-enumeration": "0",
         "end-value-enumeration": "-1",
         "step-value-enumeration": "1",
-        "aod-file": "/home/katgwi/data_alice/run2/AO2D-319.root"
+        "aod-file": "AOD\/Run2_275.root"
     },
     "collision-converter": {
         "doNotSwap": "false"

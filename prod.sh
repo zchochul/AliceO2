@@ -19,6 +19,7 @@ o2-analysis-pid-tpc-base  --configuration json://$config_file -b |
 o2-analysis-pid-tof  --configuration json://$config_file --aod-memory-rate-limit 600000000 -b |
 o2-analysis-pid-tof-beta --configuration json://$config_file --aod-memory-rate-limit 600000000 -b |
 o2-analysis-pid-tof-full  --configuration json://$config_file --aod-memory-rate-limit 600000000 -b |
+o2-analysis-zdc-converter --configuration json://$config_file --aod-memory-rate-limit 600000000 -b |
 o2-analysis-pid-tpc-full --configuration json://$config_file --aod-memory-rate-limit 600000000 -b |
 o2-analysis-lf-lambdakzerobuilder --configuration json://$config_file -b |
 #o2-analysis-hf-refit-pv-dummy --configuration json://$config_file --aod-memory-rate-limit 600000000 -b |
