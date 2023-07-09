@@ -54,7 +54,7 @@ Last, but not least in `alice/` type
 ```c
 aliBuild build O2Physics --defaults o2 --debug
 ``` 
-
+But you can also use the update.sh script in the files of this repo. Paste it to the `alice/` directory and don't forget to use the `chmod` command before ;).
 Unfortunately, it takes a while and you have to do it quite often due to the constantly evolving system. You might want to use a bash script to update (look for `aliBuild.sh` in this repository). If you are working with WSL 2, you might want to use option `-j6` while building with aliBuild ;). Sometimes there are some errors if you are doing an update from the different branch than master.<br>
 
 ### Tip: Remembering the repo version
