@@ -134,8 +134,8 @@ This can be written anywhere and it will work, but try writing it in one place, 
 <p>
 
 So there are two options:<br>
-1. When you builded the O2 there was an error and it didn't compiled completly. You have to correct the mistakes and try to build again. <br>
-2. If it did in fact compiled completly there is an other error (I had it only once but it is possible xD). You need to change the `/latest` part for something you have in the `~/alice/sw/ubuntu2004_x86-64/O2` directory. But when I fully built again, the error disappeared.
+1. When you built the O2 there was an error and it didn't compile completely. You have to correct the mistakes and try to build again. <br>
+2. If it did in fact compile completely there is another error (I had it only once but it is possible xD). You need to change the `/latest` part for something you have in the `~/alice/sw/ubuntu2004_x86-64/O2` directory. But when I fully built again, the error disappeared.
 
 </p>
 </details>
@@ -157,6 +157,11 @@ The `-b` option stops GUI from showing. In `--aod-memory-rate-limit 100000000000
 
 </p>
 </details>
+
+### Running on more than one AOD
+In the .json config file in the `internal-dpl-aod-reader` section you should type not the path to the file but attach the .txt file as follows: <br>
+![image](https://github.com/zchochul/AliceO2/assets/87480906/7a88e553-7f6f-40aa-824f-d80466293d81)
+
 
 ### Possible errors
 
