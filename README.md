@@ -223,6 +223,18 @@ For example: `./o2-analysis-mm-dndeta --aod-file AODmc2.root --aod-memory-rate-l
 </p>
 </details>
 
+<details><summary>GRP magnetic field information.</summary>
+<p>
+
+* GRP with magnetic filed information for converted Run 2 data CCDB path: `GLO/GRp/GRP`
+* GRP with magnetic filed information for Run 3 data CCDB path: `GLO/Config/GRPMagField` (with the new GRP objects structure)
+
+</p>
+</details>
+
+
+
+
 ## Results
 Running command `./o2-analysistutorial-simple-analysis --aod-file <aod_file_name> -b` (and others of that type) creates .root file and .json file. <br>
 To enter AnalysisResults.root file enter O2Physics environment (`enter O2Physics/latest`) and type: `root -l` and then `new TBrowser`. (`-l` is optional but it runs root without additional information about it).<br>
