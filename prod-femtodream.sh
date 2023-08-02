@@ -6,7 +6,6 @@ export alien_CLOSE_SE=ALICE::UPB::EOS
 
 #ConfigFile="./configuration_22fpass4.json"
 ConfigFile="./prod-Run3.json"
-#ConfigFile="./run-femtodream-hyperloop.json"
 
 Prefix="feature-bininng-22m_pass4-"
 
@@ -26,10 +25,12 @@ Start=$(date '+%s')
     o2-analysis-pid-tpc -b --configuration json://$ConfigFile |
     o2-analysis-pid-tof-base -b --configuration json://$ConfigFile |
     o2-analysis-pid-tof -b --configuration json://$ConfigFile |
+    o2-analysis-pid-tof-full -b --configuration json://$ConfigFile |
+    o2-analysis-pid-tpc-full  -b --configuration json://$ConfigFile |
     #o2-analysis-zdc-converter -b --configuration json://$ConfigFile |
     o2-analysis-ft0-corrected-table -b --configuration json://$ConfigFile |
-    #o2-analysis-lf-lambdakzerobuilder -b --configuration json://$ConfigFile | #comment for producer-reduced
-    o2-analysis-cf-femtouniverse-producer -b --configuration json://$ConfigFile --aod-writer-resfile FemtoAO2D --aod-writer-keep AOD/FDPARTICLE/0,AOD/FDCOLLISION/0,AOD/FDEXTPARTICLE/0 #|
+    o2-analysis-lf-lambdakzerobuilder -b --configuration json://$ConfigFile | #comment for producer-reduced
+    o2-analysis-cf-femtodream-producer -b --configuration json://$ConfigFile --aod-writer-resfile FemtoAO2D --aod-writer-keep AOD/FDPARTICLE/0,AOD/FDCOLLISION/0,AOD/FDEXTPARTICLE/0 #|
     #o2-analysis-cf-femtouniverse-pair-track-track -b --configuration json://$ConfigFile
 
      #--aod-writer-resfile FemtoAO2D --aod-writer-keep AOD/FEMTODREAMPARTS/0,AOD/FEMTODREAMMCPS/0,AOD/FEMTOMCLABELS/0,AOD/FEMTODREAMCOLS/0
