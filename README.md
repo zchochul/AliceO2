@@ -327,6 +327,12 @@ Version of Femtodream FemtoWorld is based on is:
 1.  `alice/alidist/` commit hash: **8ebd919bb75e468cb1a994f1012abfa22235ff2f**
 2.  `alice/O2Physics/` commit hash: **c3dcdbca87dc9535de85f9837ad777de475ceee3**
 3.  `alice/O2/` commit hash: **291457fce1bf6da3c0ac5cf1afe53a12624a3a6c**
+
+## Particle species
+static constexpr ID Pion = 2; <br>
+static constexpr ID Kaon = 3; <br>
+static constexpr ID Proton = 4; <br>
+static constexpr ID Deuteron = 5 <br>
  
 # Github help ;) [work in progress c:] <a name="github"></a>
 Here I've listed some steps but if it doesn't work in your case please follow [@saganatt's github instructions](https://github.com/zchochul/AliceO2/blob/main/gitInstructions.md) they are better ;)
