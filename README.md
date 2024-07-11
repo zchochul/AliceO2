@@ -9,21 +9,24 @@ This repository is a collection of notes I've written while working with the O2 
 If you are new to the ALICE experiment, there are a lot of acronyms used here. You can find some of them here: [ALICE acronym list](https://jinst.sissa.it/LHC/ALICE/ch10.pdf)
 
 # AliceO2 <a name="AliceO2"></a>
-In this repository you can find instructions on how to get started with ALICE O2 Framework. Keep in mind that this framework is constantly evolving and many files in this repository can be outdated. <br>
+In this repository you can find instructions on how to get started with the ALICE O2 Framework. Keep in mind that this framework is constantly evolving and many files in this repository can be outdated. <br>
 Here are some links you may find useful:<br>
 - [ALICE O2 documentation](https://aliceo2group.github.io/analysis-framework/docs/installing/) - O2 documentation, <br>
 - [@saganatt's Learning O2 repo ;)](https://github.com/saganatt/Learning-O2),<br>
 - [@lbariogl, @saganatt & @zchochul O2Physics Tutorial for CF](https://github.com/CF-tutorials/O2Physics/tree/tutorial/PWGCF/Tutorial).<br>
 
 ## How to install O2 Framework?
-Keep in mind most of us use Ubuntu 18.04 / 20.04. Firstly, build O2 with alibuild as explained in the [ALICE O2 documentation](https://aliceo2group.github.io/analysis-framework/docs/installing/). So, you need to follow instructions from [Installation via alibuild](https://alice-doc.github.io/alice-analysis-tutorial/building/custom.html) page, but **DO NOT** follow instructions on "build packages" there! You also need to acquire GRID certificate, it's explained in detail here -> [_Get a Grid certificate_](https://alice-doc.github.io/alice-analysis-tutorial/start/cert.html).
-Keep in mind that it may not be easy and can take quite a long time. 
+Keep in mind most of us use Ubuntu 18.04 / 20.04 / 22.04 or CentOS. Firstly, build O2 with alibuild as explained in the [ALICE O2 documentation](https://aliceo2group.github.io/analysis-framework/docs/installing/). So, you need to follow instructions from [Installation via alibuild](https://alice-doc.github.io/alice-analysis-tutorial/building/custom.html) page, but **DO NOT** follow instructions on "build packages" there! You also need to acquire GRID certificate, it's explained in detail here -> [_Get a Grid certificate_](https://alice-doc.github.io/alice-analysis-tutorial/start/cert.html). 
+
+If you plan to only do the analysis in the O2Physics you can init only O2Physics (O2 will be created to, but in the `alice/sw/` directory). If you choose not to init it you will speed up a bit the **updating** process. You will not need to update the O2 directory.
+
+Keep in mind that setting everything up for the first time may not be easy and can take quite a long time and that's completely normal. 
 
 ### Possible errors
 <details><summary>WSL 2 error - `c++: fatal error: Killed signal terminated program cc1plus`</summary>
 <p>
 
-That means the compilation uses too much RAM of what is available in the WSL2, compile with flag `-j6` <br>
+That means the compilation uses too much RAM of what is available in the WSL2, compile with flag `-jX`, where X should be the amount of cores you want to engage, for example: `-j6`. Keep in mind not to use more than what you have available on your machine ;) I would advice you to use this flag **even if you are not using the WSL**. It would extend building time, but it's safer if you want to use your computer for other things during building.<br>
 ```c
  aliBuild -j6 build O2Physics --defaults o2
  ```
@@ -32,7 +35,7 @@ That means the compilation uses too much RAM of what is available in the WSL2, c
 </details>
 
 ## Updating ALICE system
-ALICE O2 Framework is constantly evolving so remember to stay up-to-date with the official repo. To update it you need to do the following: <br><br>
+ALICE O2 Framework is constantly evolving so remember to stay up-to-date with the official repo. It would be ideal to update it everyday, but try to do it at least once a week. To update it you need to do the following: <br><br>
 In `alice/O2` type <br>
 
 ```c 
@@ -55,10 +58,10 @@ Last, but not least in `alice/` type
 aliBuild build O2Physics --defaults o2 --debug
 ``` 
 But you can also use the update.sh script in the files of this repo. Paste it to the `alice/` directory and don't forget to use the `chmod` command before ;).
-Unfortunately, it takes a while and you have to do it quite often due to the constantly evolving system. You might want to use a bash script to update (look for `aliBuild.sh` in this repository). If you are working with WSL 2, you might want to use option `-j6` while building with aliBuild ;). Sometimes there are some errors if you are doing an update from the different branch than master.<br>
+Unfortunately, it takes a while and you have to do it quite often due to the constantly evolving system. You might want to use a bash script to update (look for `aliBuild.sh` in this repository). Sometimes there are some errors if you are doing an update from the different branch than master.<br>
 
 ### Tip: Remembering the repo version
-Sometimes it is crucial to remember version you are on. In all repositories (in  `alice/alidist/`, `alice/O2/`, `alice/O2Physics`) type `git log`. To remember version you are on write down hash number.<br>
+Sometimes it is crucial to remember version you are on. In all repositories (in  `alice/alidist/`, `alice/O2/`, `alice/O2Physics`) type `git log`. You can see the last commit that you have in your version. To remember version you are on write down hash number.<br>
 <details><summary>Here is an example ;)</summary>
 <p>
 
@@ -104,7 +107,9 @@ You can find useful examples on how to write your code in `~/alice/O2Physics/Tut
 Then place your code in C++ somewhere, for example: `~/alice/O2Physics/Tutorials/src/`. Remember to always change CMakeList in the parent folder (in this case `~/alice/O2Physics/Tutorials/`) when you add a new file to your analysis. Without that step, you won't be able to build it. When you add a new file remember to use `cmake .` command before building (it will be explained in the [How to build a task section](#How_to_build)).
 
 ## How to build a task? <a name="How_to_build"></a>
-Go to `~/alice/sw/BUILD/O2Physics-latest-master/O2Physics`.
+Easiest and the most safe way to build your task is to simply do the  alibuild (`aliBuild build O2Physics --defaults o2 --debug` in the `~/alice/`). But you can also ask explicitly to build a given task using **ninja**.
+
+To use ninja go to `~/alice/sw/BUILD/O2Physics-latest-master/O2Physics`.
 <details><summary>As soon as you enter a lot of text should appear and it should look like this:</summary>
 <p>
 
@@ -115,7 +120,7 @@ Go to `~/alice/sw/BUILD/O2Physics-latest-master/O2Physics`.
 
 In `~/alice/sw/BUILD/O2Physics-latest-master/O2Physics` enter ninja and O2Physics environment (`alienv load ninja/latest O2Physics/latest `). Then build your task using `ninja stage/bin/<your-analysis-file>`. If you don't know what you should type in <`your-analysis-file`> place, open `CMakeList.txt` and see how your analysis is called there. <br>
 Keep in mind that if you add a new file or modify CMakeList you need to use `cmake .` 
-Then, after building part, copy this builded file to directory with AOD file (`cp stage/bin/<your-analysis-file>`). You can skip this step (copying) when you use `ninja install` instead of `ninja` or you can use alibuild (`aliBuild build O2Physics --defaults o2 --debug` in the `~/alice/`).
+Then, after building part, copy this builded file to directory with AOD file (`cp stage/bin/<your-analysis-file>`). You can skip this step (copying) when you use `ninja install` instead of `ninja`.
 
 ### Possible errors
 <details><summary>You don't see a lot of text after entering the directory</summary>
@@ -144,15 +149,15 @@ So there are two options:<br>
 ## How to run a code?
 In your directory with an AOD file type: <br>
 `alienv enter O2Physics/latest` and  `alien-token-init your-cern-nickname`<br>
-Then to run your code you only need to type: <br>
+Then to run your code you need to type: <br>
 `./o2-analysistutorial-simple-analysis --aod-file <aod_file_name> -b` <br>
-But sometimes you need to add more for it to work. When you see `Exception caught: Couldn't get TTree [sth]` you need to add it to your analysis. <br>
+But sometimes you need to add more for it to work. When you see `Exception caught: Couldn't get TTree O2[sth]` you need to add a helper task that creates this [sth] table to your analysis. <br>
 <details><summary>Example</summary>
 <p>
 
 While performing PID analysis you need to type for example: <br>
 `./o2-analysistutorial-simple-analysis --aod-file <aod_file_name> --aod-memory-rate-limit 100000000000000 -b | o2-analysis-pid-tpc -b | o2-analysis-pid-tof -b | o2-analysis-trackselection -b | o2-analysis-tracksextention -b ` <br>
- Those o2-analysis-pid-tpc and other tasks are called **helper tasks** and they are used to produce tables that will be later used in the analysis. But keep in mind not everything might be useful in your case. <br>
+ Those o2-analysis-pid-tpc and other tasks are called **helper tasks** and they are used to produce tables that will be later used in the analysis. But keep in mind not everything might be useful in your case. For more examples look at the files section of this repository. <br>
 The `-b` option stops GUI from showing. In `--aod-memory-rate-limit 100000000000000` option tells you the largest shared memory size in bytes that is allowed to be filled with tables that are read from input files.
 
 </p>
@@ -320,10 +325,12 @@ You need to be in the O2Physics environment (type `alienv enter O2Physics/latest
 You need to **make sure your aod is properly produced for femto analysis**. Using typical AOD files will cause errors (for example: `Couldn't get TTree "DF_2853960030894995121/O2femtodreamcols" from <your-AOD-file>`). <br>
 Another problem I've encountered was the problem of **leaves in several trees not filling up**, make sure that you've changed `ConfCutPartOne` and `ConfCutPartTwo` value to the one from cutculator in run command and in code itself. <br>
 
-### FemtoWorld history
-This directory was first created during my bachelor studies. As a base we've used the FemtoDream directory, but we are doing quite different things with it. Special thanks for the help with developing this software goes to my supervisors dr Łukasz Graczykowski and dr Małgorzata Janik. They introduced me to the beautiful world of particle physics, thus fulfilling my childhood dream. Thank you so much for your patience in answering the multitude of questions I have. I am also very grateful to Maja Kabus, who helped me and continues to help me understand this complex software. I would also like to thank every person I have not named who has helped me develop this software. I am very grateful for your comments and suggestions :blush: <br>
+### FemtoWorld and FemtoUniverse history
+This directory was first created during my bachelor studies (2022). As a base we've used the FemtoDream directory, but we are doing quite different things with it. During my master studies (2023) we moved to FemtoUniverse to upgrade FemtoWorld and do it in a more efficient way.
 
-Version of Femtodream FemtoWorld is based on is:
+Special thanks for the help with developing this software goes to my supervisors dr hab. Łukasz Graczykowski, dr hab. Małgorzata Janik, dr hab. Georgy Kornakov and prof. Adam Kisiel. They introduced me to the beautiful world of particle physics, thus fulfilling my childhood dream. Thank you so much for your patience in answering the multitude of questions I have. I am also very grateful to Maja Kabus, who helped me and continues to help me understand this complex software and Wiola Rzęsa for all the help she gave me during the years with macros and physics questions. I would also like to thank every person I have not named who has helped me develop this software. I am very grateful for your comments and suggestions :blush: <br>
+
+Version of FemtoDream FemtoWorld is based on is:
 1.  `alice/alidist/` commit hash: **8ebd919bb75e468cb1a994f1012abfa22235ff2f**
 2.  `alice/O2Physics/` commit hash: **c3dcdbca87dc9535de85f9837ad777de475ceee3**
 3.  `alice/O2/` commit hash: **291457fce1bf6da3c0ac5cf1afe53a12624a3a6c**
@@ -347,7 +354,7 @@ Then (while at your O2Physics directory) point git to this fork with:<br>
 ```
 git remote add origin https://github.com/<your-github-username>/O2Physics
 ```
-When you use `git status` you will be able to display the state of the working directory and the staging area. It lets you see which changes have been staged, which haven't, and which files aren't being tracked by Git. If you want to add files to your branch (for example **femtoworld**) use:
+When you use `git status` you will be able to display the state of the working directory and the staging area. It lets you see which changes have been staged, which haven't, and which files aren't being tracked by Git. If you want to add files to your branch (for example **femtouniverse**) use:
  1. `git branch -vvv` <-- it tells you on which branch you are on <br>
  2. `git checkout <desired-branch>` <-- in this way you can switch to your desired branch <br>
  3. `git fetch upstream` and `git rebase upstream/master` <-- to update the master branch of your forked repository
