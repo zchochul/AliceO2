@@ -294,29 +294,22 @@ You have to create a request on the ALICE's `O2 Hyperloop Operation` mattermost 
 ![image](https://user-images.githubusercontent.com/87480906/183655686-5bb0d603-9f17-4fe7-8444-6a1fa6e6ce4c.png)<br>
 When it's finished it will say **Done**. Then you need to click on the **Train number** and then on the **Merge output** and you need to download the _AnalysisResults.root_ file and open it with root.
  
-# Femtoscopy (FemtoWorld)<a name="Femtoscopy"></a>
-Example codes are available here: `O2Physics/PWGCF/`.For data I've used 267 train.<br>
-Here you can find: [FemtoWorld to do list](https://github.com/zchochul/AliceO2/blob/main/Tasks.md)
+# Femtoscopy (FemtoWorld and FemtoUniverse)<a name="Femtoscopy"></a>
+Example codes are available here: `O2Physics/PWGCF/`. 
 
 ## Preparing AOD
 First of all you need to _simplify_ your AOD. After typing `alienv enter O2Physics/latest` run a shell script called [`prod.sh`](https://github.com/zchochul/AliceO2/blob/main/prod.sh) I'm changing it quite frequently so it's just a concept, but I'll try keep it up to date. To run it you need to simply type:
 ```c
-prod.sh prod-config.json writer.json
+./prod.sh 
 ``` 
  <br>
 Make sure you have [`prod-config.json`](https://github.com/zchochul/AliceO2/blob/main/prod-config.json) file, you can download it from this repo. You need to change the "aod-file" part to match with your <name>.root file/files (keep in mind this file also evolves, so this file may not be the latest version).<br>
 
 ## Running a simple task
-I was working on two main tasks in the FemtoWorld directory. The track-track one and the track-Phi one. The rest may not work and they are not updated by me. To run the track-track task type:
+I am working mostly in the FemtoUniverse on the track-Phi task and also track-track. To run track-Phi task use:
 
 ```c
-post.sh post-config.json
-```
-
-and to run track-Phi use:
-
-```c
-postphi.sh post-config.json
+./post-phi.sh post-phi.json
 ```
 
 You need to be in the O2Physics environment (type `alienv enter O2Physics/latest`). Files mentioned above can be found in the files of this repository. I try to update it frequently. If by any chance you have any errors while running that, please message me on mattermost.
