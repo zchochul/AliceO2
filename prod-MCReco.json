@@ -1,0 +1,502 @@
+{
+    "internal-dpl-clock": "",
+    "internal-dpl-aod-reader": {
+        "time-limit": "180",
+        "orbit-offset-enumeration": "0",
+        "orbit-multiplier-enumeration": "0",
+        "start-value-enumeration": "0",
+        "end-value-enumeration": "-1",
+        "step-value-enumeration": "1",
+        "aod-file-private": "AOD\/LHC23f4b2_1_526466_001.root"
+    },
+    "internal-dpl-aod-spawner": "",
+    "bc-converter": "",
+    "internal-dpl-aod-index-builder": "",
+    "timestamp-task": {
+        "verbose": "false",
+        "rct-path": "RCT\/Info\/RunInformation",
+        "orbit-reset-path": "CTP\/Calib\/OrbitReset",
+        "ccdb-url": "http:\/\/alice-ccdb.cern.ch",
+        "isRun2MC": "false"
+    },
+    "tracks-extra-converter": "",
+    "track-propagation": {
+        "ccdb-url": "http:\/\/alice-ccdb.cern.ch",
+        "lutPath": "GLO\/Param\/MatLUT",
+        "geoPath": "GLO\/Config\/GeometryAligned",
+        "grpmagPath": "GLO\/Config\/GRPMagField",
+        "mVtxPath": "GLO\/Calib\/MeanVertex",
+        "minPropagationDistance": "5",
+        "processStandard": "true",
+        "processCovariance": "false"
+    },
+    "bc-selection-task": {
+        "triggerBcShift": "999",
+        "ITSROFrameBorderMargin": "30",
+        "processRun2": "false",
+        "processRun3": "true"
+    },
+    "tracks-extra-spawner": "",
+    "event-selection-task": {
+        "syst": "pp",
+        "muonSelection": "0",
+        "customDeltaBC": "-1",
+        "isMC": "true",
+        "processRun2": "false",
+        "processRun3": "true"
+    },
+    "track-selection": {
+        "isRun3": "true",
+        "produceTable": "-1",
+        "produceFBextendedTable": "-1",
+        "compatibilityIU": "false",
+        "itsMatching": "1",
+        "dcaSetup": "0",
+        "ptMin": "0.100000001",
+        "ptMax": "1e+10",
+        "etaMin": "-0.800000012",
+        "etaMax": "0.800000012"
+    },
+    "pid-multiplicity": {
+        "processIU": "true",
+        "processStandard": "false"
+    },
+    "tof-signal": {
+        "processRun3": "true",
+        "processRun2": "false"
+    },
+    "tpc-pid": {
+        "param-file": "",
+        "ccdb-url": "http:\/\/alice-ccdb.cern.ch",
+        "ccdbPath": "Analysis\/PID\/TPC\/Response",
+        "recoPass": "",
+        "ccdb-timestamp": "0",
+        "useNetworkCorrection": "false",
+        "autofetchNetworks": "true",
+        "skipTPCOnly": "true",
+        "networkPathLocally": "network.onnx",
+        "enableNetworkOptimizations": "true",
+        "networkPathCCDB": "Analysis\/PID\/TPC\/ML",
+        "networkSetNumThreads": "0",
+        "pid-el": "-1",
+        "pid-mu": "-1",
+        "pid-pi": "-1",
+        "pid-ka": "-1",
+        "pid-pr": "-1",
+        "pid-de": "-1",
+        "pid-tr": "-1",
+        "pid-he": "-1",
+        "pid-al": "-1"
+    },
+    "multiplicity-table": {
+        "doVertexZeq": "1",
+        "populateMultExtra": "false",
+        "fractionOfEvents": "2",
+        "processRun2": "false",
+        "processRun3": "true"
+    },
+    "ft0-corrected-table": "",
+    "tof-event-time": {
+        "minMomentum": "0.5",
+        "maxMomentum": "2",
+        "maxEvTimeTOF": "100000",
+        "paramFileName": "",
+        "ccdb-url": "http:\/\/alice-ccdb.cern.ch",
+        "parametrizationPath": "TOF\/Calib\/Params",
+        "passName": "",
+        "ccdb-timestamp": "-1",
+        "loadResponseFromCCDB": "false",
+        "fatalOnPassNotAvailable": "true",
+        "sel8TOFEvTime": "false",
+        "maxNtracksInSet": "10",
+        "processRun2": "false",
+        "processNoFT0": "false",
+        "processFT0": "true",
+        "processOnlyFT0": "false"
+    },
+    "tof-pid": {
+        "paramFileName": "",
+        "ccdb-url": "http:\/\/alice-ccdb.cern.ch",
+        "parametrizationPath": "TOF\/Calib\/Params",
+        "timeShiftCCDBPath": "",
+        "passName": "",
+        "ccdb-timestamp": "-1",
+        "loadResponseFromCCDB": "false",
+        "enableTimeDependentResponse": "false",
+        "fatalOnPassNotAvailable": "true",
+        "enableParticle": {
+            "labels_rows": [
+                "El",
+                "Mu",
+                "Pi",
+                "Ka",
+                "Pr",
+                "De",
+                "Tr",
+                "He",
+                "Al"
+            ],
+            "labels_cols": [
+                "Enable"
+            ],
+            "values": [
+                [
+                    "-1"
+                ],
+                [
+                    "-1"
+                ],
+                [
+                    "-1"
+                ],
+                [
+                    "-1"
+                ],
+                [
+                    "-1"
+                ],
+                [
+                    "-1"
+                ],
+                [
+                    "-1"
+                ],
+                [
+                    "-1"
+                ],
+                [
+                    "-1"
+                ]
+            ]
+        },
+        "processWSlice": "true",
+        "processWoSlice": "false"
+    },
+    "femto-universe-producer-task": {
+        "ConfIsDebug": "true",
+        "ConfIsTrigger": "false",
+        "ConfIsRun3": "true",
+        "ConfIsMC": "true",
+        "ConfIsForceGRP": "false",
+        "ConfEvtUseTPCmult": "false",
+        "ConfEvtZvtx": "10",
+        "ConfEvtTriggerCheck": "false",
+        "ConfEvtTriggerSel": "0",
+        "ConfEvtOfflineCheck": "true",
+        "ConfIsActivateV0": "true",
+        "ConfIsActivatePhi": "true",
+        "ConfMCTruthAnalysisWithPID": "true",
+        "ConfMCTruthPDGCodes": {
+            "values": [
+                "211",
+                "-211",
+                "2212",
+                "-2212",
+                "333",
+                "321",
+                "-321"
+            ]
+        },
+        "ConfTrkRejectNotPropagated": "false",
+        "ConfTrkPDGCode": "211",
+        "ConfPtLowFilterCut": "0.140000001",
+        "ConfPtHighFilterCut": "5",
+        "ConfEtaFilterCut": "0.800000012",
+        "ConfDcaXYFilterCut": "2.4000001",
+        "ConfDcaZFilterCut": "3.20000005",
+        "ConfTrkSign": {
+            "values": [
+                "-1",
+                "1"
+            ]
+        },
+        "ConfTrkPtMin": {
+            "values": [
+                "0.14",
+                "0.14000000059604645",
+                "0.14000000238418578"
+            ]
+        },
+        "ConfTrkPtMax": {
+            "values": [
+                "5.400000095367432",
+                "5.599999904632568",
+                "5.5"
+            ]
+        },
+        "ConfTrkEtaMax": {
+            "values": [
+                "0.800000011920929",
+                "0.699999988079071",
+                "0.8999999761581421"
+            ]
+        },
+        "ConfTrkTPCnClsMin": {
+            "values": [
+                "70"
+            ]
+        },
+        "ConfTrkTPCfClsMin": {
+            "values": [
+                "0.8299999833106995"
+            ]
+        },
+        "ConfTrkTPCcRowsMin": {
+            "values": [
+                "70",
+                "60",
+                "80"
+            ]
+        },
+        "ConfTrkTPCsClsMax": {
+            "values": [
+                "0.10000000149011612",
+                "160"
+            ]
+        },
+        "ConfTrkITSnClsMin": {
+            "values": [
+                "-1",
+                "2",
+                "4"
+            ]
+        },
+        "ConfTrkITSnClsIbMin": {
+            "values": [
+                "-1",
+                "1"
+            ]
+        },
+        "ConfTrkDCAxyMax": {
+            "values": [
+                "0.10000000149011612",
+                "3.5"
+            ]
+        },
+        "ConfTrkDCAzMax": {
+            "values": [
+                "0.20000000298023224",
+                "3.5"
+            ]
+        },
+        "ConfTrkPIDnSigmaMax": {
+            "values": [
+                "4",
+                "3",
+                "2"
+            ]
+        },
+        "ConfTrkPIDnSigmaOffsetTPC": "0",
+        "ConfTrkPIDnSigmaOffsetTOF": "0",
+        "ConfTrkPIDspecies": {
+            "values": [
+                "2",
+                "3",
+                "4",
+                "5"
+            ]
+        },
+        "ConfV0Sign": {
+            "values": [
+                "-1",
+                "1"
+            ]
+        },
+        "ConfV0PtMin": {
+            "values": [
+                "0.14000000119209288",
+                "0.14000000059604645",
+                "0.14"
+            ]
+        },
+        "ConfV0PtMax": {
+            "values": [
+                "3.299999952316284",
+                "3.4000000953674316",
+                "3.5"
+            ]
+        },
+        "ConfV0EtaMax": {
+            "values": [
+                "0.800000011920929",
+                "0.699999988079071",
+                "0.8999999761581421"
+            ]
+        },
+        "ConfV0DCAdaughMax": {
+            "values": [
+                "1.2000000476837158",
+                "1.5"
+            ]
+        },
+        "ConfV0CPAMin": {
+            "values": [
+                "0.9900000095367432",
+                "0.9950000047683716"
+            ]
+        },
+        "ConfV0TranRadMin": {
+            "values": [
+                "0.20000000298023224"
+            ]
+        },
+        "ConfV0TranRadMax": {
+            "values": [
+                "100"
+            ]
+        },
+        "ConfV0DecVecMax": {
+            "values": [
+                "100"
+            ]
+        },
+        "ConfChildSign": {
+            "values": [
+                "-1",
+                "1"
+            ]
+        },
+        "ConfChildEtaMax": {
+            "values": [
+                "0.800000011920929"
+            ]
+        },
+        "ConfChildTPCnClsMin": {
+            "values": [
+                "80",
+                "70",
+                "60"
+            ]
+        },
+        "ConfChildDCAMin": {
+            "values": [
+                "0.05000000074505806",
+                "0.05999999865889549"
+            ]
+        },
+        "ConfChildPIDnSigmaMax": {
+            "values": [
+                "5",
+                "4"
+            ]
+        },
+        "ConfChildPIDspecies": {
+            "values": [
+                "2",
+                "4",
+                "3"
+            ]
+        },
+        "ConfV0InvV0MassLowLimit": "1.04999995",
+        "ConfV0InvV0MassUpLimit": "1.29999995",
+        "ConfV0RejectKaons": "false",
+        "ConfV0InvKaonMassLowLimit": "0.479999989",
+        "ConfV0InvKaonMassUpLimit": "0.514999986",
+        "ConfPhiSign": {
+            "values": [
+                "-1",
+                "1"
+            ]
+        },
+        "ConfPhiPtMin": {
+            "values": [
+                "0.14000000119209288",
+                "0.14",
+                "0.14"
+            ]
+        },
+        "ConfPhiPtMax": {
+            "values": [
+                "3.299999952316284",
+                "3.4000000953674316",
+                "3.5"
+            ]
+        },
+        "ConfPhiEtaMax": {
+            "values": [
+                "0.800000011920929",
+                "0.699999988079071",
+                "0.8999999761581421"
+            ]
+        },
+        "ConfPhiDCAdaughMax": {
+            "values": [
+                "1.2000000476837158",
+                "1.5"
+            ]
+        },
+        "ConfPhiCPAMin": {
+            "values": [
+                "0.9900000095367432",
+                "0.9950000047683716"
+            ]
+        },
+        "ConfPhiTranRadMin": {
+            "values": [
+                "0.20000000298023224"
+            ]
+        },
+        "ConfPhiTranRadMax": {
+            "values": [
+                "100"
+            ]
+        },
+        "ConfPhiDecVecMax": {
+            "values": [
+                "100"
+            ]
+        },
+        "ConfPhiChildSign": {
+            "values": [
+                "-1",
+                "1"
+            ]
+        },
+        "ConfPhiChildEtaMax": {
+            "values": [
+                "0.800000011920929"
+            ]
+        },
+        "ConfPhiChildTPCnClsMin": {
+            "values": [
+                "80",
+                "70",
+                "60"
+            ]
+        },
+        "ConfPhiChildDCAMin": {
+            "values": [
+                "0.05000000074505806",
+                "0.05999999865889549"
+            ]
+        },
+        "ConfPhiChildPIDnSigmaMax": {
+            "values": [
+                "5",
+                "4"
+            ]
+        },
+        "ConfPhiChildPIDspecies": {
+            "values": [
+                "3",
+                "3"
+            ]
+        },
+        "ConfNsigmaCombinedKaon": "3",
+        "ConfNsigmaTPCKaon": "3",
+        "ConfNsigmaTPCTOFKaon": "true",
+        "ConfInvMassLowLimitPhi": "1.01100004",
+        "ConfInvMassUpLimitPhi": "1.02699995",
+        "ConfPDGCodePartOne": "211",
+        "ConfPDGCodePartTwo": "-211",
+        "processFullData": "false",
+        "processFullMC": "false",
+        "processTrackMC": "false",
+        "processTrackData": "false",
+        "processTrackPhiData": "true",
+        "processTrackMCTruth": "false"
+    },
+    "internal-dpl-aod-writer": "",
+    "internal-dpl-aod-global-analysis-file-sink": "",
+    "internal-dpl-injected-dummy-sink": ""
+}
